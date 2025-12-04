@@ -1,3 +1,17 @@
+.btn-add-to-cart {
+   background: #4CAF50;
+   color: white;
+   border: none;
+   padding: 8px 16px;
+   border-radius: 4px;
+   cursor: pointer;
+   margin-top: 10px;
+}
+
+.btn-add-to-cart:hover {
+   background: #45a049;
+}
+
 /* Общие стили */
 * {
    margin: 0;

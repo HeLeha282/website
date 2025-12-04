@@ -77,10 +77,10 @@
    width: 400px;
 
    padding: 40px;
-   background: var(--form-bg);
+   background: rgba(24, 88, 166, 0.123);
    backdrop-filter: blur(10px);
    /* Эффект размытия Glassmorphism */
-   border: 1px solid var(--border-color);
+   border: 1px solid rgba(0, 221, 255, 0.36);
    border-radius: 15px;
    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
    color: var(--text-color);
@@ -114,7 +114,7 @@
 /* ====== АНИМАЦИЯ ФОНОВЫХ КВАДРАТОВ ====== */
 .bg-square {
    position: absolute;
-   background: var(--form-bg);
+   background: rgb(21, 7, 123);
    backdrop-filter: blur(5px);
    border-radius: 8px;
    opacity: 0.5;
@@ -126,8 +126,8 @@
 /* 1. Настройка размеров и положения квадратов */
 
 .square-1 {
-   width: 80px;
-   height: 80px;
+   width: 40px;
+   height: 40px;
    top: -40px;
    left: 20%;
    animation: randomMove 18s ease-in-out infinite alternate;
@@ -138,31 +138,47 @@
    height: 50px;
    bottom: -30px;
    right: 5%;
-   animation: randomMove 25s linear infinite alternate-reverse;
+   animation: randomMove 14s linear infinite alternate-reverse;
 }
 
 .square-3 {
-   width: 100px;
-   height: 100px;
-   top: 50%;
-   left: -50px;
+   width: 40px;
+   height: 40px;
+   top: 100%;
+   left: 0%;
    animation: randomMove 20s ease-in-out infinite alternate;
 }
 
 .square-4 {
    width: 60px;
    height: 60px;
-   bottom: 10%;
-   left: 10%;
-   animation: randomMove 22s linear infinite alternate-reverse;
+   bottom: 90%;
+   left: 80%;
+   animation: randomMove 12s linear infinite alternate-reverse;
 }
 
-.square-5 {
+/* .square-5 {
    width: 70px;
    height: 70px;
    top: 10%;
    right: -30px;
    animation: randomMove 15s ease-in-out infinite alternate;
+} */
+
+.square-6 {
+   width: 50px;
+   height: 50px;
+   bottom: 30%;
+   left: 85%;
+   animation: randomMove 16s linear infinite alternate-reverse;
+}
+
+.square-7 {
+   width: 55px;
+   height: 55px;
+   bottom: 60%;
+   left: -7%;
+   animation: randomMove 12s linear infinite alternate-reverse;
 }
 
 /* 2. @keyframes с использованием calc() для случайного перемещения */
@@ -215,12 +231,13 @@
 
 .tab {
    flex: 1;
-   padding: 12px;
+   padding: 10px;
    background: rgba(255, 255, 255, 0.1);
    border: none;
    border-radius: 12px;
    color: var(--light);
    font-weight: 600;
+   font-size: 1.1em;
    cursor: pointer;
    transition: var(--transition);
 }
@@ -240,6 +257,7 @@
 
 .glass-form-container h2 {
    text-align: center;
+   /* margin-top: 30px; */
    margin-bottom: 20px;
    font-size: 1.6rem;
    color: var(--accent);

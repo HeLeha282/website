@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Видеокарты — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="style_main.css" />
+   <script src="main_script.js" defer></script>
+   <script src="cart.js" defer></script>
+   <style>
+      /* Стили, интегрированные в вашу палитру и glass-эффект */
+      .hero-section {
+         text-align: center;
+         padding: 60px 20px 40px;
+         background: rgba(13, 19, 33, 0.4);
+         backdrop-filter: blur(12px);
+         border-radius: 20px;
+         margin-bottom: 40px;
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-section h1 {
+         font-size: 3rem;
+         margin-bottom: 15px;
+      }
+
+      .hero-section p {
+         font-size: 1.2rem;
+         max-width: 700px;
+         margin: 0 auto;
+         color: rgba(255, 255, 255, 0.85);
+      }
+
+      /* Сетка товаров — стеклянные карточки */
+      .products-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+         gap: 30px;
+         margin-bottom: 60px;
+      }
+
+      .product-card {
+         background: rgba(255, 255, 255, 0.06);
+         border: 1px solid rgba(255, 255, 255, 0.12);
+         border-radius: 18px;
+         padding: 24px;
+         backdrop-filter: blur(12px);
+         transition: var(--transition);
+         position: relative;
+         overflow: hidden;
+      }
+
+      .product-card:hover {
+         transform: translateY(-8px);
+         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+         border-color: rgba(67, 97, 238, 0.4);
+      }
+
+      .product-card::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 4px;
+         background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .product-card img {
+         width: 100%;
+         height: 180px;
+         object-fit: cover;
+         border-radius: 12px;
+         margin-bottom: 18px;
+         transition: var(--transition);
+      }
+
+      .product-card:hover img {
+         transform: scale(1.03);
+      }
+
+      .product-card h3 {
+         font-size: 1.4rem;
+         margin-bottom: 10px;
+         color: white;
+      }
+
+      .price {
+         font-size: 1.3rem;
+         font-weight: 700;
+         color: var(--accent);
+         margin: 12px 0;
+      }
+
+      .btn-add-to-cart {
+         width: 100%;
+         padding: 12px;
+         background: var(--primary);
+         color: white;
+         border: none;
+         border-radius: 12px;
+         font-weight: 600;
+         cursor: pointer;
+         transition: var(--transition);
+         font-size: 1.05rem;
+         margin-top: 10px;
+         box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+      }
+
+      .btn-add-to-cart:hover {
+         background: var(--secondary);
+         transform: translateY(-2px);
+         box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
+      }
+
+      /* Анимация появления */
+      .product-card.fade-in {
+         opacity: 0;
+         transform: translateY(20px);
+         animation: fadeInUp 0.6s forwards;
+      }
+
+      @keyframes fadeInUp {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      /* Задержка анимации */
+      .product-card:nth-child(1) {
+         animation-delay: 0.1s;
+      }
+
+      .product-card:nth-child(2) {
+         animation-delay: 0.2s;
+      }
+
+      .product-card:nth-child(3) {
+         animation-delay: 0.3s;
+      }
+
+      .product-card:nth-child(4) {
+         animation-delay: 0.4s;
+      }
+
+      .product-card:nth-child(5) {
+         animation-delay: 0.5s;
+      }
+
+      .product-card:nth-child(6) {
+         animation-delay: 0.6s;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main class="container">
+      <div class="hero-section">
+         <h1>Видеокарты</h1>
+         <p>Мощные графические процессоры для игр, рендеринга и ИИ от NVIDIA и AMD</p>
+      </div>
+
+      <div class="products-grid">
+         <!-- Товар 1 -->
+         <div class="product-card fade-in" data-id="gpu-rtx4090" data-name="NVIDIA GeForce RTX 4090" data-price="180000"
+            data-image="img/videocard_rtx4090.jpg">
+            <img src="img/videocard_rtx4090.jpg" alt="NVIDIA GeForce RTX 4090">
+            <h3>GeForce RTX 4090</h3>
+            <p class="price">180 000 ₽</p>
+            <button class="btn-add-to-cart">В корзину</button>
+         </div>
+
+         <!-- Товар 2 -->
+         <div class="product-card fade-in" data-id="gpu-rtx4080" data-name="NVIDIA GeForce RTX 4080" data-price="110000"
+            data-image="img/videocard_rtx4080.jpg">
+            <img src="img/videocard_rtx4080.jpg" alt="NVIDIA GeForce RTX 4080">
+            <h3>GeForce RTX 4080</h3>
+            <p class="price">110 000 ₽</p>
+            <button class="btn-add-to-cart">В корзину</button>
+         </div>
+
+         <!-- Товар 3 -->
+         <div class="product-card fade-in" data-id="gpu-rx7900xtx" data-name="AMD Radeon RX 7900 XTX" data-price="95000"
+            data-image="img/videocard_rx7900xtx.jpg">
+            <img src="img/videocard_rx7900xtx.jpg" alt="AMD Radeon RX 7900 XTX">
+            <h3>Radeon RX 7900 XTX</h3>
+            <p class="price">95 000 ₽</p>
+            <button class="btn-add-to-cart">В корзину</button>
+         </div>
+
+         <!-- Товар 4 -->
+         <div class="product-card fade-in" data-id="gpu-rtx4070ti" data-name="NVIDIA GeForce RTX 4070 Ti"
+            data-price="75000" data-image="img/videocard_rtx4070ti.jpg">
+            <img src="img/videocard_rtx4070ti.jpg" alt="NVIDIA GeForce RTX 4070 Ti">
+            <h3>GeForce RTX 4070 Ti</h3>
+            <p class="price">75 000 ₽</p>
+            <button class="btn-add-to-cart">В корзину</button>
+         </div>
+
+         <!-- Товар 5 -->
+         <div class="product-card fade-in" data-id="gpu-rx7800xt" data-name="AMD Radeon RX 7800 XT" data-price="65000"
+            data-image="img/videocard_rx7800xt.jpg">
+            <img src="img/videocard_rx7800xt.jpg" alt="AMD Radeon RX 7800 XT">
+            <h3>Radeon RX 7800 XT</h3>
+            <p class="price">65 000 ₽</p>
+            <button class="btn-add-to-cart">В корзину</button>
+         </div>
+
+         <!-- Товар 6 -->
+         <div class="product-card fade-in" data-id="gpu-rtx3060" data-name="NVIDIA GeForce RTX 3060" data-price="35000"
+            data-image="img/videocard_rtx3060.jpg">
+            <img src="img/videocard_rtx3060.jpg" alt="NVIDIA GeForce RTX 3060">
+            <h3>GeForce RTX 3060</h3>
+            <p class="price">35 000 ₽</p>
+            <button class="btn-add-to-cart">В корзину</button>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html>

@@ -6,6 +6,12 @@
    margin-top: 40px;
 }
 
+.category-link {
+   display: block;
+   text-decoration: none;
+   color: inherit;
+}
+
 .category-card {
    background: rgba(255, 255, 255, 0.08);
    border-radius: 16px;

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Корзина</title>
+   <link rel="stylesheet" href="style_main.css">
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html" class="active">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <main>
+      a
+      <div class="container">
+         <h1>Ваша корзина</h1>
+         <div id="cart-items">
+            <!-- Сюда подгрузятся товары -->
+         </div>
+         <div id="cart-total" style="margin-top: 20px; font-size: 1.2em; font-weight: bold;"></div>
+         <button id="clear-cart" style="margin-top: 15px;">Очистить корзину</button>
+      </div>
+   </main>
+
+   <script src="cart.js"></script>
+   <script>
+      function renderCart() {
+         const cart = JSON.parse(localStorage.getItem('cart')) || [];
+         const container = document.getElementById('cart-items');
+         const totalEl = document.getElementById('cart-total');
+
+         if (cart.length === 0) {
+            container.innerHTML = '<p>Ваша корзина пуста.</p>';
+            totalEl.textContent = '';
+            return;
+         }
+
+         let total = 0;
+         let html = '';
+
+         cart.forEach(item => {
+            const itemTotal = item.price * (item.quantity || 1);
+            total += itemTotal;
+            html += `
+          <div class="cart-item" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0; display: flex; gap: 15px;">
+            <img src="${item.image}" alt="${item.name}" width="60">
+            <div>
+              <h3>${item.name}</h3>
+              <p>${item.price.toLocaleString()} ₽ × ${item.quantity}</p>
+              <p><strong>${itemTotal.toLocaleString()} ₽</strong></p>
+            </div>
+          </div>
+        `;
+         });
+
+         container.innerHTML = html;
+         totalEl.textContent = `Итого: ${total.toLocaleString()} ₽`;
+
+         // Очистка корзины
+         document.getElementById('clear-cart').onclick = () => {
+            if (confirm('Очистить корзину?')) {
+               localStorage.removeItem('cart');
+               renderCart();
+            }
+         };
+      }
+
+      document.addEventListener('DOMContentLoaded', renderCart);
+   </script>
+</body>
+
+</html>
