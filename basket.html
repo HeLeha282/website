@@ -2,9 +2,282 @@
 <html lang="ru">
 
 <head>
-   <meta charset="UTF-8">
-   <title>Корзина</title>
-   <link rel="stylesheet" href="style_main.css">
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Корзина — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="style_main.css" />
+   <style>
+      /* Стили корзины в вашей палитре и glass-стиле */
+      .basket-container {
+         max-width: 900px;
+         margin: 0 auto;
+         padding: 20px 0 60px;
+      }
+
+      .basket-header {
+         text-align: center;
+         margin-bottom: 40px;
+      }
+
+      .basket-header h1 {
+         font-size: 2.8rem;
+         background: linear-gradient(90deg, var(--accent), var(--primary));
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+      }
+
+      .empty-cart {
+         text-align: center;
+         padding: 60px 20px;
+         background: rgba(255, 255, 255, 0.06);
+         border-radius: 18px;
+         backdrop-filter: blur(10px);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         color: rgba(255, 255, 255, 0.8);
+         font-size: 1.2rem;
+      }
+
+      .cart-items {
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+      }
+
+      .cart-item {
+         background: rgba(255, 255, 255, 0.06);
+         border: 1px solid rgba(255, 255, 255, 0.12);
+         border-radius: 16px;
+         padding: 20px;
+         display: flex;
+         gap: 20px;
+         backdrop-filter: blur(10px);
+         align-items: center;
+         position: relative;
+         animation: fadeIn 0.4s ease;
+      }
+
+      .cart-item img {
+         width: 200px;
+         height: 200px;
+         object-fit: cover;
+         border-radius: 12px;
+         border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .item-info {
+         flex: 1;
+      }
+
+      .item-info h3 {
+         font-size: 1.3rem;
+         margin-bottom: 8px;
+         color: white;
+      }
+
+      .item-price {
+         color: var(--accent);
+         font-weight: bold;
+         font-size: 1.1rem;
+      }
+
+      /* Управление количеством */
+      .quantity-control {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+         margin: 12px 0;
+      }
+
+      .quantity-btn {
+         width: 36px;
+         height: 36px;
+         border-radius: 50%;
+         background: var(--primary);
+         color: white;
+         border: none;
+         font-weight: bold;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: var(--transition);
+      }
+
+      .quantity-btn:hover {
+         background: var(--secondary);
+         transform: scale(1.1);
+      }
+
+      /* Стиль для отключённой кнопки */
+      .quantity-btn:disabled {
+         background: rgba(255, 255, 255, 0.15) !important;
+         color: rgba(255, 255, 255, 0.5) !important;
+         cursor: not-allowed !important;
+         opacity: 0.7 !important;
+         transform: none !important;
+      }
+
+      .quantity-value {
+         min-width: 30px;
+         text-align: center;
+         font-size: 1.1rem;
+         font-weight: 600;
+         color: white;
+      }
+
+      /* Кнопка удаления */
+      .remove-btn {
+         position: absolute;
+         top: 15px;
+         right: 15px;
+         background: none;
+         border: none;
+         color: var(--danger);
+         font-size: 1.3rem;
+         cursor: pointer;
+         transition: var(--transition);
+         width: 32px;
+         height: 32px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+      }
+
+      .remove-btn:hover {
+         background: rgba(248, 113, 113, 0.15);
+         transform: rotate(90deg);
+      }
+
+      /* Итоговая сумма и действия */
+      .cart-summary {
+         margin-top: 30px;
+         padding: 25px;
+         background: rgba(255, 255, 255, 0.06);
+         border-radius: 18px;
+         backdrop-filter: blur(10px);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         text-align: center;
+      }
+
+      .total {
+         font-size: 1.5rem;
+         margin: 15px 0;
+         color: var(--accent);
+         font-weight: bold;
+      }
+
+      .actions {
+         display: flex;
+         gap: 15px;
+         justify-content: center;
+         margin-top: 20px;
+         flex-wrap: wrap;
+      }
+
+      .btn {
+         padding: 12px 24px;
+         border-radius: 12px;
+         font-weight: 600;
+         cursor: pointer;
+         transition: var(--transition);
+         border: none;
+         font-size: 1rem;
+      }
+
+      .btn-checkout {
+         background: var(--success);
+         color: white;
+      }
+
+      .btn-checkout:hover {
+         background: #38c16a;
+         transform: translateY(-2px);
+      }
+
+      .btn-clear {
+         background: rgba(248, 113, 113, 0.2);
+         color: var(--danger);
+      }
+
+      .btn-clear:hover {
+         background: rgba(248, 113, 113, 0.35);
+         transform: translateY(-2px);
+      }
+
+      /* Сортировка */
+      .sort-controls {
+         display: flex;
+         justify-content: center;
+         gap: 12px;
+         margin-bottom: 25px;
+      }
+
+      .sort-btn {
+         padding: 8px 16px;
+         background: rgba(67, 97, 238, 0.2);
+         color: var(--light);
+         border: 1px solid rgba(67, 97, 238, 0.4);
+         border-radius: 30px;
+         cursor: pointer;
+         transition: var(--transition);
+      }
+
+      .sort-btn.active,
+      .sort-btn:hover {
+         background: var(--primary);
+         border-color: var(--primary);
+      }
+
+      /* Анимации */
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(10px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      @keyframes fadeOut {
+         to {
+            opacity: 0;
+            transform: translateY(-10px);
+         }
+      }
+
+      .fade-out {
+         animation: fadeOut 0.3s forwards;
+      }
+
+      /* Адаптив */
+      @media (max-width: 768px) {
+         .cart-item {
+            flex-direction: column;
+            text-align: center;
+         }
+
+         .remove-btn {
+            position: static;
+            margin-top: 15px;
+         }
+
+         .actions {
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .btn {
+            width: 100%;
+            max-width: 300px;
+         }
+      }
+   </style>
 </head>
 
 <body>
@@ -14,11 +287,6 @@
          <a href="index.html" class="logo">
             <i class="fab fa-telegram"></i> PC Components
          </a>
-
-         <!-- Иконка бургерменю -->
-         <button class="header__burger-btn" id="burger">
-            <span></span><span></span><span></span>
-         </button>
          <nav>
             <ul id="navMenu">
                <li><a href="index.html">Главная</a></li>
@@ -28,66 +296,262 @@
                <li><a href="login.html">Войти</a></li>
             </ul>
          </nav>
-
       </div>
    </header>
 
-   <main>
-      a
-      <div class="container">
-         <h1>Ваша корзина</h1>
-         <div id="cart-items">
-            <!-- Сюда подгрузятся товары -->
+   <!-- Основной контент -->
+   <main class="container">
+      <div class="basket-container">
+         <div class="basket-header">
+            <h1>Ваша корзина</h1>
+
+            <!-- Кнопки сортировки -->
+            <div class="sort-controls">
+               <button class="sort-btn active" data-sort="default">По порядку</button>
+               <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
+               <button class="sort-btn" data-sort="price-desc">Цена: ↓</button>
+               <button class="sort-btn" data-sort="name">По названию</button>
+            </div>
          </div>
-         <div id="cart-total" style="margin-top: 20px; font-size: 1.2em; font-weight: bold;"></div>
-         <button id="clear-cart" style="margin-top: 15px;">Очистить корзину</button>
+
+         <div id="cart-content">
+            <!-- Сюда подгружается содержимое корзины -->
+         </div>
+
+         <div class="cart-summary">
+            <div class="total">Итого: <span id="total-price">0 ₽</span></div>
+            <div class="actions">
+               <button class="btn btn-checkout" id="checkout-btn">Оформить заказ</button>
+               <button class="btn btn-clear" id="clear-cart">Очистить корзину</button>
+            </div>
+         </div>
       </div>
    </main>
 
-   <script src="cart.js"></script>
-   <script>
-      function renderCart() {
-         const cart = JSON.parse(localStorage.getItem('cart')) || [];
-         const container = document.getElementById('cart-items');
-         const totalEl = document.getElementById('cart-total');
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
 
+   <script>
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let currentSort = 'default';
+
+      document.addEventListener('DOMContentLoaded', () => {
+         // Убедимся, что у всех товаров есть addedAt (для правильной сортировки "по порядку")
+         cart.forEach((item, i) => {
+            if (item.addedAt === undefined) item.addedAt = i;
+         });
+         saveCart();
+
+         renderCart();
+
+         // === ДЕЛЕГИРОВАНИЕ СОБЫТИЙ НА ВЕСЬ КОНТЕЙНЕР КОРЗИНЫ ===
+         const cartContainer = document.getElementById('cart-content');
+         cartContainer.addEventListener('click', (e) => {
+            // Кнопка "+"
+            if (e.target.classList.contains('inc')) {
+               const id = e.target.dataset.id;
+               const added = e.target.dataset.added;
+               changeQuantity(id, added, 1);
+            }
+            // Кнопка "−"
+            else if (e.target.classList.contains('dec')) {
+               const id = e.target.dataset.id;
+               const added = e.target.dataset.added;
+               changeQuantity(id, added, -1);
+            }
+            // Кнопка удаления (с поддержкой клика по иконке <i>)
+            else if (e.target.closest('.remove-btn')) {
+               const btn = e.target.closest('.remove-btn');
+               const id = btn.dataset.id;
+               const added = btn.dataset.added;
+               removeFromCart(id, added);
+            }
+         });
+
+         // === СОРТИРОВКА ===
+         document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+               currentSort = btn.dataset.sort;
+               document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+               btn.classList.add('active');
+               renderCart(); // Полная перерисовка при смене сортировки
+            });
+         });
+
+         // === ОЧИСТКА КОРЗИНЫ ===
+         document.getElementById('clear-cart')?.addEventListener('click', () => {
+            if (confirm('Очистить корзину?')) {
+               cart = [];
+               saveCart();
+               renderCart();
+            }
+         });
+
+         // === ОФОРМЛЕНИЕ ЗАКАЗА (заглушка) ===
+         document.getElementById('checkout-btn')?.addEventListener('click', () => {
+            if (cart.length === 0) {
+               alert('Корзина пуста!');
+               return;
+            }
+            alert('Функция оформления заказа будет доступна в ближайшее время!\nСпасибо за интерес к PC Components!');
+         });
+      });
+
+      // --- ФУНКЦИИ ---
+
+      function renderCart() {
+         const container = document.getElementById('cart-content');
          if (cart.length === 0) {
-            container.innerHTML = '<p>Ваша корзина пуста.</p>';
-            totalEl.textContent = '';
+            container.innerHTML = `
+        <div class="empty-cart">
+          Ваша корзина пуста.<br>
+          <a href="catalog.html" style="color: var(--accent); text-decoration: underline;">Перейти в каталог</a>
+        </div>
+      `;
+            updateTotal();
             return;
          }
 
-         let total = 0;
-         let html = '';
+         // Сортируем копию корзины
+         let displayCart = [...cart];
+         switch (currentSort) {
+            case 'price-asc':
+               displayCart.sort((a, b) => a.price - b.price);
+               break;
+            case 'price-desc':
+               displayCart.sort((a, b) => b.price - a.price);
+               break;
+            case 'name':
+               displayCart.sort((a, b) => a.name.localeCompare(b.name, 'ru'));
+               break;
+            default:
+               displayCart.sort((a, b) => a.addedAt - b.addedAt);
+               break;
+         }
 
-         cart.forEach(item => {
-            const itemTotal = item.price * (item.quantity || 1);
-            total += itemTotal;
+         let html = '';
+         displayCart.forEach(item => {
+            const qty = item.quantity || 1;
+            const itemTotal = item.price * qty;
             html += `
-          <div class="cart-item" style="border: 1px solid #ddd; padding: 10px; margin: 10px 0; display: flex; gap: 15px;">
-            <img src="${item.image}" alt="${item.name}" width="60">
-            <div>
-              <h3>${item.name}</h3>
-              <p>${item.price.toLocaleString()} ₽ × ${item.quantity}</p>
-              <p><strong>${itemTotal.toLocaleString()} ₽</strong></p>
+        <div class="cart-item" data-id="${item.id}" data-added="${item.addedAt}">
+          <img src="${item.image || 'img/placeholder.jpg'}" alt="${item.name}">
+          <div class="item-info">
+            <h3>${item.name}</h3>
+            <div class="item-price">${item.price.toLocaleString()} ₽</div>
+            <div class="quantity-control">
+              <button class="quantity-btn dec" data-id="${item.id}" data-added="${item.addedAt}" ${qty <= 1 ? 'disabled' : ''}>−</button>
+              <span class="quantity-value" data-id="${item.id}" data-added="${item.addedAt}">${qty}</span>
+              <button class="quantity-btn inc" data-id="${item.id}" data-added="${item.addedAt}">+</button>
+            </div>
+            <div class="item-total" data-id="${item.id}" data-added="${item.addedAt}">
+              Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>
             </div>
           </div>
-        `;
+          <button class="remove-btn" data-id="${item.id}" data-added="${item.addedAt}">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      `;
          });
 
          container.innerHTML = html;
-         totalEl.textContent = `Итого: ${total.toLocaleString()} ₽`;
-
-         // Очистка корзины
-         document.getElementById('clear-cart').onclick = () => {
-            if (confirm('Очистить корзину?')) {
-               localStorage.removeItem('cart');
-               renderCart();
-            }
-         };
+         updateTotal();
       }
 
-      document.addEventListener('DOMContentLoaded', renderCart);
+      function updateCartItemUI(id, addedAt) {
+         const item = cart.find(i => i.id === id && i.addedAt == addedAt);
+         if (!item) return;
+
+         const qty = item.quantity || 1;
+         const itemTotal = item.price * qty;
+
+         // Обновляем количество
+         const qtyEl = document.querySelector(`.quantity-value[data-id="${id}"][data-added="${addedAt}"]`);
+         if (qtyEl) qtyEl.textContent = qty;
+
+         // Обновляем итог по товару
+         const totalEl = document.querySelector(`.item-total[data-id="${id}"][data-added="${addedAt}"]`);
+         if (totalEl) {
+            totalEl.innerHTML = `Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>`;
+         }
+
+         // Обновляем состояние кнопки "−"
+         const decBtn = document.querySelector(`.quantity-btn.dec[data-id="${id}"][data-added="${addedAt}"]`);
+         if (decBtn) {
+            if (qty <= 1) {
+               decBtn.disabled = true;
+               decBtn.style.opacity = '0.5';
+               decBtn.style.cursor = 'not-allowed';
+            } else {
+               decBtn.disabled = false;
+               decBtn.style.opacity = '1';
+               decBtn.style.cursor = 'pointer';
+            }
+         }
+
+         updateTotal();
+      }
+
+      function updateTotal() {
+         const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+         document.getElementById('total-price').textContent = total.toLocaleString() + ' ₽';
+      }
+
+      function removeFromCart(id, addedAt) {
+         const index = cart.findIndex(i => i.id === id && i.addedAt == addedAt);
+         if (index === -1) return;
+
+         const itemEl = document.querySelector(`.cart-item[data-id="${id}"][data-added="${addedAt}"]`);
+         if (itemEl) {
+            itemEl.classList.add('fade-out');
+            setTimeout(() => {
+               cart.splice(index, 1);
+               saveCart();
+               renderCart(); // Удаление → перерисовка (нормально)
+            }, 300);
+         }
+      }
+
+      function changeQuantity(id, addedAt, delta) {
+         const item = cart.find(i => i.id === id && i.addedAt == addedAt);
+         if (!item) return;
+
+         const newQty = (item.quantity || 1) + delta;
+         if (newQty < 1) return; // Защита
+
+         item.quantity = newQty;
+         saveCart();
+         updateCartItemUI(id, addedAt); // ← Только обновление UI, без перерисовки списка
+      }
+
+      function saveCart() {
+         localStorage.setItem('cart', JSON.stringify(cart));
+      }
    </script>
 </body>
 
