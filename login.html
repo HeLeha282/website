@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Вход — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="style_main.css" />
+   <link rel="stylesheet" href="style_login.css" />
+   <script src="main_script.js" defer></script>
+</head>
+
+<body class="login-page">
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="guides.html">Руководства</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="contact.html">Контакты</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+
+   <!-- Форма -->
+   <main class="auth-main">
+
+      <div class="background-animation-container">
+         <div class="glass-form-container" id="glass-form-container">
+            <div class="bg-square square-1"></div>
+            <div class="bg-square square-2"></div>
+            <div class="bg-square square-3"></div>
+            <div class="bg-square square-4"></div>
+            <div class="bg-square square-5"></div>
+
+            <div class="login-box" id="loginBox">
+               <div class="auth-tabs">
+                  <button class="tab active" data-tab="login">Вход</button>
+                  <button class="tab" data-tab="register">Регистрация</button>
+               </div>
+
+               <div class="tab-content active" id="login">
+                  <h2>Войти в аккаунт</h2>
+                  <form>
+                     <input type="email" placeholder="Email" required />
+                     <input type="password" placeholder="Пароль" required />
+                     <button type="submit" class="btn">Войти</button>
+                  </form>
+               </div>
+
+               <div class="tab-content" id="register">
+                  <h2>Создать аккаунт</h2>
+                  <form>
+                     <input type="text" placeholder="Имя" required />
+                     <input type="email" placeholder="Email" required />
+                     <input type="password" placeholder="Пароль" required />
+                     <input type="password" placeholder="Повторите пароль" required />
+                     <button type="submit" class="btn">Зарегистрироваться</button>
+                  </form>
+               </div>
+
+               <div class="links">
+                  <a href="#" class="link-forgot">Забыли пароль?</a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+   </main>
+
+   <script>
+      // Простая таб-навигация
+      document.querySelectorAll('.tab').forEach(btn => {
+         btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+         });
+      });
+   </script>
+</body>
+
+</html>

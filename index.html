@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="style_main.css">
+   <link rel="stylesheet" href="style_index.css">
+   <script src="main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html" class="active">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="guides.html">Руководства</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="contact.html">Контакты</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <!-- Главная страница -->
+      <section id="home" class="page active">
+         <div class="hero">
+            <div class="container">
+               <h1>Компьютерные комплектующие будущего</h1>
+               <p>Соберите идеальный ПК для игр, работы или творчества с нашими высококачественными компонентами</p>
+               <div class="btn-container">
+                  <a href="#" class="btn" onclick="showPage('catalog')">Посмотреть каталог</a>
+                  <a href="#" class="btn btn-outline" onclick="showPage('builder')">Собрать ПК</a>
+               </div>
+            </div>
+         </div>
+
+         <div class="container">
+            <h2>Наши преимущества</h2>
+            <div class="features">
+               <div class="feature-card fade-in">
+                  <i class="fas fa-shipping-fast"></i>
+                  <h3>Быстрая доставка</h3>
+                  <p>Доставим ваш заказ в течение 1-3 дней по всей России</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-shield-alt"></i>
+                  <h3>Гарантия качества</h3>
+                  <p>Все комплектующие с официальной гарантией производителя</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-headset"></i>
+                  <h3>Техподдержка</h3>
+                  <p>Наши эксперты помогут с выбором и сборкой ПК</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-sync-alt"></i>
+                  <h3>Обмен и возврат</h3>
+                  <p>Простая процедура возврата в течение 14 дней</p>
+               </div>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html>

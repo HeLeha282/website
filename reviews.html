@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="style_main.css">
+   <link rel="stylesheet" href="style_reviews.css">
+   <script src="main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="guides.html">Руководства</a></li>
+               <li><a href="reviews.html" class="active">Отзывы</a></li>
+               <li><a href="contact.html">Контакты</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <h1 class="section-title">Отзывы наших клиентов</h1>
+         <p class="section-subtitle">Что говорят о нас пользователи</p>
+
+         <!-- Карусель -->
+         <div class="reviews-carousel">
+            <div class="reviews-wrapper" id="reviewsWrapper">
+               <!-- Отзыв 1 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Андрей Петров</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Заказывал сборку игрового ПК под ключ. Все сделали быстро и качественно. Компьютер работает отлично
+                     уже полгода, никаких проблем. Спасибо за профессионализм!</p>
+               </div>
+
+               <!-- Отзыв 2 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Мария Иванова</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star-half-alt"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Покупала комплектующие для рабочего ПК. Консультант помог подобрать оптимальную конфигурацию в
+                     рамках бюджета. Все компоненты совместимы и отлично работают вместе. Рекомендую!</p>
+               </div>
+
+               <!-- Отзыв 3 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Дмитрий Сидоров</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Отличный магазин! Быстро подобрали видеокарту и процессор для апгрейда моего старого ПК. Цены
+                     адекватные, доставка быстрая. Теперь играю в Cyberpunk на ультра настройках!</p>
+               </div>
+
+               <!-- Отзыв 4 (опционально) -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Елена Кузнецова</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Спасибо за помощь в выборе материнской платы и ОЗУ! Всё заработало с первого раза, даже BIOS
+                     обновлять не пришлось. Очень довольна!</p>
+               </div>
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Предыдущий отзыв">
+               <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Следующий отзыв">
+               <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Индикаторы (опционально) -->
+            <div class="carousel-dots" id="carouselDots"></div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html>

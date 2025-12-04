@@ -1,0 +1,291 @@
+/* Общий фон — как у всего сайта */
+.login-page {
+   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   color: var(--light);
+   overflow-x: hidden;
+   position: relative;
+}
+
+:root {
+   --bg-dark: #22252a;
+   --form-bg: rgba(255, 255, 255, 0.1);
+   --border-color: rgba(255, 255, 255, 0.2);
+   --text-color: #ffffff;
+   --input-bg: rgba(0, 0, 0, 0.3);
+   --accent-color: #ff8c00;
+   /* для ссылок */
+}
+
+/*:root {
+    --primary: #4361ee;
+   --secondary: #3a0ca3;
+   --accent: #4cc9f0;
+   --light: #f8f9fa;
+   --dark: #212529;
+   --success: #4ade80;
+   --warning: #facc15;
+   --danger: #f87171;
+   --transition: all 0.3s ease;
+} */
+
+
+/* body {
+   background-color: var(--bg-dark);
+   font-family: Arial, sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   margin: 0;
+} */
+
+/* .auth-main {
+   display: flex;
+   justify-content: center;
+   height: 80vp;
+} */
+
+/*.auth-main {
+   height: calc(100vh - 70px);
+} */
+.auth-main {
+   overflow-y: hidden;
+   overflow-x: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 80vh;
+   /* или calc(100vh - 70px), если нужно учесть шапку */
+   padding: 20px;
+   box-sizing: border-box;
+}
+
+
+.background-animation-container {
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* --- Основной контейнер формы Glassmorphism --- */
+.glass-form-container {
+   position: relative;
+   width: 400px;
+
+   padding: 40px;
+   background: var(--form-bg);
+   backdrop-filter: blur(10px);
+   /* Эффект размытия Glassmorphism */
+   border: 1px solid var(--border-color);
+   border-radius: 15px;
+   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+   color: var(--text-color);
+   z-index: 10;
+}
+
+.login-box {
+   position: relative;
+   z-index: 20;
+}
+
+/* --- Ссылки --- */
+.links {
+   margin-top: 25px;
+   font-size: 14px;
+   line-height: 1.6;
+}
+
+.links a {
+   color: var(--light);
+   text-decoration: none;
+   transition: color 0.3s;
+}
+
+.links a:hover {
+   color: var(--accent);
+   text-decoration: underline;
+}
+
+
+/* ====== АНИМАЦИЯ ФОНОВЫХ КВАДРАТОВ ====== */
+.bg-square {
+   position: absolute;
+   background: var(--form-bg);
+   backdrop-filter: blur(5px);
+   border-radius: 8px;
+   opacity: 0.5;
+   z-index: 5;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+/* 1. Настройка размеров и положения квадратов */
+
+.square-1 {
+   width: 80px;
+   height: 80px;
+   top: -40px;
+   left: 20%;
+   animation: randomMove 18s ease-in-out infinite alternate;
+}
+
+.square-2 {
+   width: 50px;
+   height: 50px;
+   bottom: -30px;
+   right: 5%;
+   animation: randomMove 25s linear infinite alternate-reverse;
+}
+
+.square-3 {
+   width: 100px;
+   height: 100px;
+   top: 50%;
+   left: -50px;
+   animation: randomMove 20s ease-in-out infinite alternate;
+}
+
+.square-4 {
+   width: 60px;
+   height: 60px;
+   bottom: 10%;
+   left: 10%;
+   animation: randomMove 22s linear infinite alternate-reverse;
+}
+
+.square-5 {
+   width: 70px;
+   height: 70px;
+   top: 10%;
+   right: -30px;
+   animation: randomMove 15s ease-in-out infinite alternate;
+}
+
+/* 2. @keyframes с использованием calc() для случайного перемещения */
+
+@keyframes randomMove {
+   0% {
+      transform: translate(0, 0) rotate(0deg);
+   }
+
+   25% {
+      /* Использование calc() для смещения на 30% ширины + 20px */
+      transform: translate(calc(30% + 20px), calc(10% - 15px)) rotate(45deg);
+   }
+
+   50% {
+      /* Смещение в противоположную сторону */
+      transform: translate(calc(-20% - 10px), calc(-40% + 25px)) rotate(90deg);
+   }
+
+   75% {
+      transform: translate(calc(15% + 5px), calc(-5% - 5px)) rotate(135deg);
+   }
+
+   100% {
+      /* Возврат в область, но с небольшим смещением */
+      transform: translate(0, 0) rotate(180deg);
+   }
+}
+
+/*  */
+
+
+.glass-form {
+   background: rgba(255, 255, 255, 0.08);
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
+   border-radius: 20px;
+   padding: 30px;
+   width: 100%;
+   max-width: 420px;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-tabs {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 25px;
+}
+
+.tab {
+   flex: 1;
+   padding: 12px;
+   background: rgba(255, 255, 255, 0.1);
+   border: none;
+   border-radius: 12px;
+   color: var(--light);
+   font-weight: 600;
+   cursor: pointer;
+   transition: var(--transition);
+}
+
+.tab.active {
+   background: var(--primary);
+   color: white;
+}
+
+.tab-content {
+   display: none;
+}
+
+.tab-content.active {
+   display: block;
+}
+
+.glass-form-container h2 {
+   text-align: center;
+   margin-bottom: 20px;
+   font-size: 1.6rem;
+   color: var(--accent);
+}
+
+.glass-form-container form {
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+}
+
+.glass-form-container input {
+   width: 100%;
+   padding: 14px;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   border-radius: 10px;
+   background: rgba(0, 0, 0, 0.2);
+   color: var(--light);
+   font-size: 1rem;
+   outline: none;
+   transition: var(--transition);
+}
+
+.glass-form-container input::placeholder {
+   color: rgba(248, 249, 250, 0.6);
+}
+
+.glass-form-container input:focus {
+   border-color: var(--accent);
+   background: rgba(0, 0, 0, 0.3);
+}
+
+.glass-form-container .btn {
+   margin-top: 10px;
+   background: var(--primary);
+   color: white;
+   padding: 12px;
+   font-size: 1.1rem;
+   border-radius: 10px;
+   border: none;
+   cursor: pointer;
+   transition: var(--transition);
+}
+
+.glass-form-container .btn:hover {
+   background: var(--accent);
+   transform: translateY(-3px);
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
