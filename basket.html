@@ -8,7 +8,6 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
    <link rel="stylesheet" href="style_main.css" />
    <script src="main_script.js" defer></script>
-
    <style>
       /* Стили корзины в вашей палитре и glass-стиле */
       .basket-container {
@@ -41,60 +40,67 @@
          font-size: 1.2rem;
       }
 
-      .cart-items {
-         display: flex;
-         flex-direction: column;
-         gap: 20px;
-      }
-
       .cart-item {
          background: rgba(255, 255, 255, 0.06);
          border: 1px solid rgba(255, 255, 255, 0.12);
          border-radius: 16px;
-         padding: 20px;
+         padding: 16px;
          display: flex;
-         gap: 20px;
+         gap: 16px;
          backdrop-filter: blur(10px);
-         align-items: center;
+         align-items: flex-start;
+         /* выравнивание по верху */
          position: relative;
          animation: fadeIn 0.4s ease;
       }
 
       .cart-item img {
-         width: 200px;
-         height: 200px;
+         width: 100px;
+         height: 100px;
          object-fit: cover;
-         border-radius: 12px;
+         border-radius: 10px;
          border: 1px solid rgba(255, 255, 255, 0.15);
+         flex-shrink: 0;
+         /* не сжимается */
       }
 
       .item-info {
          flex: 1;
+         min-width: 0;
+         /* позволяет тексту переноситься */
       }
 
       .item-info h3 {
-         font-size: 1.3rem;
-         margin-bottom: 8px;
+         font-size: 1.1rem;
+         margin-bottom: 6px;
          color: white;
+         line-height: 1.3;
       }
 
       .item-price {
          color: var(--accent);
          font-weight: bold;
-         font-size: 1.1rem;
+         font-size: 1rem;
+         margin: 4px 0;
+      }
+
+      .item-total {
+         font-size: 0.95rem;
+         margin-top: 4px;
+         color: rgba(255, 255, 255, 0.9);
       }
 
       /* Управление количеством */
       .quantity-control {
          display: flex;
          align-items: center;
-         gap: 12px;
-         margin: 12px 0;
+         gap: 8px;
+         margin: 8px 0;
       }
 
       .quantity-btn {
-         width: 36px;
-         height: 36px;
+         width: 30px;
+         height: 30px;
          border-radius: 50%;
          background: var(--primary);
          color: white;
@@ -105,9 +111,10 @@
          align-items: center;
          justify-content: center;
          transition: var(--transition);
+         font-size: 0.9rem;
       }
 
-      .quantity-btn:hover {
+      .quantity-btn:hover:not(:disabled) {
          background: var(--secondary);
          transform: scale(1.1);
       }
@@ -122,9 +129,9 @@
       }
 
       .quantity-value {
-         min-width: 30px;
+         min-width: 24px;
          text-align: center;
-         font-size: 1.1rem;
+         font-size: 1rem;
          font-weight: 600;
          color: white;
       }
@@ -132,16 +139,15 @@
       /* Кнопка удаления */
       .remove-btn {
          position: absolute;
-         top: 15px;
-         right: 15px;
+         top: 10px;
+         right: 10px;
          background: none;
          border: none;
          color: var(--danger);
-         font-size: 1.3rem;
+         font-size: 1.1rem;
          cursor: pointer;
-         transition: var(--transition);
-         width: 32px;
-         height: 32px;
+         width: 28px;
+         height: 28px;
          display: flex;
          align-items: center;
          justify-content: center;
@@ -215,6 +221,7 @@
          justify-content: center;
          gap: 12px;
          margin-bottom: 25px;
+         flex-wrap: wrap;
       }
 
       .sort-btn {
@@ -225,6 +232,7 @@
          border-radius: 30px;
          cursor: pointer;
          transition: var(--transition);
+         white-space: nowrap;
       }
 
       .sort-btn.active,
@@ -257,26 +265,53 @@
          animation: fadeOut 0.3s forwards;
       }
 
-      /* Адаптив */
-      @media (max-width: 768px) {
+      /* Адаптив для очень узких экранов */
+      @media (max-width: 480px) {
+         .basket-header h1 {
+            font-size: 2.2rem;
+         }
+
          .cart-item {
-            flex-direction: column;
-            text-align: center;
+            padding: 12px;
+            gap: 12px;
          }
 
-         .remove-btn {
-            position: static;
-            margin-top: 15px;
+         .cart-item img {
+            width: 80px;
+            height: 80px;
          }
 
-         .actions {
-            flex-direction: column;
-            align-items: center;
+         .item-info h3 {
+            font-size: 1rem;
+         }
+
+         .quantity-btn {
+            width: 26px;
+            height: 26px;
+            font-size: 0.85rem;
+         }
+
+         .quantity-value {
+            min-width: 20px;
+            font-size: 0.95rem;
+         }
+
+         .item-total {
+            font-size: 0.9rem;
+         }
+
+         .sort-controls {
+            gap: 8px;
+         }
+
+         .sort-btn {
+            padding: 6px 12px;
+            font-size: 0.9rem;
          }
 
          .btn {
-            width: 100%;
-            max-width: 300px;
+            padding: 10px 20px;
+            font-size: 0.95rem;
          }
       }
    </style>
