@@ -133,7 +133,8 @@ nav a:hover {
    background: rgba(67, 97, 238, 0.1);
 }
 
-nav a[href="login.html"] {
+nav a[href="login.html"],
+nav a[href="../login.html"] {
    position: relative;
    background: transparent;
    border: 2px solid var(--accent);
@@ -142,7 +143,8 @@ nav a[href="login.html"] {
    border-radius: 20px;
 }
 
-nav a[href="login.html"]::before {
+nav a[href="login.html"]::before,
+nav a[href="../login.html"]::before {
    content: "";
    position: absolute;
    left: -15px;

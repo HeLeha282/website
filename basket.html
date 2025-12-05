@@ -6,8 +6,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Корзина — PC Components</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-   <link rel="stylesheet" href="style_main.css" />
-   <script src="main_script.js" defer></script>
+   <link rel="stylesheet" href="css/style_main.css">
+   <script src="js/main_script.js" defer></script>
    <style>
       /* Стили корзины в вашей палитре и glass-стиле */
       .basket-container {
@@ -21,12 +21,8 @@
          margin-bottom: 40px;
       }
 
-      .basket-header h1 {
-         font-size: 2.8rem;
-         background: linear-gradient(90deg, var(--accent), var(--primary));
-         -webkit-background-clip: text;
-         background-clip: text;
-         color: transparent;
+      h1 {
+         padding-top: 25px;
       }
 
       .empty-cart {
@@ -353,9 +349,10 @@
    <!-- Основной контент -->
    <main>
       <div class="container">
+         <h1>Ваша корзина</h1>
          <div class="basket-container">
             <div class="basket-header">
-               <h1>Ваша корзина</h1>
+
                <div class="sort-controls">
                   <button class="sort-btn active" data-sort="default">По порядку</button>
                   <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>

@@ -1,0 +1,5243 @@
+==== ФАЙЛ: index.html ==== 
+Путь: index.html 
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_index.css">
+   <script src="js/main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html" class="active">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+
+      <!-- Главная страница -->
+      <section id="home" class="page active">
+         <div class="hero">
+            <div class="container">
+               <h1>Компьютерные комплектующие будущего</h1>
+               <p>Соберите идеальный ПК для игр, работы или творчества с нашими высококачественными компонентами</p>
+               <div class="btn-container">
+                  <a href="#" class="btn" onclick="showPage('catalog')">Посмотреть каталог</a>
+                  <a href="#" class="btn btn-outline" onclick="showPage('builder')">Собрать ПК</a>
+               </div>
+            </div>
+         </div>
+
+         <div class="container">
+            <h2>Наши преимущества</h2>
+            <div class="features">
+               <div class="feature-card fade-in">
+                  <i class="fas fa-shipping-fast"></i>
+                  <h3>Быстрая доставка</h3>
+                  <p>Доставим ваш заказ в течение 1-3 дней по всей России</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-shield-alt"></i>
+                  <h3>Гарантия качества</h3>
+                  <p>Все комплектующие с официальной гарантией производителя</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-headset"></i>
+                  <h3>Техподдержка</h3>
+                  <p>Наши эксперты помогут с выбором и сборкой ПК</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-sync-alt"></i>
+                  <h3>Обмен и возврат</h3>
+                  <p>Простая процедура возврата в течение 14 дней</p>
+               </div>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: catalog.html ==== 
+Путь: catalog.html 
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_catalog.css">
+   <script src="js/main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html" class="active">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+
+      <div class="container">
+         <h1>Каталог комплектующих</h1>
+         <p>Широкий выбор компонентов от ведущих производителей</p>
+         <div class="categories">
+            <a href="pages/processors.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/processor1.jpg" alt="Процессоры">
+                     <div class="category-overlay"></div>
+                  </div>
+                  <div class="category-content">
+                     <h3>Процессоры</h3>
+                     <p>Intel Core, AMD Ryzen и другие</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/videocards.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/videocard.jpg" alt="Видеокарты">
+                     <div class="category-overlay"></div>
+                  </div>
+                  <div class="category-content">
+                     <h3>Видеокарты</h3>
+                     <p>NVIDIA GeForce, AMD Radeon</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/ram.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/RAM5.jpg" alt="Оперативная память">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Оперативная память</h3>
+                     <p>DDR4, DDR5 от Corsair, Kingston</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/disks.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/disks.jpg" alt="Накопители">
+                     <div class="category-overlay"></div>
+                  </div>
+
+
+                  <div class="category-content">
+                     <h3>Накопители</h3>
+                     <p>SSD, HDD, M.2 от Samsung, WD</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/power.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/power4.jpg" alt="Блоки питания">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Блоки питания</h3>
+                     <p>От 500W до 1600W, 80+ Gold</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/case.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/case2.jpg" alt="Корпуса">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Корпуса</h3>
+                     <p>ATX, Micro-ATX, Mini-ITX</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/cooling_system.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/cooling_system.jpg" alt="Системы охлаждения">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Системы охлаждения</h3>
+                     <p>Воздушные и жидкостные</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/motherboards.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/motherboard2.jpg" alt="Материнские платы">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Материнские платы</h3>
+                     <p>ASUS, MSI, Gigabyte и другие</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: basket.html ==== 
+Путь: basket.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Корзина — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="css/style_main.css">
+   <script src="js/main_script.js" defer></script>
+   <style>
+      /* Стили корзины в вашей палитре и glass-стиле */
+      .basket-container {
+         max-width: 900px;
+         margin: 0 auto;
+         padding: 20px 0 60px;
+      }
+
+      .basket-header {
+         text-align: center;
+         margin-bottom: 40px;
+      }
+
+      .basket-header h1 {
+         font-size: 2.8rem;
+         background: linear-gradient(90deg, var(--accent), var(--primary));
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+      }
+
+      .empty-cart {
+         text-align: center;
+         padding: 60px 20px;
+         background: rgba(255, 255, 255, 0.06);
+         border-radius: 18px;
+         backdrop-filter: blur(10px);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         color: rgba(255, 255, 255, 0.8);
+         font-size: 1.2rem;
+      }
+
+      .cart-item {
+         background: rgba(255, 255, 255, 0.06);
+         border: 1px solid rgba(255, 255, 255, 0.12);
+         border-radius: 16px;
+         padding: 16px;
+         display: flex;
+         gap: 16px;
+         backdrop-filter: blur(10px);
+         position: relative;
+         animation: fadeIn 0.4s ease;
+      }
+
+      .cart-item img {
+         width: 170;
+         height: 170px;
+         object-fit: cover;
+         border-radius: 10px;
+         border: 1px solid rgba(255, 255, 255, 0.15);
+         flex-shrink: 0;
+      }
+
+      .item-info {
+         flex: 1;
+         min-width: 0;
+      }
+
+      /* НОВЫЙ БЛОК: заголовок + кнопка удаления */
+      .item-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         margin-bottom: 8px;
+      }
+
+      .item-header h3 {
+         font-size: 1.1rem;
+         color: white;
+         line-height: 1.3;
+         margin: 0;
+         flex: 1;
+         padding-right: 12px;
+         /* Можно раскомментировать для эллипсиса на мобильных:
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         */
+      }
+
+      /* Кнопка удаления — без position: absolute */
+      .remove-btn {
+         background: none;
+         border: none;
+         color: var(--danger);
+         font-size: 1.1rem;
+         cursor: pointer;
+         width: 28px;
+         height: 28px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         flex-shrink: 0;
+         margin-left: auto;
+      }
+
+      .remove-btn:hover {
+         background: rgba(248, 113, 113, 0.15);
+         transform: rotate(90deg);
+      }
+
+      .item-price {
+         color: var(--accent);
+         font-weight: bold;
+         font-size: 1rem;
+         margin: 4px 0;
+      }
+
+      .item-total {
+         font-size: 0.95rem;
+         margin-top: 4px;
+         color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Управление количеством */
+      .quantity-control {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         margin: 8px 0;
+      }
+
+      .quantity-btn {
+         width: 30px;
+         height: 30px;
+         border-radius: 50%;
+         background: var(--primary);
+         color: white;
+         border: none;
+         font-weight: bold;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: var(--transition);
+         font-size: 0.9rem;
+      }
+
+      .quantity-btn:hover:not(:disabled) {
+         background: var(--secondary);
+         transform: scale(1.1);
+      }
+
+      .quantity-btn:disabled {
+         background: rgba(255, 255, 255, 0.15) !important;
+         color: rgba(255, 255, 255, 0.5) !important;
+         cursor: not-allowed !important;
+         opacity: 0.7 !important;
+         transform: none !important;
+      }
+
+      .quantity-value {
+         min-width: 24px;
+         text-align: center;
+         font-size: 1rem;
+         font-weight: 600;
+         color: white;
+      }
+
+      /* Итоговая сумма и действия */
+      .cart-summary {
+         margin-top: 30px;
+         padding: 25px;
+         background: rgba(255, 255, 255, 0.06);
+         border-radius: 18px;
+         backdrop-filter: blur(10px);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         text-align: center;
+      }
+
+      .total {
+         font-size: 1.5rem;
+         margin: 15px 0;
+         color: var(--accent);
+         font-weight: bold;
+      }
+
+      .actions {
+         display: flex;
+         gap: 15px;
+         justify-content: center;
+         margin-top: 20px;
+         flex-wrap: wrap;
+      }
+
+      .btn {
+         padding: 12px 24px;
+         border-radius: 12px;
+         font-weight: 600;
+         cursor: pointer;
+         transition: var(--transition);
+         border: none;
+         font-size: 1rem;
+      }
+
+      .btn-checkout {
+         background: var(--success);
+         color: white;
+      }
+
+      .btn-checkout:hover {
+         background: #38c16a;
+         transform: translateY(-2px);
+      }
+
+      .btn-clear {
+         background: rgba(248, 113, 113, 0.2);
+         color: var(--danger);
+      }
+
+      .btn-clear:hover {
+         background: rgba(248, 113, 113, 0.35);
+         transform: translateY(-2px);
+      }
+
+      /* Сортировка */
+      .sort-controls {
+         display: flex;
+         justify-content: center;
+         gap: 12px;
+         margin-bottom: 25px;
+         flex-wrap: wrap;
+      }
+
+      .sort-btn {
+         padding: 8px 16px;
+         background: rgba(67, 97, 238, 0.2);
+         color: var(--light);
+         border: 1px solid rgba(67, 97, 238, 0.4);
+         border-radius: 30px;
+         cursor: pointer;
+         transition: var(--transition);
+         white-space: nowrap;
+      }
+
+      .sort-btn.active,
+      .sort-btn:hover {
+         background: var(--primary);
+         border-color: var(--primary);
+      }
+
+      /* Анимации */
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(10px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      @keyframes fadeOut {
+         to {
+            opacity: 0;
+            transform: translateY(-10px);
+         }
+      }
+
+      .fade-out {
+         animation: fadeOut 0.3s forwards;
+      }
+
+      /* Адаптив для очень узких экранов */
+      @media (max-width: 480px) {
+         .basket-header h1 {
+            font-size: 2.2rem;
+         }
+
+         .cart-item {
+            padding: 12px;
+            gap: 12px;
+         }
+
+         .cart-item img {
+            width: 110px;
+            height: 110px;
+         }
+
+         .item-header h3 {
+            font-size: 1rem;
+         }
+
+         .quantity-btn {
+            width: 26px;
+            height: 26px;
+            font-size: 0.85rem;
+         }
+
+         .quantity-value {
+            min-width: 20px;
+            font-size: 0.95rem;
+         }
+
+         .item-total {
+            font-size: 0.9rem;
+         }
+
+         .sort-controls {
+            gap: 8px;
+         }
+
+         .sort-btn {
+            padding: 6px 12px;
+            font-size: 0.9rem;
+         }
+
+         .btn {
+            padding: 10px 20px;
+            font-size: 0.95rem;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html" class="active">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="basket-container">
+            <div class="basket-header">
+               <h1>Ваша корзина</h1>
+               <div class="sort-controls">
+                  <button class="sort-btn active" data-sort="default">По порядку</button>
+                  <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
+                  <button class="sort-btn" data-sort="price-desc">Цена: ↓</button>
+                  <button class="sort-btn" data-sort="name">По названию</button>
+               </div>
+            </div>
+
+            <div id="cart-content">
+               <!-- Сюда подгружается содержимое корзины -->
+            </div>
+
+            <div class="cart-summary">
+               <div class="total">Итого: <span id="total-price">0 ₽</span></div>
+               <div class="actions">
+                  <button class="btn btn-checkout" id="checkout-btn">Оформить заказ</button>
+                  <button class="btn btn-clear" id="clear-cart">Очистить корзину</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="disks.html">Накопители</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+
+   <script>
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let currentSort = 'default';
+
+      document.addEventListener('DOMContentLoaded', () => {
+         cart.forEach((item, i) => {
+            if (item.addedAt === undefined) item.addedAt = i;
+         });
+         saveCart();
+
+         renderCart();
+
+         const cartContainer = document.getElementById('cart-content');
+         cartContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('inc')) {
+               const id = e.target.dataset.id;
+               const added = e.target.dataset.added;
+               changeQuantity(id, added, 1);
+            } else if (e.target.classList.contains('dec')) {
+               const id = e.target.dataset.id;
+               const added = e.target.dataset.added;
+               changeQuantity(id, added, -1);
+            } else if (e.target.closest('.remove-btn')) {
+               const btn = e.target.closest('.remove-btn');
+               const id = btn.dataset.id;
+               const added = btn.dataset.added;
+               removeFromCart(id, added);
+            }
+         });
+
+         document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+               currentSort = btn.dataset.sort;
+               document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+               btn.classList.add('active');
+               renderCart();
+            });
+         });
+
+         document.getElementById('clear-cart')?.addEventListener('click', () => {
+            if (confirm('Очистить корзину?')) {
+               cart = [];
+               saveCart();
+               renderCart();
+            }
+         });
+
+         document.getElementById('checkout-btn')?.addEventListener('click', () => {
+            if (cart.length === 0) {
+               alert('Корзина пуста!');
+               return;
+            }
+            alert('Функция оформления заказа будет доступна в ближайшее время!\nСпасибо за интерес к PC Components!');
+         });
+      });
+
+      function renderCart() {
+         const container = document.getElementById('cart-content');
+         if (cart.length === 0) {
+            container.innerHTML = `
+              <div class="empty-cart">
+                Ваша корзина пуста.<br>
+                <a href="catalog.html" style="color: var(--accent); text-decoration: underline;">Перейти в каталог</a>
+              </div>
+            `;
+            updateTotal();
+            return;
+         }
+
+         let displayCart = [...cart];
+         switch (currentSort) {
+            case 'price-asc':
+               displayCart.sort((a, b) => a.price - b.price);
+               break;
+            case 'price-desc':
+               displayCart.sort((a, b) => b.price - a.price);
+               break;
+            case 'name':
+               displayCart.sort((a, b) => a.name.localeCompare(b.name, 'ru'));
+               break;
+            default:
+               displayCart.sort((a, b) => a.addedAt - b.addedAt);
+               break;
+         }
+
+         let html = '';
+         displayCart.forEach(item => {
+            const qty = item.quantity || 1;
+            const itemTotal = item.price * qty;
+            html += `
+              <div class="cart-item" data-id="${item.id}" data-added="${item.addedAt}">
+                <img src="${item.image || 'img/placeholder.jpg'}" alt="${item.name}">
+                <div class="item-info">
+                  <div class="item-header">
+                    <h3>${item.name}</h3>
+                    <button class="remove-btn" data-id="${item.id}" data-added="${item.addedAt}">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                  <div class="item-price">${item.price.toLocaleString()} ₽</div>
+                  <div class="quantity-control">
+                    <button class="quantity-btn dec" data-id="${item.id}" data-added="${item.addedAt}" ${qty <= 1 ? 'disabled' : ''}>−</button>
+                    <span class="quantity-value" data-id="${item.id}" data-added="${item.addedAt}">${qty}</span>
+                    <button class="quantity-btn inc" data-id="${item.id}" data-added="${item.addedAt}">+</button>
+                  </div>
+                  <div class="item-total" data-id="${item.id}" data-added="${item.addedAt}">
+                    Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>
+                  </div>
+                </div>
+              </div>
+            `;
+         });
+
+         container.innerHTML = html;
+         updateTotal();
+      }
+
+      function updateCartItemUI(id, addedAt) {
+         const item = cart.find(i => i.id === id && i.addedAt == addedAt);
+         if (!item) return;
+
+         const qty = item.quantity || 1;
+         const itemTotal = item.price * qty;
+
+         const qtyEl = document.querySelector(`.quantity-value[data-id="${id}"][data-added="${addedAt}"]`);
+         if (qtyEl) qtyEl.textContent = qty;
+
+         const totalEl = document.querySelector(`.item-total[data-id="${id}"][data-added="${addedAt}"]`);
+         if (totalEl) {
+            totalEl.innerHTML = `Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>`;
+         }
+
+         const decBtn = document.querySelector(`.quantity-btn.dec[data-id="${id}"][data-added="${addedAt}"]`);
+         if (decBtn) {
+            if (qty <= 1) {
+               decBtn.disabled = true;
+               decBtn.style.opacity = '0.5';
+               decBtn.style.cursor = 'not-allowed';
+            } else {
+               decBtn.disabled = false;
+               decBtn.style.opacity = '1';
+               decBtn.style.cursor = 'pointer';
+            }
+         }
+
+         updateTotal();
+      }
+
+      function updateTotal() {
+         const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+         document.getElementById('total-price').textContent = total.toLocaleString() + ' ₽';
+      }
+
+      function removeFromCart(id, addedAt) {
+         const index = cart.findIndex(i => i.id === id && i.addedAt == addedAt);
+         if (index === -1) return;
+
+         const itemEl = document.querySelector(`.cart-item[data-id="${id}"][data-added="${addedAt}"]`);
+         if (itemEl) {
+            itemEl.classList.add('fade-out');
+            setTimeout(() => {
+               cart.splice(index, 1);
+               saveCart();
+               renderCart();
+            }, 300);
+         }
+      }
+
+      function changeQuantity(id, addedAt, delta) {
+         const item = cart.find(i => i.id === id && i.addedAt == addedAt);
+         if (!item) return;
+
+         const newQty = (item.quantity || 1) + delta;
+         if (newQty < 1) return;
+
+         item.quantity = newQty;
+         saveCart();
+         updateCartItemUI(id, addedAt);
+      }
+
+      function saveCart() {
+         localStorage.setItem('cart', JSON.stringify(cart));
+      }
+   </script>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: reviews.html ==== 
+Путь: reviews.html 
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_reviews.css">
+   <script src="js/main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html" class="active">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <h1 class="section-title">Отзывы наших клиентов</h1>
+         <p class="section-subtitle">Что говорят о нас пользователи</p>
+
+         <!-- Карусель -->
+         <div class="reviews-carousel">
+            <div class="reviews-wrapper" id="reviewsWrapper">
+               <!-- Отзыв 1 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Андрей Петров</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Заказывал сборку игрового ПК под ключ. Все сделали быстро и качественно. Компьютер работает отлично
+                     уже полгода, никаких проблем. Спасибо за профессионализм!</p>
+               </div>
+
+               <!-- Отзыв 2 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Мария Иванова</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star-half-alt"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Покупала комплектующие для рабочего ПК. Консультант помог подобрать оптимальную конфигурацию в
+                     рамках бюджета. Все компоненты совместимы и отлично работают вместе. Рекомендую!</p>
+               </div>
+
+               <!-- Отзыв 3 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Дмитрий Сидоров</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Отличный магазин! Быстро подобрали видеокарту и процессор для апгрейда моего старого ПК. Цены
+                     адекватные, доставка быстрая. Теперь играю в Cyberpunk на ультра настройках!</p>
+               </div>
+
+               <!-- Отзыв 4 (опционально) -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Елена Кузнецова</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Спасибо за помощь в выборе материнской платы и ОЗУ! Всё заработало с первого раза, даже BIOS
+                     обновлять не пришлось. Очень довольна!</p>
+               </div>
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Предыдущий отзыв">
+               <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Следующий отзыв">
+               <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Индикаторы (опционально) -->
+            <div class="carousel-dots" id="carouselDots"></div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: login.html ==== 
+Путь: login.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Вход — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_login.css">
+   <script src="js/main_script.js" defer></script>
+</head>
+
+<body class="login-page">
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+
+   <!-- Форма -->
+   <main class="auth-main">
+
+      <div class="background-animation-container">
+         <div class="glass-form-container" id="glass-form-container">
+            <div class="bg-square square-1"></div>
+            <div class="bg-square square-2"></div>
+            <div class="bg-square square-3"></div>
+            <div class="bg-square square-4"></div>
+            <div class="bg-square square-5"></div>
+            <div class="bg-square square-6"></div>
+            <div class="bg-square square-7"></div>
+
+            <div class="login-box" id="loginBox">
+               <div class="auth-tabs">
+                  <button class="tab active" data-tab="login">Вход</button>
+                  <button class="tab" data-tab="register">Регистрация</button>
+               </div>
+
+               <div class="tab-content active" id="login">
+                  <h2>Войти в аккаунт</h2>
+                  <form>
+                     <input type="email" placeholder="Email" required />
+                     <input type="password" placeholder="Пароль" required />
+                     <button type="submit" class="btn">Войти</button>
+                  </form>
+                  <div class="links">
+                     <a href="#" class="link-forgot">Забыли пароль?</a>
+                  </div>
+               </div>
+
+               <div class="tab-content" id="register">
+                  <h2>Создать аккаунт</h2>
+                  <form>
+                     <input type="text" placeholder="Имя" required />
+                     <input type="email" placeholder="Email" required />
+                     <input type="password" placeholder="Пароль" required />
+                     <input type="password" placeholder="Повторите пароль" required />
+                     <button type="submit" class="btn">Зарегистрироваться</button>
+                  </form>
+               </div>
+
+
+            </div>
+         </div>
+      </div>
+
+
+
+
+   </main>
+
+   <script>
+      // Простая таб-навигация
+      document.querySelectorAll('.tab').forEach(btn => {
+         btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+         });
+      });
+   </script>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: basket.html ==== 
+Путь: basket.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Корзина — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="css/style_main.css">
+   <script src="js/main_script.js" defer></script>
+   <style>
+      /* Стили корзины в вашей палитре и glass-стиле */
+      .basket-container {
+         max-width: 900px;
+         margin: 0 auto;
+         padding: 20px 0 60px;
+      }
+
+      .basket-header {
+         text-align: center;
+         margin-bottom: 40px;
+      }
+
+      .basket-header h1 {
+         font-size: 2.8rem;
+         background: linear-gradient(90deg, var(--accent), var(--primary));
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+      }
+
+      .empty-cart {
+         text-align: center;
+         padding: 60px 20px;
+         background: rgba(255, 255, 255, 0.06);
+         border-radius: 18px;
+         backdrop-filter: blur(10px);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         color: rgba(255, 255, 255, 0.8);
+         font-size: 1.2rem;
+      }
+
+      .cart-item {
+         background: rgba(255, 255, 255, 0.06);
+         border: 1px solid rgba(255, 255, 255, 0.12);
+         border-radius: 16px;
+         padding: 16px;
+         display: flex;
+         gap: 16px;
+         backdrop-filter: blur(10px);
+         position: relative;
+         animation: fadeIn 0.4s ease;
+      }
+
+      .cart-item img {
+         width: 170;
+         height: 170px;
+         object-fit: cover;
+         border-radius: 10px;
+         border: 1px solid rgba(255, 255, 255, 0.15);
+         flex-shrink: 0;
+      }
+
+      .item-info {
+         flex: 1;
+         min-width: 0;
+      }
+
+      /* НОВЫЙ БЛОК: заголовок + кнопка удаления */
+      .item-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         margin-bottom: 8px;
+      }
+
+      .item-header h3 {
+         font-size: 1.1rem;
+         color: white;
+         line-height: 1.3;
+         margin: 0;
+         flex: 1;
+         padding-right: 12px;
+         /* Можно раскомментировать для эллипсиса на мобильных:
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         */
+      }
+
+      /* Кнопка удаления — без position: absolute */
+      .remove-btn {
+         background: none;
+         border: none;
+         color: var(--danger);
+         font-size: 1.1rem;
+         cursor: pointer;
+         width: 28px;
+         height: 28px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         flex-shrink: 0;
+         margin-left: auto;
+      }
+
+      .remove-btn:hover {
+         background: rgba(248, 113, 113, 0.15);
+         transform: rotate(90deg);
+      }
+
+      .item-price {
+         color: var(--accent);
+         font-weight: bold;
+         font-size: 1rem;
+         margin: 4px 0;
+      }
+
+      .item-total {
+         font-size: 0.95rem;
+         margin-top: 4px;
+         color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Управление количеством */
+      .quantity-control {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         margin: 8px 0;
+      }
+
+      .quantity-btn {
+         width: 30px;
+         height: 30px;
+         border-radius: 50%;
+         background: var(--primary);
+         color: white;
+         border: none;
+         font-weight: bold;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: var(--transition);
+         font-size: 0.9rem;
+      }
+
+      .quantity-btn:hover:not(:disabled) {
+         background: var(--secondary);
+         transform: scale(1.1);
+      }
+
+      .quantity-btn:disabled {
+         background: rgba(255, 255, 255, 0.15) !important;
+         color: rgba(255, 255, 255, 0.5) !important;
+         cursor: not-allowed !important;
+         opacity: 0.7 !important;
+         transform: none !important;
+      }
+
+      .quantity-value {
+         min-width: 24px;
+         text-align: center;
+         font-size: 1rem;
+         font-weight: 600;
+         color: white;
+      }
+
+      /* Итоговая сумма и действия */
+      .cart-summary {
+         margin-top: 30px;
+         padding: 25px;
+         background: rgba(255, 255, 255, 0.06);
+         border-radius: 18px;
+         backdrop-filter: blur(10px);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         text-align: center;
+      }
+
+      .total {
+         font-size: 1.5rem;
+         margin: 15px 0;
+         color: var(--accent);
+         font-weight: bold;
+      }
+
+      .actions {
+         display: flex;
+         gap: 15px;
+         justify-content: center;
+         margin-top: 20px;
+         flex-wrap: wrap;
+      }
+
+      .btn {
+         padding: 12px 24px;
+         border-radius: 12px;
+         font-weight: 600;
+         cursor: pointer;
+         transition: var(--transition);
+         border: none;
+         font-size: 1rem;
+      }
+
+      .btn-checkout {
+         background: var(--success);
+         color: white;
+      }
+
+      .btn-checkout:hover {
+         background: #38c16a;
+         transform: translateY(-2px);
+      }
+
+      .btn-clear {
+         background: rgba(248, 113, 113, 0.2);
+         color: var(--danger);
+      }
+
+      .btn-clear:hover {
+         background: rgba(248, 113, 113, 0.35);
+         transform: translateY(-2px);
+      }
+
+      /* Сортировка */
+      .sort-controls {
+         display: flex;
+         justify-content: center;
+         gap: 12px;
+         margin-bottom: 25px;
+         flex-wrap: wrap;
+      }
+
+      .sort-btn {
+         padding: 8px 16px;
+         background: rgba(67, 97, 238, 0.2);
+         color: var(--light);
+         border: 1px solid rgba(67, 97, 238, 0.4);
+         border-radius: 30px;
+         cursor: pointer;
+         transition: var(--transition);
+         white-space: nowrap;
+      }
+
+      .sort-btn.active,
+      .sort-btn:hover {
+         background: var(--primary);
+         border-color: var(--primary);
+      }
+
+      /* Анимации */
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(10px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      @keyframes fadeOut {
+         to {
+            opacity: 0;
+            transform: translateY(-10px);
+         }
+      }
+
+      .fade-out {
+         animation: fadeOut 0.3s forwards;
+      }
+
+      /* Адаптив для очень узких экранов */
+      @media (max-width: 480px) {
+         .basket-header h1 {
+            font-size: 2.2rem;
+         }
+
+         .cart-item {
+            padding: 12px;
+            gap: 12px;
+         }
+
+         .cart-item img {
+            width: 110px;
+            height: 110px;
+         }
+
+         .item-header h3 {
+            font-size: 1rem;
+         }
+
+         .quantity-btn {
+            width: 26px;
+            height: 26px;
+            font-size: 0.85rem;
+         }
+
+         .quantity-value {
+            min-width: 20px;
+            font-size: 0.95rem;
+         }
+
+         .item-total {
+            font-size: 0.9rem;
+         }
+
+         .sort-controls {
+            gap: 8px;
+         }
+
+         .sort-btn {
+            padding: 6px 12px;
+            font-size: 0.9rem;
+         }
+
+         .btn {
+            padding: 10px 20px;
+            font-size: 0.95rem;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html" class="active">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="basket-container">
+            <div class="basket-header">
+               <h1>Ваша корзина</h1>
+               <div class="sort-controls">
+                  <button class="sort-btn active" data-sort="default">По порядку</button>
+                  <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
+                  <button class="sort-btn" data-sort="price-desc">Цена: ↓</button>
+                  <button class="sort-btn" data-sort="name">По названию</button>
+               </div>
+            </div>
+
+            <div id="cart-content">
+               <!-- Сюда подгружается содержимое корзины -->
+            </div>
+
+            <div class="cart-summary">
+               <div class="total">Итого: <span id="total-price">0 ₽</span></div>
+               <div class="actions">
+                  <button class="btn btn-checkout" id="checkout-btn">Оформить заказ</button>
+                  <button class="btn btn-clear" id="clear-cart">Очистить корзину</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="disks.html">Накопители</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+
+   <script>
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let currentSort = 'default';
+
+      document.addEventListener('DOMContentLoaded', () => {
+         cart.forEach((item, i) => {
+            if (item.addedAt === undefined) item.addedAt = i;
+         });
+         saveCart();
+
+         renderCart();
+
+         const cartContainer = document.getElementById('cart-content');
+         cartContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('inc')) {
+               const id = e.target.dataset.id;
+               const added = e.target.dataset.added;
+               changeQuantity(id, added, 1);
+            } else if (e.target.classList.contains('dec')) {
+               const id = e.target.dataset.id;
+               const added = e.target.dataset.added;
+               changeQuantity(id, added, -1);
+            } else if (e.target.closest('.remove-btn')) {
+               const btn = e.target.closest('.remove-btn');
+               const id = btn.dataset.id;
+               const added = btn.dataset.added;
+               removeFromCart(id, added);
+            }
+         });
+
+         document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+               currentSort = btn.dataset.sort;
+               document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+               btn.classList.add('active');
+               renderCart();
+            });
+         });
+
+         document.getElementById('clear-cart')?.addEventListener('click', () => {
+            if (confirm('Очистить корзину?')) {
+               cart = [];
+               saveCart();
+               renderCart();
+            }
+         });
+
+         document.getElementById('checkout-btn')?.addEventListener('click', () => {
+            if (cart.length === 0) {
+               alert('Корзина пуста!');
+               return;
+            }
+            alert('Функция оформления заказа будет доступна в ближайшее время!\nСпасибо за интерес к PC Components!');
+         });
+      });
+
+      function renderCart() {
+         const container = document.getElementById('cart-content');
+         if (cart.length === 0) {
+            container.innerHTML = `
+              <div class="empty-cart">
+                Ваша корзина пуста.<br>
+                <a href="catalog.html" style="color: var(--accent); text-decoration: underline;">Перейти в каталог</a>
+              </div>
+            `;
+            updateTotal();
+            return;
+         }
+
+         let displayCart = [...cart];
+         switch (currentSort) {
+            case 'price-asc':
+               displayCart.sort((a, b) => a.price - b.price);
+               break;
+            case 'price-desc':
+               displayCart.sort((a, b) => b.price - a.price);
+               break;
+            case 'name':
+               displayCart.sort((a, b) => a.name.localeCompare(b.name, 'ru'));
+               break;
+            default:
+               displayCart.sort((a, b) => a.addedAt - b.addedAt);
+               break;
+         }
+
+         let html = '';
+         displayCart.forEach(item => {
+            const qty = item.quantity || 1;
+            const itemTotal = item.price * qty;
+            html += `
+              <div class="cart-item" data-id="${item.id}" data-added="${item.addedAt}">
+                <img src="${item.image || 'img/placeholder.jpg'}" alt="${item.name}">
+                <div class="item-info">
+                  <div class="item-header">
+                    <h3>${item.name}</h3>
+                    <button class="remove-btn" data-id="${item.id}" data-added="${item.addedAt}">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                  <div class="item-price">${item.price.toLocaleString()} ₽</div>
+                  <div class="quantity-control">
+                    <button class="quantity-btn dec" data-id="${item.id}" data-added="${item.addedAt}" ${qty <= 1 ? 'disabled' : ''}>−</button>
+                    <span class="quantity-value" data-id="${item.id}" data-added="${item.addedAt}">${qty}</span>
+                    <button class="quantity-btn inc" data-id="${item.id}" data-added="${item.addedAt}">+</button>
+                  </div>
+                  <div class="item-total" data-id="${item.id}" data-added="${item.addedAt}">
+                    Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>
+                  </div>
+                </div>
+              </div>
+            `;
+         });
+
+         container.innerHTML = html;
+         updateTotal();
+      }
+
+      function updateCartItemUI(id, addedAt) {
+         const item = cart.find(i => i.id === id && i.addedAt == addedAt);
+         if (!item) return;
+
+         const qty = item.quantity || 1;
+         const itemTotal = item.price * qty;
+
+         const qtyEl = document.querySelector(`.quantity-value[data-id="${id}"][data-added="${addedAt}"]`);
+         if (qtyEl) qtyEl.textContent = qty;
+
+         const totalEl = document.querySelector(`.item-total[data-id="${id}"][data-added="${addedAt}"]`);
+         if (totalEl) {
+            totalEl.innerHTML = `Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>`;
+         }
+
+         const decBtn = document.querySelector(`.quantity-btn.dec[data-id="${id}"][data-added="${addedAt}"]`);
+         if (decBtn) {
+            if (qty <= 1) {
+               decBtn.disabled = true;
+               decBtn.style.opacity = '0.5';
+               decBtn.style.cursor = 'not-allowed';
+            } else {
+               decBtn.disabled = false;
+               decBtn.style.opacity = '1';
+               decBtn.style.cursor = 'pointer';
+            }
+         }
+
+         updateTotal();
+      }
+
+      function updateTotal() {
+         const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+         document.getElementById('total-price').textContent = total.toLocaleString() + ' ₽';
+      }
+
+      function removeFromCart(id, addedAt) {
+         const index = cart.findIndex(i => i.id === id && i.addedAt == addedAt);
+         if (index === -1) return;
+
+         const itemEl = document.querySelector(`.cart-item[data-id="${id}"][data-added="${addedAt}"]`);
+         if (itemEl) {
+            itemEl.classList.add('fade-out');
+            setTimeout(() => {
+               cart.splice(index, 1);
+               saveCart();
+               renderCart();
+            }, 300);
+         }
+      }
+
+      function changeQuantity(id, addedAt, delta) {
+         const item = cart.find(i => i.id === id && i.addedAt == addedAt);
+         if (!item) return;
+
+         const newQty = (item.quantity || 1) + delta;
+         if (newQty < 1) return;
+
+         item.quantity = newQty;
+         saveCart();
+         updateCartItemUI(id, addedAt);
+      }
+
+      function saveCart() {
+         localStorage.setItem('cart', JSON.stringify(cart));
+      }
+   </script>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: catalog.html ==== 
+Путь: catalog.html 
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_catalog.css">
+   <script src="js/main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html" class="active">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+
+      <div class="container">
+         <h1>Каталог комплектующих</h1>
+         <p>Широкий выбор компонентов от ведущих производителей</p>
+         <div class="categories">
+            <a href="pages/processors.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/processor1.jpg" alt="Процессоры">
+                     <div class="category-overlay"></div>
+                  </div>
+                  <div class="category-content">
+                     <h3>Процессоры</h3>
+                     <p>Intel Core, AMD Ryzen и другие</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/videocards.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/videocard.jpg" alt="Видеокарты">
+                     <div class="category-overlay"></div>
+                  </div>
+                  <div class="category-content">
+                     <h3>Видеокарты</h3>
+                     <p>NVIDIA GeForce, AMD Radeon</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/ram.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/RAM5.jpg" alt="Оперативная память">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Оперативная память</h3>
+                     <p>DDR4, DDR5 от Corsair, Kingston</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/disks.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/disks.jpg" alt="Накопители">
+                     <div class="category-overlay"></div>
+                  </div>
+
+
+                  <div class="category-content">
+                     <h3>Накопители</h3>
+                     <p>SSD, HDD, M.2 от Samsung, WD</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/power.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/power4.jpg" alt="Блоки питания">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Блоки питания</h3>
+                     <p>От 500W до 1600W, 80+ Gold</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/case.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/case2.jpg" alt="Корпуса">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Корпуса</h3>
+                     <p>ATX, Micro-ATX, Mini-ITX</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/cooling_system.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/cooling_system.jpg" alt="Системы охлаждения">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Системы охлаждения</h3>
+                     <p>Воздушные и жидкостные</p>
+                  </div>
+               </div>
+            </a>
+            <a href="pages/motherboards.html" class="category-link">
+               <div class="category-card">
+                  <div class="category-img-wrapper">
+                     <img src="img/motherboard2.jpg" alt="Материнские платы">
+                     <div class="category-overlay"></div>
+                  </div>
+
+                  <div class="category-content">
+                     <h3>Материнские платы</h3>
+                     <p>ASUS, MSI, Gigabyte и другие</p>
+                  </div>
+               </div>
+            </a>
+         </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: index.html ==== 
+Путь: index.html 
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_index.css">
+   <script src="js/main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html" class="active">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+
+      <!-- Главная страница -->
+      <section id="home" class="page active">
+         <div class="hero">
+            <div class="container">
+               <h1>Компьютерные комплектующие будущего</h1>
+               <p>Соберите идеальный ПК для игр, работы или творчества с нашими высококачественными компонентами</p>
+               <div class="btn-container">
+                  <a href="#" class="btn" onclick="showPage('catalog')">Посмотреть каталог</a>
+                  <a href="#" class="btn btn-outline" onclick="showPage('builder')">Собрать ПК</a>
+               </div>
+            </div>
+         </div>
+
+         <div class="container">
+            <h2>Наши преимущества</h2>
+            <div class="features">
+               <div class="feature-card fade-in">
+                  <i class="fas fa-shipping-fast"></i>
+                  <h3>Быстрая доставка</h3>
+                  <p>Доставим ваш заказ в течение 1-3 дней по всей России</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-shield-alt"></i>
+                  <h3>Гарантия качества</h3>
+                  <p>Все комплектующие с официальной гарантией производителя</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-headset"></i>
+                  <h3>Техподдержка</h3>
+                  <p>Наши эксперты помогут с выбором и сборкой ПК</p>
+               </div>
+               <div class="feature-card fade-in">
+                  <i class="fas fa-sync-alt"></i>
+                  <h3>Обмен и возврат</h3>
+                  <p>Простая процедура возврата в течение 14 дней</p>
+               </div>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: login.html ==== 
+Путь: login.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Вход — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_login.css">
+   <script src="js/main_script.js" defer></script>
+</head>
+
+<body class="login-page">
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+
+   <!-- Форма -->
+   <main class="auth-main">
+
+      <div class="background-animation-container">
+         <div class="glass-form-container" id="glass-form-container">
+            <div class="bg-square square-1"></div>
+            <div class="bg-square square-2"></div>
+            <div class="bg-square square-3"></div>
+            <div class="bg-square square-4"></div>
+            <div class="bg-square square-5"></div>
+            <div class="bg-square square-6"></div>
+            <div class="bg-square square-7"></div>
+
+            <div class="login-box" id="loginBox">
+               <div class="auth-tabs">
+                  <button class="tab active" data-tab="login">Вход</button>
+                  <button class="tab" data-tab="register">Регистрация</button>
+               </div>
+
+               <div class="tab-content active" id="login">
+                  <h2>Войти в аккаунт</h2>
+                  <form>
+                     <input type="email" placeholder="Email" required />
+                     <input type="password" placeholder="Пароль" required />
+                     <button type="submit" class="btn">Войти</button>
+                  </form>
+                  <div class="links">
+                     <a href="#" class="link-forgot">Забыли пароль?</a>
+                  </div>
+               </div>
+
+               <div class="tab-content" id="register">
+                  <h2>Создать аккаунт</h2>
+                  <form>
+                     <input type="text" placeholder="Имя" required />
+                     <input type="email" placeholder="Email" required />
+                     <input type="password" placeholder="Пароль" required />
+                     <input type="password" placeholder="Повторите пароль" required />
+                     <button type="submit" class="btn">Зарегистрироваться</button>
+                  </form>
+               </div>
+
+
+            </div>
+         </div>
+      </div>
+
+
+
+
+   </main>
+
+   <script>
+      // Простая таб-навигация
+      document.querySelectorAll('.tab').forEach(btn => {
+         btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+         });
+      });
+   </script>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: reviews.html ==== 
+Путь: reviews.html 
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="css/style_main.css">
+   <link rel="stylesheet" href="css/style_reviews.css">
+   <script src="js/main_script.js" defer></script>
+   <!-- defer откладывает выполнение скрипта до тех пор, пока весь HTML-документ не будет полностью разобран браузером -->
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="index.html">Главная</a></li>
+               <li><a href="catalog.html">Каталог</a></li>
+               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="reviews.html" class="active">Отзывы</a></li>
+               <li><a href="login.html">Войти</a></li>
+            </ul>
+         </nav>
+
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <h1 class="section-title">Отзывы наших клиентов</h1>
+         <p class="section-subtitle">Что говорят о нас пользователи</p>
+
+         <!-- Карусель -->
+         <div class="reviews-carousel">
+            <div class="reviews-wrapper" id="reviewsWrapper">
+               <!-- Отзыв 1 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Андрей Петров</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Заказывал сборку игрового ПК под ключ. Все сделали быстро и качественно. Компьютер работает отлично
+                     уже полгода, никаких проблем. Спасибо за профессионализм!</p>
+               </div>
+
+               <!-- Отзыв 2 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Мария Иванова</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star-half-alt"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Покупала комплектующие для рабочего ПК. Консультант помог подобрать оптимальную конфигурацию в
+                     рамках бюджета. Все компоненты совместимы и отлично работают вместе. Рекомендую!</p>
+               </div>
+
+               <!-- Отзыв 3 -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Дмитрий Сидоров</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Отличный магазин! Быстро подобрали видеокарту и процессор для апгрейда моего старого ПК. Цены
+                     адекватные, доставка быстрая. Теперь играю в Cyberpunk на ультра настройках!</p>
+               </div>
+
+               <!-- Отзыв 4 (опционально) -->
+               <div class="review-card">
+                  <div class="review-header">
+                     <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                     </div>
+                     <div class="review-meta">
+                        <h4>Елена Кузнецова</h4>
+                        <div class="review-rating">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Спасибо за помощь в выборе материнской платы и ОЗУ! Всё заработало с первого раза, даже BIOS
+                     обновлять не пришлось. Очень довольна!</p>
+               </div>
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Предыдущий отзыв">
+               <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Следующий отзыв">
+               <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Индикаторы (опционально) -->
+            <div class="carousel-dots" id="carouselDots"></div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач. Гарантия качества и профессиональная поддержка.</p>
+               <div class="social-links">
+                  <a href="#"><i class="fab fa-vk"></i></a>
+                  <a href="#"><i class="fab fa-telegram"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+               </div>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="#">Процессоры</a></li>
+                  <li><a href="#">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+                  <li><a href="#">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Услуги</h3>
+               <ul>
+                  <li><a href="#">Сборка ПК</a></li>
+                  <li><a href="#">Апгрейд</a></li>
+                  <li><a href="#">Диагностика</a></li>
+                  <li><a href="#">Консультации</a></li>
+                  <li><a href="#">Техподдержка</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="#">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Доставка</a></li>
+                  <li><a href="#">Гарантия</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">
+            &copy; 2025 PC Components. Все права защищены.
+         </div>
+      </div>
+   </footer>
+</body>
+
+
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: css\style_catalog.css ==== 
+Путь: css\style_catalog.css 
+ 
+/* Каталог */
+.categories {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 25px;
+   margin-top: 40px;
+}
+
+.category-link {
+   display: block;
+   text-decoration: none;
+   color: inherit;
+}
+
+.category-card {
+   background: rgba(255, 255, 255, 0.08);
+   border-radius: 16px;
+   overflow: hidden;
+   transition: var(--transition);
+   height: 300px;
+}
+
+.category-card:hover {
+   transform: translateY(-10px);
+   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.category-img-wrapper {
+   position: relative;
+   height: 180px;
+   overflow: hidden;
+   border-top-left-radius: 16px;
+   border-top-right-radius: 16px;
+}
+
+.category-img-wrapper img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   /* ← это аналог background-size: cover */
+   display: block;
+}
+
+.category-overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+   /* градиент как у вас */
+}
+
+.category-content {
+   padding: 20px;
+   text-align: center;
+}
+
+.category-content h3 {
+   margin: 0;
+   font-size: 1.4rem;
+} 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: css\style_index.css ==== 
+Путь: css\style_index.css 
+ 
+/* Главная страница */
+.hero {
+   text-align: center;
+   padding: 60px 0;
+   position: relative;
+   overflow: hidden;
+}
+
+.hero::before {
+   content: '';
+   position: absolute;
+   top: -50px;
+   right: -50px;
+   width: 300px;
+   height: 300px;
+   background: radial-gradient(circle, rgba(67, 97, 238, 0.2) 0%, transparent 70%);
+   border-radius: 50%;
+   z-index: -1;
+}
+
+.hero::after {
+   content: '';
+   position: absolute;
+   bottom: -80px;
+   left: -80px;
+   width: 400px;
+   height: 400px;
+   background: radial-gradient(circle, rgba(76, 201, 240, 0.15) 0%, transparent 70%);
+   border-radius: 50%;
+   z-index: -1;
+}
+
+.hero h1 {
+   font-size: 3.5rem;
+   margin-bottom: 20px;
+}
+
+.hero p {
+   font-size: 1.4rem;
+   max-width: 800px;
+   margin: 0 auto 40px;
+}
+
+.btn {
+   display: inline-block;
+   background: var(--primary);
+   color: white;
+   padding: 14px 32px;
+   border-radius: 50px;
+   text-decoration: none;
+   font-weight: 700;
+   font-size: 1.2rem;
+   transition: var(--transition);
+   border: 2px solid var(--primary);
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+   background: transparent;
+   color: var(--primary);
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+}
+
+.btn-outline {
+   background: transparent;
+   color: var(--primary);
+   margin-left: 15px;
+}
+
+.btn-outline:hover {
+   background: var(--primary);
+   color: white;
+}
+
+.features {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 30px;
+   margin-top: 60px;
+}
+
+.feature-card {
+   background: rgba(255, 255, 255, 0.08);
+   border-radius: 20px;
+   padding: 30px;
+   text-align: center;
+   transition: var(--transition);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card:hover {
+   transform: translateY(-10px);
+   background: rgba(67, 97, 238, 0.15);
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card i {
+   font-size: 3rem;
+   margin-bottom: 20px;
+   color: var(--accent);
+} 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: css\style_login.css ==== 
+Путь: css\style_login.css 
+ 
+/* Общий фон — как у всего сайта */
+.login-page {
+   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   color: var(--light);
+   overflow-x: hidden;
+   position: relative;
+}
+
+:root {
+   --bg-dark: #22252a;
+   --form-bg: rgba(255, 255, 255, 0.1);
+   --border-color: rgba(255, 255, 255, 0.2);
+   --text-color: #ffffff;
+   --input-bg: rgba(0, 0, 0, 0.3);
+   --accent-color: #ff8c00;
+   /* для ссылок */
+}
+
+/*:root {
+    --primary: #4361ee;
+   --secondary: #3a0ca3;
+   --accent: #4cc9f0;
+   --light: #f8f9fa;
+   --dark: #212529;
+   --success: #4ade80;
+   --warning: #facc15;
+   --danger: #f87171;
+   --transition: all 0.3s ease;
+} */
+
+
+/* body {
+   background-color: var(--bg-dark);
+   font-family: Arial, sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   margin: 0;
+} */
+
+/* .auth-main {
+   display: flex;
+   justify-content: center;
+   height: 80vp;
+} */
+
+/*.auth-main {
+   height: calc(100vh - 70px);
+} */
+.auth-main {
+   overflow-y: hidden;
+   overflow-x: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 80vh;
+   /* или calc(100vh - 70px), если нужно учесть шапку */
+   padding: 20px;
+   box-sizing: border-box;
+}
+
+
+.background-animation-container {
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* --- Основной контейнер формы Glassmorphism --- */
+.glass-form-container {
+   position: relative;
+   width: 400px;
+
+   padding: 40px;
+   background: rgba(24, 88, 166, 0.123);
+   backdrop-filter: blur(10px);
+   /* Эффект размытия Glassmorphism */
+   border: 1px solid rgba(0, 221, 255, 0.36);
+   border-radius: 15px;
+   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+   color: var(--text-color);
+   z-index: 10;
+}
+
+.login-box {
+   position: relative;
+   z-index: 20;
+}
+
+/* --- Ссылки --- */
+.links {
+   margin-top: 25px;
+   font-size: 14px;
+   line-height: 1.6;
+}
+
+.links a {
+   color: var(--light);
+   text-decoration: none;
+   transition: color 0.3s;
+}
+
+.links a:hover {
+   color: var(--accent);
+   text-decoration: underline;
+}
+
+
+/* ====== АНИМАЦИЯ ФОНОВЫХ КВАДРАТОВ ====== */
+.bg-square {
+   position: absolute;
+   background: rgb(21, 7, 123);
+   backdrop-filter: blur(5px);
+   border-radius: 8px;
+   opacity: 0.5;
+   z-index: 5;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+/* 1. Настройка размеров и положения квадратов */
+
+.square-1 {
+   width: 40px;
+   height: 40px;
+   top: -40px;
+   left: 20%;
+   animation: randomMove 18s ease-in-out infinite alternate;
+}
+
+.square-2 {
+   width: 50px;
+   height: 50px;
+   bottom: -30px;
+   right: 5%;
+   animation: randomMove 14s linear infinite alternate-reverse;
+}
+
+.square-3 {
+   width: 40px;
+   height: 40px;
+   top: 100%;
+   left: 0%;
+   animation: randomMove 20s ease-in-out infinite alternate;
+}
+
+.square-4 {
+   width: 60px;
+   height: 60px;
+   bottom: 90%;
+   left: 80%;
+   animation: randomMove 12s linear infinite alternate-reverse;
+}
+
+/* .square-5 {
+   width: 70px;
+   height: 70px;
+   top: 10%;
+   right: -30px;
+   animation: randomMove 15s ease-in-out infinite alternate;
+} */
+
+.square-6 {
+   width: 50px;
+   height: 50px;
+   bottom: 30%;
+   left: 85%;
+   animation: randomMove 16s linear infinite alternate-reverse;
+}
+
+.square-7 {
+   width: 55px;
+   height: 55px;
+   bottom: 60%;
+   left: -7%;
+   animation: randomMove 12s linear infinite alternate-reverse;
+}
+
+/* 2. @keyframes с использованием calc() для случайного перемещения */
+
+@keyframes randomMove {
+   0% {
+      transform: translate(0, 0) rotate(0deg);
+   }
+
+   25% {
+      /* Использование calc() для смещения на 30% ширины + 20px */
+      transform: translate(calc(30% + 20px), calc(10% - 15px)) rotate(45deg);
+   }
+
+   50% {
+      /* Смещение в противоположную сторону */
+      transform: translate(calc(-20% - 10px), calc(-40% + 25px)) rotate(90deg);
+   }
+
+   75% {
+      transform: translate(calc(15% + 5px), calc(-5% - 5px)) rotate(135deg);
+   }
+
+   100% {
+      /* Возврат в область, но с небольшим смещением */
+      transform: translate(0, 0) rotate(180deg);
+   }
+}
+
+/*  */
+
+
+.glass-form {
+   background: rgba(255, 255, 255, 0.08);
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
+   border-radius: 20px;
+   padding: 30px;
+   width: 100%;
+   max-width: 420px;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-tabs {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 25px;
+}
+
+.tab {
+   flex: 1;
+   padding: 10px;
+   background: rgba(255, 255, 255, 0.1);
+   border: none;
+   border-radius: 12px;
+   color: var(--light);
+   font-weight: 600;
+   font-size: 1.1em;
+   cursor: pointer;
+   transition: var(--transition);
+}
+
+.tab.active {
+   background: var(--primary);
+   color: white;
+}
+
+.tab-content {
+   display: none;
+}
+
+.tab-content.active {
+   display: block;
+}
+
+.glass-form-container h2 {
+   text-align: center;
+   /* margin-top: 30px; */
+   margin-bottom: 20px;
+   font-size: 1.6rem;
+   color: var(--accent);
+}
+
+.glass-form-container form {
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+}
+
+.glass-form-container input {
+   width: 100%;
+   padding: 14px;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   border-radius: 10px;
+   background: rgba(0, 0, 0, 0.2);
+   color: var(--light);
+   font-size: 1rem;
+   outline: none;
+   transition: var(--transition);
+}
+
+.glass-form-container input::placeholder {
+   color: rgba(248, 249, 250, 0.6);
+}
+
+.glass-form-container input:focus {
+   border-color: var(--accent);
+   background: rgba(0, 0, 0, 0.3);
+}
+
+.glass-form-container .btn {
+   margin-top: 10px;
+   background: var(--primary);
+   color: white;
+   padding: 12px;
+   font-size: 1.1rem;
+   border-radius: 10px;
+   border: none;
+   cursor: pointer;
+   transition: var(--transition);
+}
+
+.glass-form-container .btn:hover {
+   background: var(--accent);
+   transform: translateY(-3px);
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+} 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: css\style_main.css ==== 
+Путь: css\style_main.css 
+ 
+.btn-add-to-cart {
+   background: #4CAF50;
+   color: white;
+   border: none;
+   padding: 8px 16px;
+   border-radius: 4px;
+   cursor: pointer;
+   margin-top: 10px;
+}
+
+.btn-add-to-cart:hover {
+   background: #45a049;
+}
+
+/* Общие стили */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+   --primary: #4361ee;
+   --secondary: #3a0ca3;
+   --accent: #4cc9f0;
+   --light: #f8f9fa;
+   --dark: #212529;
+   --success: #4ade80;
+   --warning: #facc15;
+   --danger: #f87171;
+   --transition: all 0.3s ease;
+}
+
+html,
+body {
+   overflow-x: hidden;
+}
+
+body {
+   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+   color: var(--light);
+
+}
+
+main {
+   margin-top: 70px;
+}
+
+.container {
+   width: 90%;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+
+
+/* Шапка */
+header {
+   background: rgba(13, 19, 33, 0.9);
+   backdrop-filter: blur(10px);
+   position: fixed;
+   width: 100%;
+   top: 0;
+   z-index: 1000;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+   /*тень смещена по Y на 4px и радиус размытия 20px*/
+}
+
+.header-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 15px 0;
+   /* сверху-снизу | слева-справа */
+}
+
+.logo {
+   font-size: 1.8rem;
+   /*root em (em от html, а не от родитеслького)*/
+   font-weight: 800;
+   color: var(--accent);
+   text-decoration: none;
+   /*чтобы не было подчеркивания под ссылкой*/
+}
+
+.logo i {
+   color: var(--success);
+}
+
+.header-login {
+   color: var(--light);
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 1.1rem;
+   padding: 8px 16px;
+   border-radius: 30px;
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.15);
+   transition: var(--transition);
+   margin-left: 10px;
+}
+
+.header-login:hover {
+   background: rgba(67, 97, 238, 0.3);
+   color: var(--accent);
+   transform: translateY(-2px);
+}
+
+
+nav ul {
+   display: flex;
+   list-style: none;
+   gap: 25px;
+}
+
+nav a {
+   color: var(--light);
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 1.1rem;
+   padding: 8px 12px;
+   border-radius: 6px;
+   /*чтобы красиво выглядел задний фон при наведении*/
+   transition: var(--transition);
+   position: relative;
+   /*чтобы after был относительно a*/
+}
+
+nav a:hover {
+   color: var(--accent);
+   background: rgba(67, 97, 238, 0.1);
+}
+
+nav a[href="login.html"],
+nav a[href="../login.html"] {
+   position: relative;
+   background: transparent;
+   border: 2px solid var(--accent);
+   color: var(--accent);
+   padding: 6px 16px;
+   border-radius: 20px;
+}
+
+nav a[href="login.html"]::before,
+nav a[href="../login.html"]::before {
+   content: "";
+   position: absolute;
+   left: -15px;
+   top: -9px;
+   height: 55px;
+   border-radius: 5px;
+   width: 3px;
+   background-color: rgb(13, 76, 87);
+   display: block;
+}
+
+nav a[href="login.html"]:hover {
+   background: var(--accent);
+   color: white;
+}
+
+a[href="login.html"]:hover::after {
+   width: 0px;
+}
+
+nav a[href="login.html"]::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 0;
+   height: 2px;
+   background: var(--accent);
+   transition: var(--transition);
+}
+
+nav a.active {
+   color: var(--accent);
+   background: rgba(67, 97, 238, 0.2);
+}
+
+nav a::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 0;
+   height: 2px;
+   background: var(--accent);
+   transition: var(--transition);
+}
+
+nav a:hover::after,
+nav a.active::after {
+   width: 100%;
+}
+
+/* Бургер меню */
+.header__burger-btn {
+   z-index: 100;
+   display: none;
+   position: relative;
+   width: 40px;
+   height: 40px;
+   border: none;
+   background-color: transparent;
+}
+
+.header__burger-btn span {
+   position: absolute;
+   width: 30px;
+   height: 3px;
+   left: 6px;
+   border-radius: 9px;
+   background-color: rgb(255, 255, 255);
+   transition: transform .5s, opacity .5s, background-color .5s;
+}
+
+.header__burger-btn span:nth-child(1) {
+   transform: translateY(10px);
+}
+
+.header__burger-btn span:nth-child(3) {
+   transform: translateY(-10px);
+}
+
+.header.open .header__burger-btn span {
+   background-color: rgb(255, 255, 255);
+}
+
+.header.open .header__burger-btn span:nth-child(1) {
+   transform: translateY(0) rotate(-45deg);
+}
+
+.header.open .header__burger-btn span:nth-child(2) {
+   opacity: 0;
+}
+
+.header.open .header__burger-btn span:nth-child(3) {
+   transform: translateY(0) rotate(45deg);
+}
+
+/* Медиа-запрос для burger меню */
+@media (max-width: 1240px) {
+
+   html,
+   body {
+      overflow-x: hidden;
+   }
+
+   .header__burger-btn {
+      display: block;
+   }
+
+
+
+
+
+   nav ul#navMenu {
+      display: none;
+   }
+
+   .header.open nav ul#navMenu {
+      display: flex;
+      flex-direction: column;
+
+   }
+
+   nav {
+      width: 400px;
+      box-sizing: border-box;
+
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: -400px;
+      /*rgb(19, 107, 158);*/
+      background-color: rgb(3, 145, 228);
+      padding: 90px 80px 0px 80px;
+      transition: transform .5s;
+   }
+
+   .header.open nav {
+      transform: translateX(-100%);
+   }
+}
+
+/* Основной контент
+main {
+   min-height: calc(100vh - 180px);
+   padding: 40px 0;
+} */
+
+.page {
+   display: none;
+   animation: fadeIn 0.8s ease forwards;
+}
+
+.page.active {
+   display: block;
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+h1 {
+   font-size: 2.8rem;
+   margin-bottom: 20px;
+   text-align: center;
+   background: linear-gradient(90deg, var(--accent), var(--primary));
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+   position: relative;
+}
+
+h1::after {
+   content: '';
+   display: block;
+   width: 80px;
+   height: 4px;
+   background: var(--accent);
+   margin: 15px auto;
+   border-radius: 2px;
+}
+
+h2 {
+   font-size: 2.2rem;
+   margin: 40px 0 25px;
+   color: var(--accent);
+}
+
+h3 {
+   font-size: 1.6rem;
+   margin: 30px 0 15px;
+   color: var(--light);
+}
+
+p {
+   margin-bottom: 15px;
+   line-height: 1.7;
+   font-size: 1.1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Футер */
+footer {
+   background: rgba(13, 19, 33, 0.95);
+   /* Такой-же как в header но менее прозрачный */
+   padding: 40px 0 20px;
+   /* вверх |лево-право|низ */
+   margin-top: 60px;
+}
+
+.footer-content {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 30px;
+   margin-bottom: 30px;
+}
+
+.footer-column h3 {
+   margin-bottom: 20px;
+   color: var(--accent);
+   font-size: 1.4rem;
+}
+
+.footer-column ul {
+   list-style: none;
+}
+
+.footer-column ul li {
+   margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+   color: rgba(255, 255, 255, 0.7);
+   text-decoration: none;
+   transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+   color: var(--accent);
+   padding-left: 5px;
+}
+
+.social-links {
+   display: flex;
+   gap: 15px;
+   margin-top: 20px;
+}
+
+.social-links a {
+   display: flex;
+   text-decoration: none;
+   align-items: center;
+   justify-content: center;
+   width: 40px;
+   height: 40px;
+   background: rgba(255, 255, 255, 0.1);
+   border-radius: 50%;
+   color: white;
+   transition: var(--transition);
+}
+
+.social-links a:hover {
+   background: var(--primary);
+   transform: translateY(-5px);
+}
+
+.copyright {
+   text-align: center;
+   padding-top: 20px;
+   border-top: 1px solid rgba(66, 50, 50, 0.1);
+   color: rgba(255, 255, 255, 0.6);
+   font-size: 0.9rem;
+}
+
+
+/* Анимации */
+.fade-in {
+   opacity: 0;
+   transform: translateY(30px);
+   animation: fadeInUp 1s forwards;
+}
+
+.fade-in:nth-child(2) {
+   animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(3) {
+   animation-delay: 0.4s;
+}
+
+.fade-in:nth-child(4) {
+   animation-delay: 0.6s;
+}
+
+.fade-in:nth-child(5) {
+   animation-delay: 0.8s;
+}
+
+.fade-in:nth-child(6) {
+   animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Адаптив */
+/* @media (max-width: 992px) {
+   .build-steps {
+      flex-wrap: wrap;
+      gap: 40px;
+   }
+
+   .step {
+      width: 45%;
+   }
+
+   .build-steps::before {
+      display: none;
+   }
+}
+
+@media (max-width: 768px) {
+   .mobile-toggle {
+      display: block;
+   }
+
+   nav ul {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: rgba(13, 19, 33, 0.95);
+      flex-direction: column;
+      padding: 20px;
+      gap: 15px;
+      transform: translateY(-100%);
+      transition: var(--transition);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+   }
+
+   nav ul.active {
+      transform: translateY(0);
+   }
+
+   .hero h1 {
+      font-size: 2.8rem;
+   }
+
+   .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+   }
+
+   .btn-outline {
+      margin-left: 0;
+   }
+
+   .step {
+      width: 100%;
+   }
+}
+
+@media (max-width: 480px) {
+   h1 {
+      font-size: 2.2rem;
+   }
+
+   h2 {
+      font-size: 1.8rem;
+   }
+
+   .step-number {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+   }
+} */ 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: css\style_products.css ==== 
+Путь: css\style_products.css 
+ 
+main {
+   margin-top: 70px;
+}
+
+
+.hero-section {
+   text-align: center;
+   padding: 60px 20px 40px;
+   background: rgba(13, 19, 33, 0.4);
+   backdrop-filter: blur(12px);
+   border-radius: 20px;
+   margin-bottom: 40px;
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section h1 {
+   font-size: 3rem;
+   margin-bottom: 15px;
+}
+
+.hero-section p {
+   font-size: 1.2rem;
+   max-width: 700px;
+   margin: 0 auto;
+   color: rgba(255, 255, 255, 0.85);
+}
+
+.products-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 30px;
+   margin-bottom: 60px;
+}
+
+.product-card {
+   background: rgba(255, 255, 255, 0.06);
+   border: 1px solid rgba(255, 255, 255, 0.12);
+   border-radius: 18px;
+   padding: 24px;
+   backdrop-filter: blur(12px);
+   transition: var(--transition);
+   position: relative;
+   overflow: hidden;
+}
+
+.product-card:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+   border-color: rgba(67, 97, 238, 0.4);
+}
+
+.product-card::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 4px;
+   background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.product-card img {
+   display: block;
+   width: 70%;
+   margin: 0 auto;
+   /* height: 180px; */
+   object-fit: cover;
+   border-radius: 12px;
+   margin-bottom: 18px;
+   transition: var(--transition);
+}
+
+.product-card:hover img {
+   transform: scale(1.03);
+}
+
+.product-card h3 {
+   font-size: 1.4rem;
+   margin-bottom: 10px;
+   color: white;
+}
+
+.price {
+   font-size: 1.3rem;
+   font-weight: 700;
+   color: var(--accent);
+   margin: 12px 0;
+}
+
+.btn-add-to-cart {
+   width: 100%;
+   padding: 12px;
+   background: var(--primary);
+   color: white;
+   border: none;
+   border-radius: 12px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: var(--transition);
+   font-size: 1.05rem;
+   margin-top: 10px;
+   box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+}
+
+.btn-add-to-cart:hover {
+   background: var(--secondary);
+   transform: translateY(-2px);
+   box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
+}
+
+.product-card.fade-in {
+   opacity: 0;
+   transform: translateY(20px);
+   animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.product-card:nth-child(1) {
+   animation-delay: 0.1s;
+}
+
+.product-card:nth-child(2) {
+   animation-delay: 0.2s;
+}
+
+.product-card:nth-child(3) {
+   animation-delay: 0.3s;
+}
+
+.product-card:nth-child(4) {
+   animation-delay: 0.4s;
+}
+
+.product-card:nth-child(5) {
+   animation-delay: 0.5s;
+}
+
+.product-card:nth-child(6) {
+   animation-delay: 0.6s;
+} 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: css\style_reviews.css ==== 
+Путь: css\style_reviews.css 
+ 
+/* Заголовки */
+.section-title {
+   font-size: 2.5rem;
+   text-align: center;
+   margin: 40px 0 15px;
+   background: linear-gradient(90deg, #4cc9f0, #4361ee);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+   position: relative;
+}
+
+.section-title::after {
+   content: '';
+   display: block;
+   width: 80px;
+   height: 4px;
+   background: #4cc9f0;
+   margin: 10px auto;
+   border-radius: 2px;
+}
+
+.section-subtitle {
+   text-align: center;
+   font-size: 1.2rem;
+   margin-bottom: 40px;
+   color: #f8f9fa;
+}
+
+/* Карусель */
+.reviews-carousel {
+   position: relative;
+   max-width: 800px;
+   margin: 0 auto;
+   overflow: hidden;
+}
+
+.reviews-wrapper {
+   display: flex;
+   transition: transform 0.5s ease-in-out;
+   gap: 30px;
+}
+
+.review-card {
+   min-width: 100%;
+   background: rgba(255, 255, 255, 0.08);
+   border-radius: 20px;
+   padding: 30px;
+   transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.review-header {
+   display: flex;
+   align-items: center;
+   margin-bottom: 20px;
+}
+
+.review-avatar {
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   background: #4361ee;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+   font-size: 1.5rem;
+   margin-right: 15px;
+}
+
+.review-meta h4 {
+   margin-bottom: 5px;
+   color: #f8f9fa;
+}
+
+.review-rating {
+   color: gold;
+   font-size: 1rem;
+}
+
+.review-card p {
+   line-height: 1.7;
+   color: #f8f9fa;
+}
+
+/* Кнопки навигации */
+.carousel-btn {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   background: rgba(67, 97, 238, 0.3);
+   border: none;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   color: white;
+   font-size: 1.2rem;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background 0.3s ease;
+   z-index: 10;
+}
+
+.carousel-btn:hover {
+   background: #4361ee;
+}
+
+.carousel-btn.prev {
+   left: -50px;
+}
+
+.carousel-btn.next {
+   right: -50px;
+}
+
+/* Точки-индикаторы */
+.carousel-dots {
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   margin-top: 25px;
+}
+
+.carousel-dots span {
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background: rgba(255, 255, 255, 0.3);
+   cursor: pointer;
+   transition: background 0.3s ease;
+}
+
+.carousel-dots span.active {
+   background: #4cc9f0;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+   .carousel-btn.prev {
+      left: 10px;
+   }
+
+   .carousel-btn.next {
+      right: 10px;
+   }
+
+   .section-title {
+      font-size: 2rem;
+   }
+} 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: js\cart.js ==== 
+Путь: js\cart.js 
+ 
+// Функция добавления товара в корзину
+function addToCart(product) {
+   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+   // Проверяем, есть ли уже такой товар
+   const existing = cart.find(item => item.id === product.id);
+   if (existing) {
+      existing.quantity = (existing.quantity || 1) + 1;
+   } else {
+      cart.push({ ...product, quantity: 1 });
+   }
+
+   localStorage.setItem('cart', JSON.stringify(cart));
+   updateCartBadge(); // обновить счётчик в шапке (опционально)
+   alert('Товар добавлен в корзину!');
+}
+
+// Обновление значка количества товаров в корзине (если есть иконка 🛒)
+function updateCartBadge() {
+   const cart = JSON.parse(localStorage.getItem('cart')) || [];
+   const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+   const badge = document.querySelector('#cart-count');
+   if (badge) badge.textContent = totalItems;
+}
+
+// Обработчик клика по кнопке "В корзину"
+document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+   button.addEventListener('click', function () {
+      const card = this.closest('.product-card');
+      const product = {
+         id: card.dataset.id,
+         name: card.dataset.name,
+         price: parseFloat(card.dataset.price),
+         image: card.dataset.image
+      };
+      addToCart(product);
+   });
+});
+
+// Вызов при загрузке страницы (чтобы обновить значок)
+document.addEventListener('DOMContentLoaded', updateCartBadge); 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: js\main_script.js ==== 
+Путь: js\main_script.js 
+ 
+function initBurgerMenu() {
+   const header = document.querySelector("header");
+   const burger = document.getElementById("burger");
+   const nav = header.querySelector('nav');
+
+
+   if (!header || !burger) return;//защита от ошибок, если не найдется header или burger
+
+   burger.addEventListener("click", function (e) {
+      e.stopPropagation(); // предотвращаем закрытие при клике на бургер 
+      // (то есть следующий слушатель событий)
+      header.classList.toggle("open");
+   });
+
+   // Закрытие при клике вне header
+   document.addEventListener("click", function (e) {
+      if (!nav.contains(e.target)) {
+         header.classList.remove("open");
+      }
+   });
+
+   // Закрытие по нажатию Esc (опционально, но удобно)
+   document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+         header.classList.remove("open");
+      }
+   });
+}
+
+initBurgerMenu();
+
+
+// для карусели в reviews
+document.addEventListener('DOMContentLoaded', () => {
+   const wrapper = document.getElementById('reviewsWrapper');
+   const prevBtn = document.getElementById('prevBtn');
+   const nextBtn = document.getElementById('nextBtn');
+   const dotsContainer = document.getElementById('carouselDots');
+   const cards = wrapper.children;
+   const cardCount = cards.length;
+   let currentIndex = 0;
+
+   // Создание точек
+   for (let i = 0; i < cardCount; i++) {
+      const dot = document.createElement('span');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+   }
+   updateDots();
+
+   // Переключение на слайд
+   function goToSlide(index) {
+      if (index < 0) index = cardCount - 1;
+      if (index >= cardCount) index = 0;
+      currentIndex = index;
+      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots();
+   }
+
+   // Обновление активной точки
+   function updateDots() {
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+         dots[i].classList.toggle('active', i === currentIndex);
+      }
+   }
+
+   // Кнопки
+   prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+   nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+   // Автопрокрутка (опционально, можно убрать)
+   // setInterval(() => goToSlide(currentIndex + 1), 5000);
+}); 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\case.html ==== 
+Путь: pages\case.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Корпуса — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Корпуса</h1>
+            <p>Стильные и функциональные корпуса ATX, Micro-ATX, Mini-ITX от Montech, Cougar, Lian Li и других брендов
+            </p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="case-montech-king95"
+               data-name="Компьютерный корпус Montech KING 95 PRO ARGB Black (KING95PBK)" data-price="12990"
+               data-image="img/case11.jpg">
+               <img src="../img/case11.jpg" alt="Montech KING 95 PRO">
+               <h3>Montech KING 95 PRO</h3>
+               <p class="price">12 990 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="case-cougar-airface"
+               data-name="Компьютерный корпус Cougar AIRFACE PRO RGB Black" data-price="7340"
+               data-image="img/case12.jpg">
+               <img src="../img/case12.jpg" alt="Cougar AIRFACE PRO">
+               <h3>Cougar AIRFACE PRO</h3>
+               <p class="price">7 340 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="case-bequiet-purebase"
+               data-name="Компьютерный корпус Be Quiet! PURE BASE 500 DX White (BGW38)" data-price="11190"
+               data-image="img/case13.jpg">
+               <img src="../img/case13.jpg" alt="Be Quiet! PURE BASE 500">
+               <h3>Be Quiet! PURE BASE 500</h3>
+               <p class="price">11 190 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="case-lianli-lancool3"
+               data-name="Компьютерный корпус Lian Li LANCOOL III TG Black (G99.LAN3X.10R)" data-price="12140"
+               data-image="img/case14.jpg">
+               <img src="../img/case14.jpg" alt="Lian Li LANCOOL III TG">
+               <h3>Lian Li LANCOOL III TG</h3>
+               <p class="price">12 140 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="case-1stplayer-dk4"
+               data-name="Компьютерный корпус 1STPLAYER DK D4 White (D4-WH-4G6)" data-price="4780"
+               data-image="img/case15.jpg">
+               <img src="../img/case15.jpg" alt="1STPLAYER DK D4 White">
+               <h3>1STPLAYER DK D4 White</h3>
+               <p class="price">4 780 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="case-lianli-lancool3-white"
+               data-name="Компьютерный корпус Lian Li LANCOOL III TG RGB White (G99.LAN3RW.10R)" data-price="13360"
+               data-image="img/case16.jpg">
+               <img src="../img/case16.jpg" alt="Lian Li LANCOOL III TG RGB White">
+               <h3>Lian Li LANCOOL III RGB</h3>
+               <p class="price">13 360 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="motherboards.html">Материнские платы</a></li>
+                  <li><a href="cooling_system.html">Системы охлаждения</a></li>
+                  <li><a href="case.html">Корпуса</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\cooling_system.html ==== 
+Путь: pages\cooling_system.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Системы охлаждения — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Системы охлаждения</h1>
+            <p>Эффективные воздушные и жидкостные кулеры для процессора от Deepcool, ID-Cooling, Lian Li и других
+               брендов
+            </p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="cool-deepcool-le720"
+               data-name="Система жидкостного охлаждения для процессора Deepcool LE720 R-LE720-BKAMMN-G-1"
+               data-price="5700" data-image="img/cooling_system11.jpg">
+               <img src="../img/cooling_system11.jpg" alt="Deepcool LE720">
+               <h3>Deepcool LE720</h3>
+               <p class="price">5 700 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="cool-idcooling-se224"
+               data-name="Кулер для процессора ID-COOLING SE-224-XTS ARGB" data-price="1770"
+               data-image="img/cooling_system12.jpg">
+               <img src="../img/cooling_system12.jpg" alt="ID-Cooling SE-224-XTS">
+               <h3>ID-Cooling SE-224-XTS</h3>
+               <p class="price">1 770 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="cool-geometric-eskimo"
+               data-name="Система жидкостного охлаждения для процессора Geometric Future Eskimo Pro 420 ARGB Black (1C253B0421000)"
+               data-price="7630" data-image="img/cooling_system13.jpg">
+               <img src="../img/cooling_system13.jpg" alt="Geometric Future Eskimo Pro 420">
+               <h3>Geometric Eskimo Pro 420</h3>
+               <p class="price">7 630 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="cool-lianli-hydroshift"
+               data-name="Система жидкостного охлаждения для процессора Lian Li HydroShift LCD 360S Black (G89.GHSLCD36SB.R0)"
+               data-price="13680" data-image="img/cooling_system14.jpg">
+               <img src="../img/cooling_system14.jpg" alt="Lian Li HydroShift LCD 360S">
+               <h3>Lian Li HydroShift 360S</h3>
+               <p class="price">13 680 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="cool-valkyrie-dl125"
+               data-name="Кулер для процессора Valkyrie DL125 Merlin ARGB (DL125 MERLIN)" data-price="4710"
+               data-image="img/cooling_system15.jpg">
+               <img src="../img/cooling_system15.jpg" alt="Valkyrie DL125 Merlin">
+               <h3>Valkyrie DL125 Merlin</h3>
+               <p class="price">4 710 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="cool-idcooling-frozna620"
+               data-name="Кулер для процессора ID-COOLING FROZN A620 ARGB White" data-price="4700"
+               data-image="img/cooling_system16.jpg">
+               <img src="../img/cooling_system16.jpg" alt="ID-Cooling FROZN A620 White">
+               <h3>ID-Cooling FROZN A620</h3>
+               <p class="price">4 700 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="motherboards.html">Материнские платы</a></li>
+                  <li><a href="cooling_system.html">Системы охлаждения</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\disks.html ==== 
+Путь: pages\disks.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Накопители — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Накопители</h1>
+            <p>Быстрые SSD и вместительные HDD от Samsung, Seagate, Western Digital для любого объема данных и задач</p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="disk-samsung-990pro-2tb"
+               data-name="Твердотельный накопитель Samsung 2000 Gb 990 PRO (MZ-V9P2T0BW)" data-price="21940"
+               data-image="img/disk11.jpg">
+               <img src="../img/disk11.jpg" alt="Samsung 990 PRO 2TB">
+               <h3>Samsung 990 PRO 2TB</h3>
+               <p class="price">21 940 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="disk-samsung-990pro-1tb"
+               data-name="Твердотельный накопитель Samsung 1000 Gb 990 PRO (MZ-V9P1T0BW)" data-price="14510"
+               data-image="img/disk12.jpg">
+               <img src="../img/disk12.jpg" alt="Samsung 990 PRO 1TB">
+               <h3>Samsung 990 PRO 1TB</h3>
+               <p class="price">14 510 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="disk-seagate-4tb-hdd"
+               data-name="Жесткий диск Seagate 4000 Gb (ST4000DM004)" data-price="11920" data-image="img/disk13.jpg">
+               <img src="../img/disk13.jpg" alt="Seagate 4TB HDD">
+               <h3>Seagate 4TB HDD</h3>
+               <p class="price">11 920 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="disk-seagate-6tb-hdd"
+               data-name="Жесткий диск Seagate 6000 Gb BARRACUDA (ST6000DM003)" data-price="13830"
+               data-image="img/disk14.jpg">
+               <img src="../img/disk14.jpg" alt="Seagate 6TB BARRACUDA">
+               <h3>Seagate 6TB BARRACUDA</h3>
+               <p class="price">13 830 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="disk-samsung-870evo-250gb"
+               data-name="Твердотельный накопитель Samsung 250 Gb 870 EVO (MZ-77E250BW)" data-price="4190"
+               data-image="img/disk15.jpg">
+               <img src="../img/disk15.jpg" alt="Samsung 870 EVO 250GB">
+               <h3>Samsung 870 EVO 250GB</h3>
+               <p class="price">4 190 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="disk-wd-blue-250gb"
+               data-name="Твердотельный накопитель Western Digital 250 Gb Blue (WDS250G3B0A)" data-price="3230"
+               data-image="img/disk16.jpg">
+               <img src="../img/disk16.jpg" alt="WD Blue 250GB">
+               <h3>WD Blue 250GB</h3>
+               <p class="price">3 230 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="motherboards.html">Материнские платы</a></li>
+                  <li><a href="cooling_system.html">Системы охлаждения</a></li>
+                  <li><a href="case.html">Корпуса</a></li>
+                  <li><a href="power.html">Блоки питания</a></li>
+                  <li><a href="disks.html">Накопители</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\motherboards.html ==== 
+Путь: pages\motherboards.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Материнские платы — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Материнские платы</h1>
+            <p>Надёжные и производительные платы от ASUS, MSI и других брендов для сборки ПК под любой бюджет</p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="mb-asus-prime-z890p"
+               data-name="Материнская плата ASUS PRIME Z890-P (90MB1150-M0EAY0)" data-price="24640"
+               data-image="img/motherboard11.jpg">
+               <img src="../img/motherboard11.jpg" alt="ASUS PRIME Z890-P">
+               <h3>ASUS PRIME Z890-P</h3>
+               <p class="price">24 640 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="mb-asus-rog-strix-z790a"
+               data-name="Материнская плата ASUS ROG STRIX Z790-A GAMING WIFI D4 (90MB1CN0-M0EAY0)" data-price="24560"
+               data-image="img/motherboard12.jpg">
+               <img src="../img/motherboard12.jpg" alt="ASUS ROG STRIX Z790-A">
+               <h3>ASUS ROG STRIX Z790-A</h3>
+               <p class="price">24 560 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="mb-asus-proart-b650"
+               data-name="Материнская плата ASUS PROART B650-CREATOR (90MB1C40-M0EAY0)" data-price="24500"
+               data-image="img/motherboard13.jpg">
+               <img src="../img/motherboard13.jpg" alt="ASUS PROART B650-CREATOR">
+               <h3>ASUS PROART B650-CREATOR</h3>
+               <p class="price">24 500 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="mb-msi-meg-z690-ace"
+               data-name="Материнская плата MSI MEG Z690 ACE" data-price="42310" data-image="img/motherboard14.jpg">
+               <img src="../img/motherboard14.jpg" alt="MSI MEG Z690 ACE">
+               <h3>MSI MEG Z690 ACE</h3>
+               <p class="price">42 310 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="mb-asus-rog-strix-z890e"
+               data-name="Материнская плата ASUS ROG STRIX Z890-E GAMING WIFI (90MB1IM0-M0EAY0)" data-price="42900"
+               data-image="img/motherboard15.jpg">
+               <img src="../img/motherboard15.jpg" alt="ASUS ROG STRIX Z890-E">
+               <h3>ASUS ROG STRIX Z890-E</h3>
+               <p class="price">42 900 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="mb-msi-mpg-z890-carbon"
+               data-name="Материнская плата MSI MPG Z890 CARBON WIFI" data-price="42580"
+               data-image="img/motherboard16.jpg">
+               <img src="../img/motherboard16.jpg" alt="MSI MPG Z890 CARBON WIFI">
+               <h3>MSI MPG Z890 CARBON WIFI</h3>
+               <p class="price">42 580 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="motherboards.html">Материнские платы</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\power.html ==== 
+Путь: pages\power.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Блоки питания — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Блоки питания</h1>
+            <p>Надёжные и эффективные БП от 500W до 1600W с сертификатами 80+ Bronze, Gold, Platinum от ASUS, 1STPLAYER,
+               Gigabyte</p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="psu-1stplayer-1000w-white"
+               data-name="Блок питания 1STPLAYER 1000W NGDP Platinum White (HA-1000BA3-WH) 16 Pin (PCIe 5.0 Connector Cable Details)"
+               data-price="14110" data-image="img/power11.jpg">
+               <img src="../img/power11.jpg" alt="1STPLAYER 1000W White">
+               <h3>1STPLAYER 1000W White</h3>
+               <p class="price">14 110 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="psu-asus-rog-thor-1000w"
+               data-name="Блок питания ASUS 1000W ROG-THOR-1000P2-GAMING (90YE00L4-B0NA00) 16 Pin (PCIe 5.0 Connector Cable Details)"
+               data-price="34910" data-image="img/power12.jpg">
+               <img src="../img/power12.jpg" alt="ASUS ROG THOR 1000W">
+               <h3>ASUS ROG THOR 1000W</h3>
+               <p class="price">34 910 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="psu-asus-tuf-1200w"
+               data-name="Блок питания ASUS 1200W TUF-GAMING-1200G (90YE00S0-B0NA00) 16 Pin (PCIe 5.0 Connector Cable Details)"
+               data-price="19180" data-image="img/power13.jpg">
+               <img src="../img/power13.jpg" alt="ASUS TUF GAMING 1200W">
+               <h3>ASUS TUF GAMING 1200W</h3>
+               <p class="price">19 180 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="psu-asus-rog-loki-1000w"
+               data-name="Блок питания ASUS 1000W ROG-LOKI-1000P-SFX-LGAMING (90YE00N1-B0NA00)" data-price="22970"
+               data-image="img/power14.jpg">
+               <img src="../img/power14.jpg" alt="ASUS ROG LOKI 1000W">
+               <h3>ASUS ROG LOKI 1000W</h3>
+               <p class="price">22 970 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="psu-gigabyte-850w"
+               data-name="Блок питания Gigabyte 850W (GP-AE850PM PG5 ICE) 16 Pin (PCIe 5.0 Connector Cable Details)"
+               data-price="11700" data-image="img/power15.jpg">
+               <img src="../img/power15.jpg" alt="Gigabyte 850W">
+               <h3>Gigabyte 850W</h3>
+               <p class="price">11 700 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="psu-1stplayer-1300w-black"
+               data-name="Блок питания 1STPLAYER 1300W NGDP Platinum Black (HA-1300BA3-BK) 16 Pin (PCIe 5.0 Connector Cable Details)"
+               data-price="17130" data-image="img/power16.jpg">
+               <img src="../img/power16.jpg" alt="1STPLAYER 1300W Black">
+               <h3>1STPLAYER 1300W Black</h3>
+               <p class="price">17 130 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="motherboards.html">Материнские платы</a></li>
+                  <li><a href="cooling_system.html">Системы охлаждения</a></li>
+                  <li><a href="case.html">Корпуса</a></li>
+                  <li><a href="power.html">Блоки питания</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\processors.html ==== 
+Путь: pages\processors.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Процессоры — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Процессоры</h1>
+            <p>Высокопроизводительные CPU от AMD и Intel для игр, работы и создания контента</p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="cpu-ryzen9-7950x" data-name="AMD Ryzen 9 7950X"
+               data-price="65000" data-image="img/processor_ryzen9.jpg">
+               <img src="../img/processor_ryzen9.jpg" alt="AMD Ryzen 9 7950X">
+               <h3>AMD Ryzen 9 7950X</h3>
+               <p class="price">65 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="cpu-ryzen7-7800x3d" data-name="AMD Ryzen 7 7800X3D"
+               data-price="48000" data-image="img/processor_ryzen7.jpg">
+               <img src="../img/processor_ryzen7.jpg" alt="AMD Ryzen 7 7800X3D">
+               <h3>Ryzen 7 7800X3D</h3>
+               <p class="price">48 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="cpu-i9-14900k" data-name="Intel Core i9-14900K"
+               data-price="72000" data-image="img/processor_i9.jpg">
+               <img src="../img/processor_i9.jpg" alt="Intel Core i9-14900K">
+               <h3>Intel Core i9-14900K</h3>
+               <p class="price">72 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="cpu-i7-14700k" data-name="Intel Core i7-14700K"
+               data-price="52000" data-image="img/processor_i7.jpg">
+               <img src="../img/processor_i7.jpg" alt="Intel Core i7-14700K">
+               <h3>Intel Core i7-14700K</h3>
+               <p class="price">52 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="cpu-ryzen5-7600x" data-name="AMD Ryzen 5 7600X"
+               data-price="28000" data-image="img/processor_ryzen5.jpg">
+               <img src="../img/processor_ryzen5.jpg" alt="AMD Ryzen 5 7600X">
+               <h3>Ryzen 5 7600X</h3>
+               <p class="price">28 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="cpu-i5-14600k" data-name="Intel Core i5-14600K"
+               data-price="32000" data-image="img/processor_i5.jpg">
+               <img src="../img/processor_i5.jpg" alt="Intel Core i5-14600K">
+               <h3>Intel Core i5-14600K</h3>
+               <p class="price">32 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\ram.html ==== 
+Путь: pages\ram.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Оперативная память — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Оперативная память</h1>
+            <p>Высокоскоростная DDR5-память от Corsair, G.Skill, ADATA и Kingston для максимальной производительности
+            </p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="ram-corsair-128gb"
+               data-name="Оперативная память 128 Gb 6400 MHz Corsair VENGEANCE" data-price="52000"
+               data-image="img/ram11.jpg">
+               <img src="../img/ram11.jpg" alt="Corsair VENGEANCE 128GB">
+               <h3>Corsair VENGEANCE 128GB</h3>
+               <p class="price">109 990 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="ram-gskill-128gb"
+               data-name="Оперативная память 128 Gb 6400 MHz G.Skill RIPJAWS S5 Black (F5-6400J3644F64GX2-RS5K)"
+               data-price="54000" data-image="img/ram12.jpg">
+               <img src="../img/ram12.jpg" alt="G.Skill RIPJAWS S5 128GB">
+               <h3>G.Skill RIPJAWS S5 128GB</h3>
+               <p class="price">119 990 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="ram-gskill-trident-96gb"
+               data-name="Оперативная память 96 Gb 6800 MHz G.Skill TRIDENT Z5 RGB Black" data-price="46000"
+               data-image="img/ram13.jpg">
+               <img src="../img/ram13.jpg" alt="G.Skill TRIDENT Z5 RGB 96GB">
+               <h3>G.Skill TRIDENT Z5 RGB 96GB</h3>
+               <p class="price">83 260 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="ram-adata-64gb"
+               data-name="Оперативная память 64 Gb 6400 MHz ADATA XPG LANCER RGB Black" data-price="32000"
+               data-image="img/ram14.jpg">
+               <img src="../img/ram14.jpg" alt="ADATA XPG LANCER RGB 64GB">
+               <h3>ADATA XPG LANCER RGB 64GB</h3>
+               <p class="price">77 990 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="ram-adata-blade-32gb"
+               data-name="Оперативная память 32 Gb 6400 MHz ADATA XPG LANCER Blade RGB Black" data-price="18000"
+               data-image="img/ram15.jpg">
+               <img src="../img/ram15.jpg" alt="ADATA XPG LANCER Blade RGB 32GB">
+               <h3>ADATA LANCER Blade RGB 32GB</h3>
+               <p class="price">54 990 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="ram-kingston-32gb"
+               data-name="Оперативная память 32 Gb 6400 MHz Kingston FURY Renegade White" data-price="20000"
+               data-image="img/ram16.jpg">
+               <img src="../img/ram16.jpg" alt="Kingston FURY Renegade White 32GB">
+               <h3>Kingston FURY Renegade 32GB</h3>
+               <p class="price">48 650 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
+==== ФАЙЛ: pages\videocards.html ==== 
+Путь: pages\videocards.html 
+ 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Видеокарты — PC Components</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="stylesheet" href="../css/style_main.css" />
+   <script src="../js/main_script.js" defer></script>
+   <script src="../js/cart.js" defer></script>
+   <link rel="stylesheet" href="../css/style_products.css" />
+</head>
+
+<body>
+   <!-- Шапка -->
+   <header class="header">
+      <div class="container header-container">
+         <a href="../index.html" class="logo">
+            <i class="fab fa-telegram"></i> PC Components
+         </a>
+
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
+         <nav>
+            <ul id="navMenu">
+               <li><a href="../index.html">Главная</a></li>
+               <li><a href="../catalog.html">Каталог</a></li>
+               <li><a href="../basket.html">Корзина</a></li>
+               <li><a href="../reviews.html">Отзывы</a></li>
+               <li><a href="../login.html">Войти</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Основной контент -->
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Видеокарты</h1>
+            <p>Мощные графические процессоры для игр, рендеринга и ИИ от NVIDIA и AMD</p>
+         </div>
+
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="gpu-rtx4090" data-name="NVIDIA GeForce RTX 4090"
+               data-price="180000" data-image="img/videocard_rtx4090.jpg">
+               <img src="../img/videocard_rtx4090.jpg" alt="NVIDIA GeForce RTX 4090">
+               <h3>GeForce RTX 4090</h3>
+               <p class="price">180 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="gpu-rtx4080" data-name="NVIDIA GeForce RTX 4080"
+               data-price="110000" data-image="img/videocard_rtx4080.jpg">
+               <img src="../img/videocard_rtx4080.jpg" alt="NVIDIA GeForce RTX 4080">
+               <h3>GeForce RTX 4080</h3>
+               <p class="price">110 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="gpu-rx7900xtx" data-name="AMD Radeon RX 7900 XTX"
+               data-price="95000" data-image="img/videocard_rx7900xtx.jpg">
+               <img src="../img/videocard_rx7900xtx.jpg" alt="AMD Radeon RX 7900 XTX">
+               <h3>Radeon RX 7900 XTX</h3>
+               <p class="price">95 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="gpu-rtx4070ti" data-name="NVIDIA GeForce RTX 4070 Ti"
+               data-price="75000" data-image="img/videocard_rtx4070ti.jpg">
+               <img src="../img/videocard_rtx4070ti.jpg" alt="NVIDIA GeForce RTX 4070 Ti">
+               <h3>GeForce RTX 4070 Ti</h3>
+               <p class="price">75 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="gpu-rx7800xt" data-name="AMD Radeon RX 7800 XT"
+               data-price="65000" data-image="img/videocard_rx7800xt.jpg">
+               <img src="../img/videocard_rx7800xt.jpg" alt="AMD Radeon RX 7800 XT">
+               <h3>Radeon RX 7800 XT</h3>
+               <p class="price">65 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="gpu-rtx3060" data-name="NVIDIA GeForce RTX 3060"
+               data-price="35000" data-image="img/videocard_rtx3060.jpg">
+               <img src="../img/videocard_rtx3060.jpg" alt="NVIDIA GeForce RTX 3060">
+               <h3>GeForce RTX 3060</h3>
+               <p class="price">35 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+         </div>
+      </div>
+
+   </main>
+
+   <!-- Подвал -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>PC Components</h3>
+               <p>Лучшие компьютерные комплектующие для ваших задач.</p>
+            </div>
+            <div class="footer-column">
+               <h3>Каталог</h3>
+               <ul>
+                  <li><a href="processors.html">Процессоры</a></li>
+                  <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="#">ОЗУ</a></li>
+                  <li><a href="#">Накопители</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Информация</h3>
+               <ul>
+                  <li><a href="#">Руководства</a></li>
+                  <li><a href="reviews.html">Отзывы</a></li>
+                  <li><a href="#">Контакты</a></li>
+               </ul>
+            </div>
+            <div class="footer-column">
+               <h3>Аккаунт</h3>
+               <ul>
+                  <li><a href="basket.html">Корзина</a></li>
+                  <li><a href="login.html">Войти</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="copyright">&copy; 2025 PC Components. Все права защищены.</div>
+      </div>
+   </footer>
+</body>
+
+</html> 
+-------------------------------------------------------------------------------- 
+ 
