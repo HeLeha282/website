@@ -7,6 +7,8 @@
    <title>Корзина — PC Components</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
    <link rel="stylesheet" href="style_main.css" />
+   <script src="main_script.js" defer></script>
+
    <style>
       /* Стили корзины в вашей палитре и glass-стиле */
       .basket-container {
@@ -287,42 +289,51 @@
          <a href="index.html" class="logo">
             <i class="fab fa-telegram"></i> PC Components
          </a>
+
+         <!-- Иконка бургерменю -->
+         <button class="header__burger-btn" id="burger">
+            <span></span><span></span><span></span>
+         </button>
          <nav>
             <ul id="navMenu">
-               <li><a href="index.html">Главная</a></li>
+               <li><a href="index.html" class="active">Главная</a></li>
                <li><a href="catalog.html">Каталог</a></li>
-               <li><a href="basket.html" class="active">Корзина</a></li>
+               <li><a href="basket.html">Корзина</a></li>
                <li><a href="reviews.html">Отзывы</a></li>
                <li><a href="login.html">Войти</a></li>
             </ul>
          </nav>
+
       </div>
    </header>
 
+
    <!-- Основной контент -->
-   <main class="container">
-      <div class="basket-container">
-         <div class="basket-header">
-            <h1>Ваша корзина</h1>
+   <main>
+      <div class="container">
+         <div class="basket-container">
+            <div class="basket-header">
+               <h1>Ваша корзина</h1>
 
-            <!-- Кнопки сортировки -->
-            <div class="sort-controls">
-               <button class="sort-btn active" data-sort="default">По порядку</button>
-               <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
-               <button class="sort-btn" data-sort="price-desc">Цена: ↓</button>
-               <button class="sort-btn" data-sort="name">По названию</button>
+               <!-- Кнопки сортировки -->
+               <div class="sort-controls">
+                  <button class="sort-btn active" data-sort="default">По порядку</button>
+                  <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
+                  <button class="sort-btn" data-sort="price-desc">Цена: ↓</button>
+                  <button class="sort-btn" data-sort="name">По названию</button>
+               </div>
             </div>
-         </div>
 
-         <div id="cart-content">
-            <!-- Сюда подгружается содержимое корзины -->
-         </div>
+            <div id="cart-content">
+               <!-- Сюда подгружается содержимое корзины -->
+            </div>
 
-         <div class="cart-summary">
-            <div class="total">Итого: <span id="total-price">0 ₽</span></div>
-            <div class="actions">
-               <button class="btn btn-checkout" id="checkout-btn">Оформить заказ</button>
-               <button class="btn btn-clear" id="clear-cart">Очистить корзину</button>
+            <div class="cart-summary">
+               <div class="total">Итого: <span id="total-price">0 ₽</span></div>
+               <div class="actions">
+                  <button class="btn btn-checkout" id="checkout-btn">Оформить заказ</button>
+                  <button class="btn btn-clear" id="clear-cart">Очистить корзину</button>
+               </div>
             </div>
          </div>
       </div>

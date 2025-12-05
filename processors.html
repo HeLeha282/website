@@ -7,152 +7,11 @@
    <title>Процессоры — PC Components</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
    <link rel="stylesheet" href="style_main.css" />
+   <link rel="stylesheet" href="style_products.css" />
+
    <script src="main_script.js" defer></script>
    <script src="cart.js" defer></script>
-   <style>
-      .hero-section {
-         text-align: center;
-         padding: 60px 20px 40px;
-         background: rgba(13, 19, 33, 0.4);
-         backdrop-filter: blur(12px);
-         border-radius: 20px;
-         margin-bottom: 40px;
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      }
 
-      .hero-section h1 {
-         font-size: 3rem;
-         margin-bottom: 15px;
-      }
-
-      .hero-section p {
-         font-size: 1.2rem;
-         max-width: 700px;
-         margin: 0 auto;
-         color: rgba(255, 255, 255, 0.85);
-      }
-
-      .products-grid {
-         display: grid;
-         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-         gap: 30px;
-         margin-bottom: 60px;
-      }
-
-      .product-card {
-         background: rgba(255, 255, 255, 0.06);
-         border: 1px solid rgba(255, 255, 255, 0.12);
-         border-radius: 18px;
-         padding: 24px;
-         backdrop-filter: blur(12px);
-         transition: var(--transition);
-         position: relative;
-         overflow: hidden;
-      }
-
-      .product-card:hover {
-         transform: translateY(-8px);
-         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-         border-color: rgba(67, 97, 238, 0.4);
-      }
-
-      .product-card::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 4px;
-         background: linear-gradient(90deg, var(--primary), var(--accent));
-      }
-
-      .product-card img {
-         display: block;
-         width: 70%;
-         margin: 0 auto;
-         /* height: 180px; */
-         object-fit: cover;
-         border-radius: 12px;
-         margin-bottom: 18px;
-         transition: var(--transition);
-      }
-
-      .product-card:hover img {
-         transform: scale(1.03);
-      }
-
-      .product-card h3 {
-         font-size: 1.4rem;
-         margin-bottom: 10px;
-         color: white;
-      }
-
-      .price {
-         font-size: 1.3rem;
-         font-weight: 700;
-         color: var(--accent);
-         margin: 12px 0;
-      }
-
-      .btn-add-to-cart {
-         width: 100%;
-         padding: 12px;
-         background: var(--primary);
-         color: white;
-         border: none;
-         border-radius: 12px;
-         font-weight: 600;
-         cursor: pointer;
-         transition: var(--transition);
-         font-size: 1.05rem;
-         margin-top: 10px;
-         box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
-      }
-
-      .btn-add-to-cart:hover {
-         background: var(--secondary);
-         transform: translateY(-2px);
-         box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
-      }
-
-      .product-card.fade-in {
-         opacity: 0;
-         transform: translateY(20px);
-         animation: fadeInUp 0.6s forwards;
-      }
-
-      @keyframes fadeInUp {
-         to {
-            opacity: 1;
-            transform: translateY(0);
-         }
-      }
-
-      .product-card:nth-child(1) {
-         animation-delay: 0.1s;
-      }
-
-      .product-card:nth-child(2) {
-         animation-delay: 0.2s;
-      }
-
-      .product-card:nth-child(3) {
-         animation-delay: 0.3s;
-      }
-
-      .product-card:nth-child(4) {
-         animation-delay: 0.4s;
-      }
-
-      .product-card:nth-child(5) {
-         animation-delay: 0.5s;
-      }
-
-      .product-card:nth-child(6) {
-         animation-delay: 0.6s;
-      }
-   </style>
 </head>
 
 <body>
@@ -179,65 +38,67 @@
    </header>
 
    <!-- Основной контент -->
-   <main class="container">
-      <div class="hero-section">
-         <h1>Процессоры</h1>
-         <p>Высокопроизводительные CPU от AMD и Intel для игр, работы и создания контента</p>
-      </div>
-
-      <div class="products-grid">
-         <!-- Товар 1 -->
-         <div class="product-card fade-in" data-id="cpu-ryzen9-7950x" data-name="AMD Ryzen 9 7950X" data-price="65000"
-            data-image="img/processor_ryzen9.jpg">
-            <img src="img/processor_ryzen9.jpg" alt="AMD Ryzen 9 7950X">
-            <h3>AMD Ryzen 9 7950X</h3>
-            <p class="price">65 000 ₽</p>
-            <button class="btn-add-to-cart">В корзину</button>
+   <main>
+      <div class="container">
+         <div class="hero-section">
+            <h1>Процессоры</h1>
+            <p>Высокопроизводительные CPU от AMD и Intel для игр, работы и создания контента</p>
          </div>
 
-         <!-- Товар 2 -->
-         <div class="product-card fade-in" data-id="cpu-ryzen7-7800x3d" data-name="AMD Ryzen 7 7800X3D"
-            data-price="48000" data-image="img/processor_ryzen7.jpg">
-            <img src="img/processor_ryzen7.jpg" alt="AMD Ryzen 7 7800X3D">
-            <h3>Ryzen 7 7800X3D</h3>
-            <p class="price">48 000 ₽</p>
-            <button class="btn-add-to-cart">В корзину</button>
-         </div>
+         <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card fade-in" data-id="cpu-ryzen9-7950x" data-name="AMD Ryzen 9 7950X"
+               data-price="65000" data-image="img/processor_ryzen9.jpg">
+               <img src="img/processor_ryzen9.jpg" alt="AMD Ryzen 9 7950X">
+               <h3>AMD Ryzen 9 7950X</h3>
+               <p class="price">65 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
 
-         <!-- Товар 3 -->
-         <div class="product-card fade-in" data-id="cpu-i9-14900k" data-name="Intel Core i9-14900K" data-price="72000"
-            data-image="img/processor_i9.jpg">
-            <img src="img/processor_i9.jpg" alt="Intel Core i9-14900K">
-            <h3>Intel Core i9-14900K</h3>
-            <p class="price">72 000 ₽</p>
-            <button class="btn-add-to-cart">В корзину</button>
-         </div>
+            <!-- Товар 2 -->
+            <div class="product-card fade-in" data-id="cpu-ryzen7-7800x3d" data-name="AMD Ryzen 7 7800X3D"
+               data-price="48000" data-image="img/processor_ryzen7.jpg">
+               <img src="img/processor_ryzen7.jpg" alt="AMD Ryzen 7 7800X3D">
+               <h3>Ryzen 7 7800X3D</h3>
+               <p class="price">48 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
 
-         <!-- Товар 4 -->
-         <div class="product-card fade-in" data-id="cpu-i7-14700k" data-name="Intel Core i7-14700K" data-price="52000"
-            data-image="img/processor_i7.jpg">
-            <img src="img/processor_i7.jpg" alt="Intel Core i7-14700K">
-            <h3>Intel Core i7-14700K</h3>
-            <p class="price">52 000 ₽</p>
-            <button class="btn-add-to-cart">В корзину</button>
-         </div>
+            <!-- Товар 3 -->
+            <div class="product-card fade-in" data-id="cpu-i9-14900k" data-name="Intel Core i9-14900K"
+               data-price="72000" data-image="img/processor_i9.jpg">
+               <img src="img/processor_i9.jpg" alt="Intel Core i9-14900K">
+               <h3>Intel Core i9-14900K</h3>
+               <p class="price">72 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
 
-         <!-- Товар 5 -->
-         <div class="product-card fade-in" data-id="cpu-ryzen5-7600x" data-name="AMD Ryzen 5 7600X" data-price="28000"
-            data-image="img/processor_ryzen5.jpg">
-            <img src="img/processor_ryzen5.jpg" alt="AMD Ryzen 5 7600X">
-            <h3>Ryzen 5 7600X</h3>
-            <p class="price">28 000 ₽</p>
-            <button class="btn-add-to-cart">В корзину</button>
-         </div>
+            <!-- Товар 4 -->
+            <div class="product-card fade-in" data-id="cpu-i7-14700k" data-name="Intel Core i7-14700K"
+               data-price="52000" data-image="img/processor_i7.jpg">
+               <img src="img/processor_i7.jpg" alt="Intel Core i7-14700K">
+               <h3>Intel Core i7-14700K</h3>
+               <p class="price">52 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
 
-         <!-- Товар 6 -->
-         <div class="product-card fade-in" data-id="cpu-i5-14600k" data-name="Intel Core i5-14600K" data-price="32000"
-            data-image="img/processor_i5.jpg">
-            <img src="img/processor_i5.jpg" alt="Intel Core i5-14600K">
-            <h3>Intel Core i5-14600K</h3>
-            <p class="price">32 000 ₽</p>
-            <button class="btn-add-to-cart">В корзину</button>
+            <!-- Товар 5 -->
+            <div class="product-card fade-in" data-id="cpu-ryzen5-7600x" data-name="AMD Ryzen 5 7600X"
+               data-price="28000" data-image="img/processor_ryzen5.jpg">
+               <img src="img/processor_ryzen5.jpg" alt="AMD Ryzen 5 7600X">
+               <h3>Ryzen 5 7600X</h3>
+               <p class="price">28 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card fade-in" data-id="cpu-i5-14600k" data-name="Intel Core i5-14600K"
+               data-price="32000" data-image="img/processor_i5.jpg">
+               <img src="img/processor_i5.jpg" alt="Intel Core i5-14600K">
+               <h3>Intel Core i5-14600K</h3>
+               <p class="price">32 000 ₽</p>
+               <button class="btn-add-to-cart">В корзину</button>
+            </div>
          </div>
       </div>
    </main>
