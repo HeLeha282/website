@@ -48,33 +48,66 @@
          display: flex;
          gap: 16px;
          backdrop-filter: blur(10px);
-         align-items: flex-start;
-         /* выравнивание по верху */
          position: relative;
          animation: fadeIn 0.4s ease;
       }
 
       .cart-item img {
-         width: 100px;
-         height: 100px;
+         width: 170;
+         height: 170px;
          object-fit: cover;
          border-radius: 10px;
          border: 1px solid rgba(255, 255, 255, 0.15);
          flex-shrink: 0;
-         /* не сжимается */
       }
 
       .item-info {
          flex: 1;
          min-width: 0;
-         /* позволяет тексту переноситься */
       }
 
-      .item-info h3 {
+      /* НОВЫЙ БЛОК: заголовок + кнопка удаления */
+      .item-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         margin-bottom: 8px;
+      }
+
+      .item-header h3 {
          font-size: 1.1rem;
-         margin-bottom: 6px;
          color: white;
          line-height: 1.3;
+         margin: 0;
+         flex: 1;
+         padding-right: 12px;
+         /* Можно раскомментировать для эллипсиса на мобильных:
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         */
+      }
+
+      /* Кнопка удаления — без position: absolute */
+      .remove-btn {
+         background: none;
+         border: none;
+         color: var(--danger);
+         font-size: 1.1rem;
+         cursor: pointer;
+         width: 28px;
+         height: 28px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         flex-shrink: 0;
+         margin-left: auto;
+      }
+
+      .remove-btn:hover {
+         background: rgba(248, 113, 113, 0.15);
+         transform: rotate(90deg);
       }
 
       .item-price {
@@ -119,7 +152,6 @@
          transform: scale(1.1);
       }
 
-      /* Стиль для отключённой кнопки */
       .quantity-btn:disabled {
          background: rgba(255, 255, 255, 0.15) !important;
          color: rgba(255, 255, 255, 0.5) !important;
@@ -134,29 +166,6 @@
          font-size: 1rem;
          font-weight: 600;
          color: white;
-      }
-
-      /* Кнопка удаления */
-      .remove-btn {
-         position: absolute;
-         top: 10px;
-         right: 10px;
-         background: none;
-         border: none;
-         color: var(--danger);
-         font-size: 1.1rem;
-         cursor: pointer;
-         width: 28px;
-         height: 28px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         border-radius: 50%;
-      }
-
-      .remove-btn:hover {
-         background: rgba(248, 113, 113, 0.15);
-         transform: rotate(90deg);
       }
 
       /* Итоговая сумма и действия */
@@ -277,11 +286,11 @@
          }
 
          .cart-item img {
-            width: 80px;
-            height: 80px;
+            width: 110px;
+            height: 110px;
          }
 
-         .item-info h3 {
+         .item-header h3 {
             font-size: 1rem;
          }
 
@@ -331,17 +340,15 @@
          </button>
          <nav>
             <ul id="navMenu">
-               <li><a href="index.html" class="active">Главная</a></li>
+               <li><a href="index.html">Главная</a></li>
                <li><a href="catalog.html">Каталог</a></li>
-               <li><a href="basket.html">Корзина</a></li>
+               <li><a href="basket.html" class="active">Корзина</a></li>
                <li><a href="reviews.html">Отзывы</a></li>
                <li><a href="login.html">Войти</a></li>
             </ul>
          </nav>
-
       </div>
    </header>
-
 
    <!-- Основной контент -->
    <main>
@@ -349,8 +356,6 @@
          <div class="basket-container">
             <div class="basket-header">
                <h1>Ваша корзина</h1>
-
-               <!-- Кнопки сортировки -->
                <div class="sort-controls">
                   <button class="sort-btn active" data-sort="default">По порядку</button>
                   <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
@@ -387,6 +392,8 @@
                <ul>
                   <li><a href="processors.html">Процессоры</a></li>
                   <li><a href="videocards.html">Видеокарты</a></li>
+                  <li><a href="ram.html">ОЗУ</a></li>
+                  <li><a href="disks.html">Накопители</a></li>
                </ul>
             </div>
             <div class="footer-column">
@@ -406,7 +413,6 @@
       let currentSort = 'default';
 
       document.addEventListener('DOMContentLoaded', () => {
-         // Убедимся, что у всех товаров есть addedAt (для правильной сортировки "по порядку")
          cart.forEach((item, i) => {
             if (item.addedAt === undefined) item.addedAt = i;
          });
@@ -414,23 +420,17 @@
 
          renderCart();
 
-         // === ДЕЛЕГИРОВАНИЕ СОБЫТИЙ НА ВЕСЬ КОНТЕЙНЕР КОРЗИНЫ ===
          const cartContainer = document.getElementById('cart-content');
          cartContainer.addEventListener('click', (e) => {
-            // Кнопка "+"
             if (e.target.classList.contains('inc')) {
                const id = e.target.dataset.id;
                const added = e.target.dataset.added;
                changeQuantity(id, added, 1);
-            }
-            // Кнопка "−"
-            else if (e.target.classList.contains('dec')) {
+            } else if (e.target.classList.contains('dec')) {
                const id = e.target.dataset.id;
                const added = e.target.dataset.added;
                changeQuantity(id, added, -1);
-            }
-            // Кнопка удаления (с поддержкой клика по иконке <i>)
-            else if (e.target.closest('.remove-btn')) {
+            } else if (e.target.closest('.remove-btn')) {
                const btn = e.target.closest('.remove-btn');
                const id = btn.dataset.id;
                const added = btn.dataset.added;
@@ -438,17 +438,15 @@
             }
          });
 
-         // === СОРТИРОВКА ===
          document.querySelectorAll('.sort-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                currentSort = btn.dataset.sort;
                document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
                btn.classList.add('active');
-               renderCart(); // Полная перерисовка при смене сортировки
+               renderCart();
             });
          });
 
-         // === ОЧИСТКА КОРЗИНЫ ===
          document.getElementById('clear-cart')?.addEventListener('click', () => {
             if (confirm('Очистить корзину?')) {
                cart = [];
@@ -457,7 +455,6 @@
             }
          });
 
-         // === ОФОРМЛЕНИЕ ЗАКАЗА (заглушка) ===
          document.getElementById('checkout-btn')?.addEventListener('click', () => {
             if (cart.length === 0) {
                alert('Корзина пуста!');
@@ -467,22 +464,19 @@
          });
       });
 
-      // --- ФУНКЦИИ ---
-
       function renderCart() {
          const container = document.getElementById('cart-content');
          if (cart.length === 0) {
             container.innerHTML = `
-        <div class="empty-cart">
-          Ваша корзина пуста.<br>
-          <a href="catalog.html" style="color: var(--accent); text-decoration: underline;">Перейти в каталог</a>
-        </div>
-      `;
+              <div class="empty-cart">
+                Ваша корзина пуста.<br>
+                <a href="catalog.html" style="color: var(--accent); text-decoration: underline;">Перейти в каталог</a>
+              </div>
+            `;
             updateTotal();
             return;
          }
 
-         // Сортируем копию корзины
          let displayCart = [...cart];
          switch (currentSort) {
             case 'price-asc':
@@ -504,25 +498,27 @@
             const qty = item.quantity || 1;
             const itemTotal = item.price * qty;
             html += `
-        <div class="cart-item" data-id="${item.id}" data-added="${item.addedAt}">
-          <img src="${item.image || 'img/placeholder.jpg'}" alt="${item.name}">
-          <div class="item-info">
-            <h3>${item.name}</h3>
-            <div class="item-price">${item.price.toLocaleString()} ₽</div>
-            <div class="quantity-control">
-              <button class="quantity-btn dec" data-id="${item.id}" data-added="${item.addedAt}" ${qty <= 1 ? 'disabled' : ''}>−</button>
-              <span class="quantity-value" data-id="${item.id}" data-added="${item.addedAt}">${qty}</span>
-              <button class="quantity-btn inc" data-id="${item.id}" data-added="${item.addedAt}">+</button>
-            </div>
-            <div class="item-total" data-id="${item.id}" data-added="${item.addedAt}">
-              Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>
-            </div>
-          </div>
-          <button class="remove-btn" data-id="${item.id}" data-added="${item.addedAt}">
-            <i class="fas fa-trash"></i>
-          </button>
-        </div>
-      `;
+              <div class="cart-item" data-id="${item.id}" data-added="${item.addedAt}">
+                <img src="${item.image || 'img/placeholder.jpg'}" alt="${item.name}">
+                <div class="item-info">
+                  <div class="item-header">
+                    <h3>${item.name}</h3>
+                    <button class="remove-btn" data-id="${item.id}" data-added="${item.addedAt}">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                  <div class="item-price">${item.price.toLocaleString()} ₽</div>
+                  <div class="quantity-control">
+                    <button class="quantity-btn dec" data-id="${item.id}" data-added="${item.addedAt}" ${qty <= 1 ? 'disabled' : ''}>−</button>
+                    <span class="quantity-value" data-id="${item.id}" data-added="${item.addedAt}">${qty}</span>
+                    <button class="quantity-btn inc" data-id="${item.id}" data-added="${item.addedAt}">+</button>
+                  </div>
+                  <div class="item-total" data-id="${item.id}" data-added="${item.addedAt}">
+                    Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>
+                  </div>
+                </div>
+              </div>
+            `;
          });
 
          container.innerHTML = html;
@@ -536,17 +532,14 @@
          const qty = item.quantity || 1;
          const itemTotal = item.price * qty;
 
-         // Обновляем количество
          const qtyEl = document.querySelector(`.quantity-value[data-id="${id}"][data-added="${addedAt}"]`);
          if (qtyEl) qtyEl.textContent = qty;
 
-         // Обновляем итог по товару
          const totalEl = document.querySelector(`.item-total[data-id="${id}"][data-added="${addedAt}"]`);
          if (totalEl) {
             totalEl.innerHTML = `Итого: <strong>${itemTotal.toLocaleString()} ₽</strong>`;
          }
 
-         // Обновляем состояние кнопки "−"
          const decBtn = document.querySelector(`.quantity-btn.dec[data-id="${id}"][data-added="${addedAt}"]`);
          if (decBtn) {
             if (qty <= 1) {
@@ -578,7 +571,7 @@
             setTimeout(() => {
                cart.splice(index, 1);
                saveCart();
-               renderCart(); // Удаление → перерисовка (нормально)
+               renderCart();
             }, 300);
          }
       }
@@ -588,11 +581,11 @@
          if (!item) return;
 
          const newQty = (item.quantity || 1) + delta;
-         if (newQty < 1) return; // Защита
+         if (newQty < 1) return;
 
          item.quantity = newQty;
          saveCart();
-         updateCartItemUI(id, addedAt); // ← Только обновление UI, без перерисовки списка
+         updateCartItemUI(id, addedAt);
       }
 
       function saveCart() {
