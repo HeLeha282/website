@@ -2,12 +2,6 @@ main {
    margin-top: 85px;
 }
 
-.btn-and-info {
-   display: flex;
-   justify-content: space-between;
-   margin-right: 15px;
-}
-
 .btn-add-to-cart-mobile {
    display: none;
 }
@@ -214,6 +208,16 @@ main {
 }
 
 @media (max-width: 480px) {
+   .product-info {
+      width: 180px;
+   }
+
+   .btn-and-info {
+      display: flex;
+      justify-content: space-between;
+      margin-right: 3px;
+   }
+
    .btn-and-info {
       margin-top: 20px;
    }
@@ -227,6 +231,8 @@ main {
       overflow: hidden;
       border-radius: 50%;
       transform: translateY(-5px);
+      height: 50px;
+      width: 50px;
    }
 
    .btn-add-to-cart-mobile {

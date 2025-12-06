@@ -11,26 +11,7 @@
    <script src="../js/cart.js" defer></script>
    <link rel="stylesheet" href="../css/style_products.css" />
 </head>
-<script>
-   document.addEventListener('DOMContentLoaded', () => {
-      // ... ваша существующая логика ...
 
-      // НОВОЕ: анимация увеличения изображения при нажатии на иконку корзины
-      document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
-         icon.addEventListener('click', function () {
-            const img = this.closest('.product-card').querySelector('img');
-            if (img) {
-               img.style.transform = 'scale(1.03)';
-               img.style.transition = 'transform 0.15s linear';
-            }
-            setTimeout(() => {
-               img.style.transform = 'scale(1)';
-               img.style.transition = 'transform 0.15s linear';
-            }, 300);
-         });
-      });
-   });
-</script>
 
 <body>
    <!-- Шапка -->
@@ -65,9 +46,8 @@
 
          <div class="products-grid">
             <!-- Товар 1 -->
-            <div class="product-card fade-in" data-id="disk-samsung-990pro-2tb"
-               data-name="Твердотельный накопитель Samsung 2000 Gb 990 PRO (MZ-V9P2T0BW)" data-price="21940"
-               data-image="img/disk11.jpg">
+            <div class="product-card fade-in" data-id="disk-samsung-990pro-2tb" data-name="Samsung 990 PRO 2TB"
+               data-price="21940" data-image="img/disk11.jpg">
                <img src="../img/disk11.jpg" alt="Samsung 990 PRO 2TB">
                <div class="btn-and-info">
                   <div class="product-info">
@@ -84,8 +64,7 @@
             </div>
 
             <!-- Товар 2 -->
-            <div class="product-card fade-in" data-id="disk-samsung-990pro-1tb"
-               data-name="Твердотельный накопитель Samsung 1000 Gb 990 PRO (MZ-V9P1T0BW)" data-price="14510"
+            <div class="product-card fade-in" data-id="disk-samsung-990pro-1tb" data-name="Samsung 990 PRO 1TB"
                data-image="img/disk12.jpg">
                <img src="../img/disk12.jpg" alt="Samsung 990 PRO 1TB">
 
@@ -104,8 +83,8 @@
             </div>
 
             <!-- Товар 3 -->
-            <div class="product-card fade-in" data-id="disk-seagate-4tb-hdd"
-               data-name="Жесткий диск Seagate 4000 Gb (ST4000DM004)" data-price="11920" data-image="img/disk13.jpg">
+            <div class="product-card fade-in" data-id="disk-seagate-4tb-hdd" data-name="Seagate 4TB HDD"
+               data-price="11920" data-image="img/disk13.jpg">
                <img src="../img/disk13.jpg" alt="Seagate 4TB HDD">
                <div class="btn-and-info">
                   <div class="product-info">
@@ -122,9 +101,8 @@
             </div>
 
             <!-- Товар 4 -->
-            <div class="product-card fade-in" data-id="disk-seagate-6tb-hdd"
-               data-name="Жесткий диск Seagate 6000 Gb BARRACUDA (ST6000DM003)" data-price="13830"
-               data-image="img/disk14.jpg">
+            <div class="product-card fade-in" data-id="disk-seagate-6tb-hdd" data-name="Seagate 6TB BARRACUDA"
+               data-price="13830" data-image="img/disk14.jpg">
                <img src="../img/disk14.jpg" alt="Seagate 6TB BARRACUDA">
                <div class="btn-and-info">
                   <div class="product-info">
@@ -141,9 +119,8 @@
             </div>
 
             <!-- Товар 5 -->
-            <div class="product-card fade-in" data-id="disk-samsung-870evo-250gb"
-               data-name="Твердотельный накопитель Samsung 250 Gb 870 EVO (MZ-77E250BW)" data-price="4190"
-               data-image="img/disk15.jpg">
+            <div class="product-card fade-in" data-id="disk-samsung-870evo-250gb" data-name="Samsung 870 EVO 250GB"
+               data-price="4190" data-image="img/disk15.jpg">
                <img src="../img/disk15.jpg" alt="Samsung 870 EVO 250GB">
                <div class="btn-and-info">
                   <div class="product-info">
@@ -160,8 +137,7 @@
             </div>
 
             <!-- Товар 6 -->
-            <div class="product-card fade-in" data-id="disk-wd-blue-250gb"
-               data-name="Твердотельный накопитель Western Digital 250 Gb Blue (WDS250G3B0A)" data-price="3230"
+            <div class="product-card fade-in" data-id="disk-wd-blue-250gb" data-name="WD Blue 250GB" data-price="3230"
                data-image="img/disk16.jpg">
                <img src="../img/disk16.jpg" alt="WD Blue 250GB">
                <div class="btn-and-info">

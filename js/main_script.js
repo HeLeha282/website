@@ -72,3 +72,25 @@ document.addEventListener('DOMContentLoaded', () => {
    // Автопрокрутка (опционально, можно убрать)
    // setInterval(() => goToSlide(currentIndex + 1), 5000);
 });
+
+
+
+//для поднятия картинки в товарах пори добавлении в корзину /pages
+document.addEventListener('DOMContentLoaded', () => {
+   // ... ваша существующая логика ...
+
+   // НОВОЕ: анимация увеличения изображения при нажатии на иконку корзины
+   document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
+      icon.addEventListener('click', function () {
+         const img = this.closest('.product-card').querySelector('img');
+         if (img) {
+            img.style.transform = 'scale(1.03)';
+            img.style.transition = 'transform 0.15s linear';
+         }
+         setTimeout(() => {
+            img.style.transform = 'scale(1)';
+            img.style.transition = 'transform 0.15s linear';
+         }, 300);
+      });
+   });
+});
