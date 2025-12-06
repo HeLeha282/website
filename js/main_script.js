@@ -76,20 +76,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //для поднятия картинки в товарах пори добавлении в корзину /pages
+// для поднятия картинки в товарах при добавлении в корзину /pages
 document.addEventListener('DOMContentLoaded', () => {
    // ... ваша существующая логика ...
 
-   // НОВОЕ: анимация увеличения изображения при нажатии на иконку корзины
+   // НОВОЕ: анимация увеличения изображения и бордер для карточки при нажатии на иконку корзины
    document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
       icon.addEventListener('click', function () {
-         const img = this.closest('.product-card').querySelector('img');
+         const productCard = this.closest('.product-card');
+         const img = productCard.querySelector('img');
+
+         // Анимация изображения
          if (img) {
             img.style.transform = 'scale(1.03)';
             img.style.transition = 'transform 0.15s linear';
          }
+
+         // Анимация карточки
+         productCard.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.25)';
+         productCard.style.borderColor = 'rgba(67, 97, 238, 0.4)';
+         productCard.style.transition = 'box-shadow 0.15s linear, border-color 0.15s linear';
+
          setTimeout(() => {
-            img.style.transform = 'scale(1)';
-            img.style.transition = 'transform 0.15s linear';
+            // Возврат изображения
+            if (img) {
+               img.style.transform = 'scale(1)';
+               // transition можно не повторять — он уже задан
+            }
+
+            // Возврат карточки к исходному состоянию
+            productCard.style.transform = '';
+            productCard.style.boxShadow = '';
+            productCard.style.borderColor = '';
+            // transition остаётся — браузер сам плавно вернёт значения из CSS
          }, 300);
       });
    });
