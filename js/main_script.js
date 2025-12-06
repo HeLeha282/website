@@ -31,48 +31,155 @@ initBurgerMenu();
 
 
 // для карусели в reviews
-document.addEventListener('DOMContentLoaded', () => {
-   const wrapper = document.getElementById('reviewsWrapper');
+// Карусель отзывов
+function initReviewsCarousel() {
+   const track = document.getElementById('carouselTrack');
+   const dotsContainer = document.getElementById('carouselDots');
    const prevBtn = document.getElementById('prevBtn');
    const nextBtn = document.getElementById('nextBtn');
-   const dotsContainer = document.getElementById('carouselDots');
-   const cards = wrapper.children;
-   const cardCount = cards.length;
+   const cards = document.querySelectorAll('.review-card');
+
+   if (!track || cards.length === 0) return;
+
    let currentIndex = 0;
+   let cardsPerView = getCardsPerView();
+   let totalSlides = Math.ceil(cards.length / cardsPerView);
 
-   // Создание точек
-   for (let i = 0; i < cardCount; i++) {
-      const dot = document.createElement('span');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-   }
-   updateDots();
-
-   // Переключение на слайд
-   function goToSlide(index) {
-      if (index < 0) index = cardCount - 1;
-      if (index >= cardCount) index = 0;
-      currentIndex = index;
-      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-      updateDots();
-   }
-
-   // Обновление активной точки
-   function updateDots() {
-      const dots = dotsContainer.children;
-      for (let i = 0; i < dots.length; i++) {
-         dots[i].classList.toggle('active', i === currentIndex);
+   // Создаем индикаторы
+   function createIndicators() {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+         const dot = document.createElement('span');
+         dot.addEventListener('click', () => goToSlide(i));
+         dotsContainer.appendChild(dot);
       }
+      updateIndicators();
    }
 
-   // Кнопки
-   prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-   nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+   // Обновляем индикаторы
+   function updateIndicators() {
+      const dots = dotsContainer.querySelectorAll('span');
+      dots.forEach((dot, index) => {
+         dot.classList.toggle('active', index === currentIndex);
+      });
+   }
 
-   // Автопрокрутка (опционально, можно убрать)
-   // setInterval(() => goToSlide(currentIndex + 1), 5000);
-});
+   // Получаем количество карточек на экране
+   function getCardsPerView() {
+      return window.innerWidth <= 768 ? 1 : 2;
+   }
 
+   // Переход к конкретному слайду
+   function goToSlide(index) {
+      currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+      updateCarousel();
+   }
+
+   // Обновляем карусель
+   function updateCarousel() {
+      const cardWidth = cards[0].offsetWidth + 30; // ширина карточки + gap
+      const translateX = -currentIndex * cardsPerView * cardWidth;
+      track.style.transform = `translateX(${translateX}px)`;
+      updateIndicators();
+   }
+
+   // Следующий слайд
+   function nextSlide() {
+      if (currentIndex < totalSlides - 1) {
+         currentIndex++;
+      } else {
+         currentIndex = 0; // Возврат к началу
+      }
+      updateCarousel();
+   }
+
+   // Предыдущий слайд
+   function prevSlide() {
+      if (currentIndex > 0) {
+         currentIndex--;
+      } else {
+         currentIndex = totalSlides - 1; // Переход к последнему
+      }
+      updateCarousel();
+   }
+
+   // Автопрокрутка (опционально)
+   let autoSlideInterval;
+
+   function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 5000); // 5 секунд
+   }
+
+   function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+   }
+
+   // Обработчики событий
+   prevBtn.addEventListener('click', () => {
+      prevSlide();
+      stopAutoSlide();
+      startAutoSlide();
+   });
+
+   nextBtn.addEventListener('click', () => {
+      nextSlide();
+      stopAutoSlide();
+      startAutoSlide();
+   });
+
+   // Обработчик изменения размера окна
+   function handleResize() {
+      cardsPerView = getCardsPerView();
+      totalSlides = Math.ceil(cards.length / cardsPerView);
+      createIndicators();
+      updateCarousel();
+   }
+
+   // Пауза автопрокрутки при наведении
+   track.addEventListener('mouseenter', stopAutoSlide);
+   track.addEventListener('mouseleave', startAutoSlide);
+
+   // Инициализация
+   createIndicators();
+   updateCarousel();
+   startAutoSlide();
+
+   // Обработчик изменения размера окна
+   window.addEventListener('resize', handleResize);
+
+   // Touch events для мобильных устройств
+   let startX = 0;
+   let isDragging = false;
+
+   track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      stopAutoSlide();
+   });
+
+   track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const currentX = e.touches[0].clientX;
+      const diff = startX - currentX;
+
+      if (Math.abs(diff) > 50) {
+         if (diff > 0) {
+            nextSlide();
+         } else {
+            prevSlide();
+         }
+         isDragging = false;
+      }
+   });
+
+   track.addEventListener('touchend', () => {
+      isDragging = false;
+      startAutoSlide();
+   });
+}
+
+// Инициализируем карусель при загрузке DOM
+document.addEventListener('DOMContentLoaded', initReviewsCarousel);
 
 
 //для поднятия картинки в товарах пори добавлении в корзину /pages
