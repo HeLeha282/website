@@ -6,6 +6,11 @@
    overflow: hidden;
 }
 
+.btn-wrapper {
+   display: block;
+
+}
+
 .hero::before {
    content: '';
    position: absolute;
@@ -39,6 +44,11 @@
    font-size: 1.4rem;
    max-width: 800px;
    margin: 0 auto 40px;
+}
+
+.btn-container {
+   display: flex;
+   justify-content: center;
 }
 
 .btn {
@@ -100,4 +110,38 @@
    font-size: 3rem;
    margin-bottom: 20px;
    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+   .btn:hover {
+      transform: translateY(0px);
+   }
+
+   .hero h1 {
+      font-size: 3.1rem;
+   }
+
+   .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+   }
+
+   .btn-wrapper {
+      height: 58px;
+      width: 257.13px;
+      background-color: transparent;
+      overflow: hidden;
+      border-radius: 50px;
+   }
+}
+
+@media (max-width: 480px) {
+   .hero h1 {
+      font-size: 2.2rem;
+   }
+
+   .hero p {
+      font-size: 1.14rem;
+      max-width: 400px;
+   }
 }

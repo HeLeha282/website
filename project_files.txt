@@ -20,7 +20,7 @@
    <header class="header">
       <div class="container header-container">
          <a href="index.html" class="logo">
-            <i class="fab fa-telegram"></i> PC Components
+            <i class="fas fa-microchip"></i> PC Components
          </a>
 
          <!-- Иконка бургерменю -->
@@ -50,8 +50,10 @@
                <h1>Компьютерные комплектующие будущего</h1>
                <p>Соберите идеальный ПК для игр, работы или творчества с нашими высококачественными компонентами</p>
                <div class="btn-container">
-                  <a href="#" class="btn" onclick="showPage('catalog')">Посмотреть каталог</a>
-                  <a href="#" class="btn btn-outline" onclick="showPage('builder')">Собрать ПК</a>
+                  <span class="btn-wrapper">
+
+                     <a href="catalog.html" class="btn">Посмотреть каталог</a>
+                  </span>
                </div>
             </div>
          </div>
@@ -72,7 +74,7 @@
                <div class="feature-card fade-in">
                   <i class="fas fa-headset"></i>
                   <h3>Техподдержка</h3>
-                  <p>Наши эксперты помогут с выбором и сборкой ПК</p>
+                  <p>Наши эксперты помогут с выбором комплектующих</p>
                </div>
                <div class="feature-card fade-in">
                   <i class="fas fa-sync-alt"></i>
@@ -366,318 +368,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
    <link rel="stylesheet" href="css/style_main.css">
    <script src="js/main_script.js" defer></script>
-   <style>
-      /* Стили корзины в вашей палитре и glass-стиле */
-      .basket-container {
-         max-width: 900px;
-         margin: 0 auto;
-         padding: 20px 0 60px;
-      }
-
-      .basket-header {
-         text-align: center;
-         margin-bottom: 40px;
-      }
-
-      h1 {
-         padding-top: 25px;
-      }
-
-      .empty-cart {
-         text-align: center;
-         padding: 60px 20px;
-         background: rgba(255, 255, 255, 0.06);
-         border-radius: 18px;
-         backdrop-filter: blur(10px);
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         color: rgba(255, 255, 255, 0.8);
-         font-size: 1.2rem;
-      }
-
-      .cart-item {
-         background: rgba(255, 255, 255, 0.06);
-         border: 1px solid rgba(255, 255, 255, 0.12);
-         border-radius: 16px;
-         padding: 16px;
-         display: flex;
-         gap: 16px;
-         backdrop-filter: blur(10px);
-         position: relative;
-         animation: fadeIn 0.4s ease;
-      }
-
-      .cart-item img {
-         width: 170;
-         height: 170px;
-         object-fit: cover;
-         border-radius: 10px;
-         border: 1px solid rgba(255, 255, 255, 0.15);
-         flex-shrink: 0;
-      }
-
-      .item-info {
-         flex: 1;
-         min-width: 0;
-      }
-
-      /* НОВЫЙ БЛОК: заголовок + кнопка удаления */
-      .item-header {
-         display: flex;
-         justify-content: space-between;
-         align-items: flex-start;
-         margin-bottom: 8px;
-      }
-
-      .item-header h3 {
-         font-size: 1.1rem;
-         color: white;
-         line-height: 1.3;
-         margin: 0;
-         flex: 1;
-         padding-right: 12px;
-         /* Можно раскомментировать для эллипсиса на мобильных:
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-         */
-      }
-
-      /* Кнопка удаления — без position: absolute */
-      .remove-btn {
-         background: none;
-         border: none;
-         color: var(--danger);
-         font-size: 1.1rem;
-         cursor: pointer;
-         width: 28px;
-         height: 28px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         border-radius: 50%;
-         flex-shrink: 0;
-         margin-left: auto;
-      }
-
-      .remove-btn:hover {
-         background: rgba(248, 113, 113, 0.15);
-         transform: rotate(90deg);
-      }
-
-      .item-price {
-         color: var(--accent);
-         font-weight: bold;
-         font-size: 1rem;
-         margin: 4px 0;
-      }
-
-      .item-total {
-         font-size: 0.95rem;
-         margin-top: 4px;
-         color: rgba(255, 255, 255, 0.9);
-      }
-
-      /* Управление количеством */
-      .quantity-control {
-         display: flex;
-         align-items: center;
-         gap: 8px;
-         margin: 8px 0;
-      }
-
-      .quantity-btn {
-         width: 30px;
-         height: 30px;
-         border-radius: 50%;
-         background: var(--primary);
-         color: white;
-         border: none;
-         font-weight: bold;
-         cursor: pointer;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         transition: var(--transition);
-         font-size: 0.9rem;
-      }
-
-      .quantity-btn:hover:not(:disabled) {
-         background: var(--secondary);
-         transform: scale(1.1);
-      }
-
-      .quantity-btn:disabled {
-         background: rgba(255, 255, 255, 0.15) !important;
-         color: rgba(255, 255, 255, 0.5) !important;
-         cursor: not-allowed !important;
-         opacity: 0.7 !important;
-         transform: none !important;
-      }
-
-      .quantity-value {
-         min-width: 24px;
-         text-align: center;
-         font-size: 1rem;
-         font-weight: 600;
-         color: white;
-      }
-
-      /* Итоговая сумма и действия */
-      .cart-summary {
-         margin-top: 30px;
-         padding: 25px;
-         background: rgba(255, 255, 255, 0.06);
-         border-radius: 18px;
-         backdrop-filter: blur(10px);
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         text-align: center;
-      }
-
-      .total {
-         font-size: 1.5rem;
-         margin: 15px 0;
-         color: var(--accent);
-         font-weight: bold;
-      }
-
-      .actions {
-         display: flex;
-         gap: 15px;
-         justify-content: center;
-         margin-top: 20px;
-         flex-wrap: wrap;
-      }
-
-      .btn {
-         padding: 12px 24px;
-         border-radius: 12px;
-         font-weight: 600;
-         cursor: pointer;
-         transition: var(--transition);
-         border: none;
-         font-size: 1rem;
-      }
-
-      .btn-checkout {
-         background: var(--success);
-         color: white;
-      }
-
-      .btn-checkout:hover {
-         background: #38c16a;
-         transform: translateY(-2px);
-      }
-
-      .btn-clear {
-         background: rgba(248, 113, 113, 0.2);
-         color: var(--danger);
-      }
-
-      .btn-clear:hover {
-         background: rgba(248, 113, 113, 0.35);
-         transform: translateY(-2px);
-      }
-
-      /* Сортировка */
-      .sort-controls {
-         display: flex;
-         justify-content: center;
-         gap: 12px;
-         margin-bottom: 25px;
-         flex-wrap: wrap;
-      }
-
-      .sort-btn {
-         padding: 8px 16px;
-         background: rgba(67, 97, 238, 0.2);
-         color: var(--light);
-         border: 1px solid rgba(67, 97, 238, 0.4);
-         border-radius: 30px;
-         cursor: pointer;
-         transition: var(--transition);
-         white-space: nowrap;
-      }
-
-      .sort-btn.active,
-      .sort-btn:hover {
-         background: var(--primary);
-         border-color: var(--primary);
-      }
-
-      /* Анимации */
-      @keyframes fadeIn {
-         from {
-            opacity: 0;
-            transform: translateY(10px);
-         }
-
-         to {
-            opacity: 1;
-            transform: translateY(0);
-         }
-      }
-
-      @keyframes fadeOut {
-         to {
-            opacity: 0;
-            transform: translateY(-10px);
-         }
-      }
-
-      .fade-out {
-         animation: fadeOut 0.3s forwards;
-      }
-
-      /* Адаптив для очень узких экранов */
-      @media (max-width: 480px) {
-         .basket-header h1 {
-            font-size: 2.2rem;
-         }
-
-         .cart-item {
-            padding: 12px;
-            gap: 12px;
-         }
-
-         .cart-item img {
-            width: 110px;
-            height: 110px;
-         }
-
-         .item-header h3 {
-            font-size: 1rem;
-         }
-
-         .quantity-btn {
-            width: 26px;
-            height: 26px;
-            font-size: 0.85rem;
-         }
-
-         .quantity-value {
-            min-width: 20px;
-            font-size: 0.95rem;
-         }
-
-         .item-total {
-            font-size: 0.9rem;
-         }
-
-         .sort-controls {
-            gap: 8px;
-         }
-
-         .sort-btn {
-            padding: 6px 12px;
-            font-size: 0.9rem;
-         }
-
-         .btn {
-            padding: 10px 20px;
-            font-size: 0.95rem;
-         }
-      }
-   </style>
+   <link rel="stylesheet" href="css/style_basket.css">
 </head>
 
 <body>
@@ -997,7 +688,7 @@
    <!-- Основной контент -->
    <main>
       <div class="container">
-         <h1 class="section-title">Отзывы наших клиентов</h1>
+         <h1>Отзывы наших клиентов</h1>
          <p class="section-subtitle">Что говорят о нас пользователи</p>
 
          <!-- Карусель -->
@@ -1282,318 +973,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
    <link rel="stylesheet" href="css/style_main.css">
    <script src="js/main_script.js" defer></script>
-   <style>
-      /* Стили корзины в вашей палитре и glass-стиле */
-      .basket-container {
-         max-width: 900px;
-         margin: 0 auto;
-         padding: 20px 0 60px;
-      }
-
-      .basket-header {
-         text-align: center;
-         margin-bottom: 40px;
-      }
-
-      h1 {
-         padding-top: 25px;
-      }
-
-      .empty-cart {
-         text-align: center;
-         padding: 60px 20px;
-         background: rgba(255, 255, 255, 0.06);
-         border-radius: 18px;
-         backdrop-filter: blur(10px);
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         color: rgba(255, 255, 255, 0.8);
-         font-size: 1.2rem;
-      }
-
-      .cart-item {
-         background: rgba(255, 255, 255, 0.06);
-         border: 1px solid rgba(255, 255, 255, 0.12);
-         border-radius: 16px;
-         padding: 16px;
-         display: flex;
-         gap: 16px;
-         backdrop-filter: blur(10px);
-         position: relative;
-         animation: fadeIn 0.4s ease;
-      }
-
-      .cart-item img {
-         width: 170;
-         height: 170px;
-         object-fit: cover;
-         border-radius: 10px;
-         border: 1px solid rgba(255, 255, 255, 0.15);
-         flex-shrink: 0;
-      }
-
-      .item-info {
-         flex: 1;
-         min-width: 0;
-      }
-
-      /* НОВЫЙ БЛОК: заголовок + кнопка удаления */
-      .item-header {
-         display: flex;
-         justify-content: space-between;
-         align-items: flex-start;
-         margin-bottom: 8px;
-      }
-
-      .item-header h3 {
-         font-size: 1.1rem;
-         color: white;
-         line-height: 1.3;
-         margin: 0;
-         flex: 1;
-         padding-right: 12px;
-         /* Можно раскомментировать для эллипсиса на мобильных:
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-         */
-      }
-
-      /* Кнопка удаления — без position: absolute */
-      .remove-btn {
-         background: none;
-         border: none;
-         color: var(--danger);
-         font-size: 1.1rem;
-         cursor: pointer;
-         width: 28px;
-         height: 28px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         border-radius: 50%;
-         flex-shrink: 0;
-         margin-left: auto;
-      }
-
-      .remove-btn:hover {
-         background: rgba(248, 113, 113, 0.15);
-         transform: rotate(90deg);
-      }
-
-      .item-price {
-         color: var(--accent);
-         font-weight: bold;
-         font-size: 1rem;
-         margin: 4px 0;
-      }
-
-      .item-total {
-         font-size: 0.95rem;
-         margin-top: 4px;
-         color: rgba(255, 255, 255, 0.9);
-      }
-
-      /* Управление количеством */
-      .quantity-control {
-         display: flex;
-         align-items: center;
-         gap: 8px;
-         margin: 8px 0;
-      }
-
-      .quantity-btn {
-         width: 30px;
-         height: 30px;
-         border-radius: 50%;
-         background: var(--primary);
-         color: white;
-         border: none;
-         font-weight: bold;
-         cursor: pointer;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         transition: var(--transition);
-         font-size: 0.9rem;
-      }
-
-      .quantity-btn:hover:not(:disabled) {
-         background: var(--secondary);
-         transform: scale(1.1);
-      }
-
-      .quantity-btn:disabled {
-         background: rgba(255, 255, 255, 0.15) !important;
-         color: rgba(255, 255, 255, 0.5) !important;
-         cursor: not-allowed !important;
-         opacity: 0.7 !important;
-         transform: none !important;
-      }
-
-      .quantity-value {
-         min-width: 24px;
-         text-align: center;
-         font-size: 1rem;
-         font-weight: 600;
-         color: white;
-      }
-
-      /* Итоговая сумма и действия */
-      .cart-summary {
-         margin-top: 30px;
-         padding: 25px;
-         background: rgba(255, 255, 255, 0.06);
-         border-radius: 18px;
-         backdrop-filter: blur(10px);
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         text-align: center;
-      }
-
-      .total {
-         font-size: 1.5rem;
-         margin: 15px 0;
-         color: var(--accent);
-         font-weight: bold;
-      }
-
-      .actions {
-         display: flex;
-         gap: 15px;
-         justify-content: center;
-         margin-top: 20px;
-         flex-wrap: wrap;
-      }
-
-      .btn {
-         padding: 12px 24px;
-         border-radius: 12px;
-         font-weight: 600;
-         cursor: pointer;
-         transition: var(--transition);
-         border: none;
-         font-size: 1rem;
-      }
-
-      .btn-checkout {
-         background: var(--success);
-         color: white;
-      }
-
-      .btn-checkout:hover {
-         background: #38c16a;
-         transform: translateY(-2px);
-      }
-
-      .btn-clear {
-         background: rgba(248, 113, 113, 0.2);
-         color: var(--danger);
-      }
-
-      .btn-clear:hover {
-         background: rgba(248, 113, 113, 0.35);
-         transform: translateY(-2px);
-      }
-
-      /* Сортировка */
-      .sort-controls {
-         display: flex;
-         justify-content: center;
-         gap: 12px;
-         margin-bottom: 25px;
-         flex-wrap: wrap;
-      }
-
-      .sort-btn {
-         padding: 8px 16px;
-         background: rgba(67, 97, 238, 0.2);
-         color: var(--light);
-         border: 1px solid rgba(67, 97, 238, 0.4);
-         border-radius: 30px;
-         cursor: pointer;
-         transition: var(--transition);
-         white-space: nowrap;
-      }
-
-      .sort-btn.active,
-      .sort-btn:hover {
-         background: var(--primary);
-         border-color: var(--primary);
-      }
-
-      /* Анимации */
-      @keyframes fadeIn {
-         from {
-            opacity: 0;
-            transform: translateY(10px);
-         }
-
-         to {
-            opacity: 1;
-            transform: translateY(0);
-         }
-      }
-
-      @keyframes fadeOut {
-         to {
-            opacity: 0;
-            transform: translateY(-10px);
-         }
-      }
-
-      .fade-out {
-         animation: fadeOut 0.3s forwards;
-      }
-
-      /* Адаптив для очень узких экранов */
-      @media (max-width: 480px) {
-         .basket-header h1 {
-            font-size: 2.2rem;
-         }
-
-         .cart-item {
-            padding: 12px;
-            gap: 12px;
-         }
-
-         .cart-item img {
-            width: 110px;
-            height: 110px;
-         }
-
-         .item-header h3 {
-            font-size: 1rem;
-         }
-
-         .quantity-btn {
-            width: 26px;
-            height: 26px;
-            font-size: 0.85rem;
-         }
-
-         .quantity-value {
-            min-width: 20px;
-            font-size: 0.95rem;
-         }
-
-         .item-total {
-            font-size: 0.9rem;
-         }
-
-         .sort-controls {
-            gap: 8px;
-         }
-
-         .sort-btn {
-            padding: 6px 12px;
-            font-size: 0.9rem;
-         }
-
-         .btn {
-            padding: 10px 20px;
-            font-size: 0.95rem;
-         }
-      }
-   </style>
+   <link rel="stylesheet" href="css/style_basket.css">
 </head>
 
 <body>
@@ -2102,7 +1482,7 @@
    <header class="header">
       <div class="container header-container">
          <a href="index.html" class="logo">
-            <i class="fab fa-telegram"></i> PC Components
+            <i class="fas fa-microchip"></i> PC Components
          </a>
 
          <!-- Иконка бургерменю -->
@@ -2132,8 +1512,10 @@
                <h1>Компьютерные комплектующие будущего</h1>
                <p>Соберите идеальный ПК для игр, работы или творчества с нашими высококачественными компонентами</p>
                <div class="btn-container">
-                  <a href="#" class="btn" onclick="showPage('catalog')">Посмотреть каталог</a>
-                  <a href="#" class="btn btn-outline" onclick="showPage('builder')">Собрать ПК</a>
+                  <span class="btn-wrapper">
+
+                     <a href="catalog.html" class="btn">Посмотреть каталог</a>
+                  </span>
                </div>
             </div>
          </div>
@@ -2154,7 +1536,7 @@
                <div class="feature-card fade-in">
                   <i class="fas fa-headset"></i>
                   <h3>Техподдержка</h3>
-                  <p>Наши эксперты помогут с выбором и сборкой ПК</p>
+                  <p>Наши эксперты помогут с выбором комплектующих</p>
                </div>
                <div class="feature-card fade-in">
                   <i class="fas fa-sync-alt"></i>
@@ -2378,7 +1760,7 @@
    <!-- Основной контент -->
    <main>
       <div class="container">
-         <h1 class="section-title">Отзывы наших клиентов</h1>
+         <h1>Отзывы наших клиентов</h1>
          <p class="section-subtitle">Что говорят о нас пользователи</p>
 
          <!-- Карусель -->
@@ -2540,6 +1922,325 @@
 </html> 
 -------------------------------------------------------------------------------- 
  
+==== ФАЙЛ: css\style_basket.css ==== 
+Путь: css\style_basket.css 
+ 
+.basket-container {
+   max-width: 900px;
+   margin: 0 auto;
+   padding: 20px 0 60px;
+}
+
+.basket-header {
+   text-align: center;
+   margin-bottom: 40px;
+}
+
+h1 {
+   padding-top: 25px;
+}
+
+.empty-cart {
+   text-align: center;
+   padding: 60px 20px;
+   background: rgba(255, 255, 255, 0.06);
+   border-radius: 18px;
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   color: rgba(255, 255, 255, 0.8);
+   font-size: 1.2rem;
+}
+
+.cart-item {
+   background: rgba(255, 255, 255, 0.06);
+   border: 1px solid rgba(255, 255, 255, 0.12);
+   border-radius: 16px;
+   padding: 16px;
+   display: flex;
+   gap: 16px;
+   backdrop-filter: blur(10px);
+   position: relative;
+   animation: fadeIn 0.4s ease;
+}
+
+.cart-item img {
+   width: 170;
+   height: 170px;
+   object-fit: cover;
+   border-radius: 10px;
+   border: 1px solid rgba(255, 255, 255, 0.15);
+   flex-shrink: 0;
+}
+
+.item-info {
+   flex: 1;
+   min-width: 0;
+}
+
+/* НОВЫЙ БЛОК: заголовок + кнопка удаления */
+.item-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   margin-bottom: 8px;
+}
+
+.item-header h3 {
+   font-size: 1.1rem;
+   color: white;
+   line-height: 1.3;
+   margin: 0;
+   flex: 1;
+   padding-right: 12px;
+   /* Можно раскомментировать для эллипсиса на мобильных:
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         */
+}
+
+/* Кнопка удаления — без position: absolute */
+.remove-btn {
+   background: none;
+   border: none;
+   color: var(--danger);
+   font-size: 1.1rem;
+   cursor: pointer;
+   width: 28px;
+   height: 28px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 50%;
+   flex-shrink: 0;
+   margin-left: auto;
+}
+
+.remove-btn:hover {
+   background: rgba(248, 113, 113, 0.15);
+   transform: rotate(90deg);
+}
+
+.item-price {
+   color: var(--accent);
+   font-weight: bold;
+   font-size: 1rem;
+   margin: 4px 0;
+}
+
+.item-total {
+   font-size: 0.95rem;
+   margin-top: 4px;
+   color: rgba(255, 255, 255, 0.9);
+}
+
+/* Управление количеством */
+.quantity-control {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   margin: 8px 0;
+}
+
+.quantity-btn {
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   background: var(--primary);
+   color: white;
+   border: none;
+   font-weight: bold;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: var(--transition);
+   font-size: 0.9rem;
+}
+
+.quantity-btn:hover:not(:disabled) {
+   background: var(--secondary);
+   transform: scale(1.1);
+}
+
+.quantity-btn:disabled {
+   background: rgba(255, 255, 255, 0.15) !important;
+   color: rgba(255, 255, 255, 0.5) !important;
+   cursor: not-allowed !important;
+   opacity: 0.7 !important;
+   transform: none !important;
+}
+
+.quantity-value {
+   min-width: 24px;
+   text-align: center;
+   font-size: 1rem;
+   font-weight: 600;
+   color: white;
+}
+
+/* Итоговая сумма и действия */
+.cart-summary {
+   margin-top: 30px;
+   padding: 25px;
+   background: rgba(255, 255, 255, 0.06);
+   border-radius: 18px;
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   text-align: center;
+}
+
+.total {
+   font-size: 1.5rem;
+   margin: 15px 0;
+   color: var(--accent);
+   font-weight: bold;
+}
+
+.actions {
+   display: flex;
+   gap: 15px;
+   justify-content: center;
+   margin-top: 20px;
+   flex-wrap: wrap;
+}
+
+.btn {
+   padding: 12px 24px;
+   border-radius: 12px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: var(--transition);
+   border: none;
+   font-size: 1rem;
+}
+
+.btn-checkout {
+   background: var(--success);
+   color: white;
+}
+
+.btn-checkout:hover {
+   background: #38c16a;
+   transform: translateY(-2px);
+}
+
+.btn-clear {
+   background: rgba(248, 113, 113, 0.2);
+   color: var(--danger);
+}
+
+.btn-clear:hover {
+   background: rgba(248, 113, 113, 0.35);
+   transform: translateY(-2px);
+}
+
+/* Сортировка */
+.sort-controls {
+   display: flex;
+   justify-content: center;
+   gap: 12px;
+   margin-bottom: 25px;
+   flex-wrap: wrap;
+}
+
+.sort-btn {
+   padding: 8px 16px;
+   background: rgba(67, 97, 238, 0.2);
+   color: var(--light);
+   border: 1px solid rgba(67, 97, 238, 0.4);
+   border-radius: 30px;
+   cursor: pointer;
+   transition: var(--transition);
+   white-space: nowrap;
+}
+
+.sort-btn.active,
+.sort-btn:hover {
+   background: var(--primary);
+   border-color: var(--primary);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(10px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+@keyframes fadeOut {
+   to {
+      opacity: 0;
+      transform: translateY(-10px);
+   }
+}
+
+.fade-out {
+   animation: fadeOut 0.3s forwards;
+}
+
+/* Адаптив для очень узких экранов */
+@media (max-width: 480px) {
+   h1 {
+      font-size: 2.4rem;
+   }
+
+   .basket-container {
+      padding-top: 10px;
+      padding-bottom: 20px;
+   }
+
+   .cart-item {
+      padding: 12px;
+      gap: 12px;
+   }
+
+   .cart-item img {
+      width: 110px;
+      height: 110px;
+   }
+
+   .item-header h3 {
+      font-size: 1rem;
+   }
+
+   .quantity-btn {
+      width: 26px;
+      height: 26px;
+      font-size: 0.85rem;
+   }
+
+   .quantity-value {
+      min-width: 20px;
+      font-size: 0.95rem;
+   }
+
+   .item-total {
+      font-size: 0.9rem;
+   }
+
+   .sort-controls {
+      gap: 8px;
+   }
+
+   .sort-btn {
+      padding: 6px 12px;
+      font-size: 0.9rem;
+   }
+
+   .btn {
+      padding: 10px 20px;
+      font-size: 0.95rem;
+   }
+} 
+-------------------------------------------------------------------------------- 
+ 
 ==== ФАЙЛ: css\style_catalog.css ==== 
 Путь: css\style_catalog.css 
  
@@ -2609,6 +2310,13 @@ h1 {
 .category-content h3 {
    margin: 0;
    font-size: 1.4rem;
+}
+
+@media (max-width: 480px) {
+   h1 {
+      font-size: 2.1rem;
+   }
+
 } 
 -------------------------------------------------------------------------------- 
  
@@ -2621,6 +2329,11 @@ h1 {
    padding: 60px 0;
    position: relative;
    overflow: hidden;
+}
+
+.btn-wrapper {
+   display: block;
+
 }
 
 .hero::before {
@@ -2656,6 +2369,11 @@ h1 {
    font-size: 1.4rem;
    max-width: 800px;
    margin: 0 auto 40px;
+}
+
+.btn-container {
+   display: flex;
+   justify-content: center;
 }
 
 .btn {
@@ -2717,6 +2435,40 @@ h1 {
    font-size: 3rem;
    margin-bottom: 20px;
    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+   .btn:hover {
+      transform: translateY(0px);
+   }
+
+   .hero h1 {
+      font-size: 3.1rem;
+   }
+
+   .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+   }
+
+   .btn-wrapper {
+      height: 58px;
+      width: 257.13px;
+      background-color: transparent;
+      overflow: hidden;
+      border-radius: 50px;
+   }
+}
+
+@media (max-width: 480px) {
+   .hero h1 {
+      font-size: 2.2rem;
+   }
+
+   .hero p {
+      font-size: 1.14rem;
+      max-width: 400px;
+   }
 } 
 -------------------------------------------------------------------------------- 
  
@@ -2820,7 +2572,7 @@ h1 {
 /* --- Ссылки --- */
 .links {
    margin-top: 25px;
-   font-size: 14px;
+   font-size: 15px;
    line-height: 1.6;
 }
 
@@ -3037,20 +2789,6 @@ h1 {
 ==== ФАЙЛ: css\style_main.css ==== 
 Путь: css\style_main.css 
  
-.btn-add-to-cart {
-   background: #4CAF50;
-   color: white;
-   border: none;
-   padding: 8px 16px;
-   border-radius: 4px;
-   cursor: pointer;
-   margin-top: 10px;
-}
-
-.btn-add-to-cart:hover {
-   background: #45a049;
-}
-
 /* Общие стили */
 * {
    margin: 0;
@@ -3124,7 +2862,7 @@ header {
 }
 
 .logo i {
-   color: var(--success);
+   color: rgb(26, 148, 255);
 }
 
 .header-login {
@@ -3512,90 +3250,19 @@ footer {
       opacity: 1;
       transform: translateY(0);
    }
-}
-
-/* Адаптив */
-/* @media (max-width: 992px) {
-   .build-steps {
-      flex-wrap: wrap;
-      gap: 40px;
-   }
-
-   .step {
-      width: 45%;
-   }
-
-   .build-steps::before {
-      display: none;
-   }
-}
-
-@media (max-width: 768px) {
-   .mobile-toggle {
-      display: block;
-   }
-
-   nav ul {
-      position: fixed;
-      top: 80px;
-      left: 0;
-      right: 0;
-      background: rgba(13, 19, 33, 0.95);
-      flex-direction: column;
-      padding: 20px;
-      gap: 15px;
-      transform: translateY(-100%);
-      transition: var(--transition);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-   }
-
-   nav ul.active {
-      transform: translateY(0);
-   }
-
-   .hero h1 {
-      font-size: 2.8rem;
-   }
-
-   .btn-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-   }
-
-   .btn-outline {
-      margin-left: 0;
-   }
-
-   .step {
-      width: 100%;
-   }
-}
-
-@media (max-width: 480px) {
-   h1 {
-      font-size: 2.2rem;
-   }
-
-   h2 {
-      font-size: 1.8rem;
-   }
-
-   .step-number {
-      width: 60px;
-      height: 60px;
-      font-size: 1.5rem;
-   }
-} */ 
+} 
 -------------------------------------------------------------------------------- 
  
 ==== ФАЙЛ: css\style_products.css ==== 
 Путь: css\style_products.css 
  
 main {
-   margin-top: 70px;
+   margin-top: 85px;
 }
 
+.btn-add-to-cart-mobile {
+   display: none;
+}
 
 .hero-section {
    text-align: center;
@@ -3623,13 +3290,13 @@ main {
 .products-grid {
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-   gap: 30px;
+   gap: 20px;
    margin-bottom: 60px;
 }
 
 .product-card {
    background: rgba(255, 255, 255, 0.06);
-   border: 1px solid rgba(255, 255, 255, 0.12);
+   border: 2px solid rgba(255, 255, 255, 0.22);
    border-radius: 18px;
    padding: 24px;
    backdrop-filter: blur(12px);
@@ -3638,11 +3305,11 @@ main {
    overflow: hidden;
 }
 
-.product-card:hover {
+/* .product-card:active {
    transform: translateY(-8px);
    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
    border-color: rgba(67, 97, 238, 0.4);
-}
+} */
 
 .product-card::before {
    content: '';
@@ -3650,7 +3317,7 @@ main {
    top: 0;
    left: 0;
    width: 100%;
-   height: 4px;
+   height: 1px;
    background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
@@ -3691,15 +3358,19 @@ main {
    border-radius: 12px;
    font-weight: 600;
    cursor: pointer;
-   transition: var(--transition);
+   /* transition: var(--transition); */
    font-size: 1.05rem;
    margin-top: 10px;
    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
 }
 
-.btn-add-to-cart:hover {
+/* .btn-add-to-cart:hover {
    background: var(--secondary);
-   transform: translateY(-2px);
+   box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
+} */
+
+.btn-add-to-cart:active {
+   background: var(--success);
    box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
 }
 
@@ -3738,6 +3409,128 @@ main {
 
 .product-card:nth-child(6) {
    animation-delay: 0.6s;
+}
+
+
+/* === Адаптив для мобильных устройств === */
+@media (max-width: 768px) {
+
+
+   .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+   }
+
+   .product-card {
+      padding: 12px 10px 10px 10px;
+   }
+
+   .hero-section {
+      padding: 15px 20px 25px;
+   }
+
+   .hero-section h1 {
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+   }
+
+   .hero-section p {
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.85);
+   }
+
+   .product-card img {
+      margin-bottom: 8px;
+   }
+
+   .product-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      color: white;
+   }
+
+   .price {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+   }
+
+   .btn-add-to-cart {
+      font-size: 0.rem;
+      margin-top: 5px;
+      padding: 9px;
+   }
+}
+
+@media (max-width: 480px) {
+   .product-info {
+      width: 180px;
+   }
+
+   .btn-and-info {
+      display: flex;
+      justify-content: space-between;
+      margin-right: 3px;
+   }
+
+   .btn-and-info {
+      margin-top: 20px;
+   }
+
+   .btn-add-to-cart {
+      display: none;
+   }
+
+   .btn-add-to-cart-mobile-wrapper {
+      background-color: transparent;
+      overflow: hidden;
+      border-radius: 50%;
+      transform: translateY(-5px);
+      height: 50px;
+      width: 50px;
+   }
+
+   .btn-add-to-cart-mobile {
+      position: relative;
+      background-clip: padding-box;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      background-color: rgba(33, 166, 219, 0.38);
+      border-radius: 50%;
+      overflow: hidden;
+      transition: background-color 0.2s ease;
+   }
+
+
+   .btn-add-to-cart-mobile:active {
+      background-color: rgba(18, 239, 232, 0.795);
+      /* transform: scale(1.04); */
+   }
+
+   .product-card:active img {
+      transform: scale(1.00);
+   }
+
+   .product-card:hover img {
+      transform: scale(1.00);
+   }
+
+   .products-grid {
+      gap: 10px;
+
+   }
 } 
 -------------------------------------------------------------------------------- 
  
@@ -3925,7 +3718,7 @@ function addToCart(product) {
 
    localStorage.setItem('cart', JSON.stringify(cart));
    updateCartBadge(); // обновить счётчик в шапке (опционально)
-   alert('Товар добавлен в корзину!');
+   // alert('Товар добавлен в корзину!');
 }
 
 // Обновление значка количества товаров в корзине (если есть иконка 🛒)
@@ -3939,6 +3732,20 @@ function updateCartBadge() {
 // Обработчик клика по кнопке "В корзину"
 document.querySelectorAll('.btn-add-to-cart').forEach(button => {
    button.addEventListener('click', function () {
+      const card = this.closest('.product-card');
+      const product = {
+         id: card.dataset.id,
+         name: card.dataset.name,
+         price: parseFloat(card.dataset.price),
+         image: card.dataset.image
+      };
+      addToCart(product);
+   });
+});
+
+// Добавьте в конец cart.js (после существующего кода):
+document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
+   icon.addEventListener('click', function () {
       const card = this.closest('.product-card');
       const product = {
          id: card.dataset.id,
@@ -4030,7 +3837,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
    // Автопрокрутка (опционально, можно убрать)
    // setInterval(() => goToSlide(currentIndex + 1), 5000);
-}); 
+});
+
+
+
+//для поднятия картинки в товарах пори добавлении в корзину /pages
+// для поднятия картинки в товарах при добавлении в корзину /pages
+document.addEventListener('DOMContentLoaded', () => {
+   // ... ваша существующая логика ...
+
+   // НОВОЕ: анимация увеличения изображения и бордер для карточки при нажатии на иконку корзины
+   document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
+      icon.addEventListener('click', function () {
+         const productCard = this.closest('.product-card');
+         const img = productCard.querySelector('img');
+
+         // Анимация изображения
+         if (img) {
+            img.style.transform = 'scale(1.03)';
+            img.style.transition = 'transform 0.15s linear';
+         }
+
+         // Анимация карточки
+         productCard.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.25)';
+         productCard.style.borderColor = 'rgba(67, 97, 238, 0.4)';
+         productCard.style.transition = 'box-shadow 0.15s linear, border-color 0.15s linear';
+
+         setTimeout(() => {
+            // Возврат изображения
+            if (img) {
+               img.style.transform = 'scale(1)';
+               // transition можно не повторять — он уже задан
+            }
+
+            // Возврат карточки к исходному состоянию
+            productCard.style.transform = '';
+            productCard.style.boxShadow = '';
+            productCard.style.borderColor = '';
+            // transition остаётся — браузер сам плавно вернёт значения из CSS
+         }, 300);
+      });
+   });
+});
+ 
 -------------------------------------------------------------------------------- 
  
 ==== ФАЙЛ: pages\case.html ==== 
@@ -4084,62 +3933,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
          <div class="products-grid">
             <!-- Товар 1 -->
-            <div class="product-card fade-in" data-id="case-montech-king95"
-               data-name="Компьютерный корпус Montech KING 95 PRO ARGB Black (KING95PBK)" data-price="12990"
-               data-image="img/case11.jpg">
+            <div class="product-card fade-in" data-id="case-montech-king95" data-name="Montech KING 95 PRO"
+               data-price="12990" data-image="img/case11.jpg">
                <img src="../img/case11.jpg" alt="Montech KING 95 PRO">
-               <h3>Montech KING 95 PRO</h3>
-               <p class="price">12 990 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Montech KING 95 PRO</h3>
+                     <p class="price">12 990 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 2 -->
-            <div class="product-card fade-in" data-id="case-cougar-airface"
-               data-name="Компьютерный корпус Cougar AIRFACE PRO RGB Black" data-price="7340"
-               data-image="img/case12.jpg">
+            <div class="product-card fade-in" data-id="case-cougar-airface" data-name="Cougar AIRFACE PRO"
+               data-price="7340" data-image="img/case12.jpg">
                <img src="../img/case12.jpg" alt="Cougar AIRFACE PRO">
-               <h3>Cougar AIRFACE PRO</h3>
-               <p class="price">7 340 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Cougar AIRFACE PRO</h3>
+                     <p class="price">7 340 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 3 -->
-            <div class="product-card fade-in" data-id="case-bequiet-purebase"
-               data-name="Компьютерный корпус Be Quiet! PURE BASE 500 DX White (BGW38)" data-price="11190"
-               data-image="img/case13.jpg">
+            <div class="product-card fade-in" data-id="case-bequiet-purebase" data-name="Be Quiet! PURE BASE 500"
+               data-price="11190" data-image="img/case13.jpg">
                <img src="../img/case13.jpg" alt="Be Quiet! PURE BASE 500">
-               <h3>Be Quiet! PURE BASE 500</h3>
-               <p class="price">11 190 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Be Quiet! PURE BASE 500</h3>
+                     <p class="price">11 190 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 4 -->
-            <div class="product-card fade-in" data-id="case-lianli-lancool3"
-               data-name="Компьютерный корпус Lian Li LANCOOL III TG Black (G99.LAN3X.10R)" data-price="12140"
-               data-image="img/case14.jpg">
+            <div class="product-card fade-in" data-id="case-lianli-lancool3" data-name="Lian Li LANCOOL III TG"
+               data-price="12140" data-image="img/case14.jpg">
                <img src="../img/case14.jpg" alt="Lian Li LANCOOL III TG">
-               <h3>Lian Li LANCOOL III TG</h3>
-               <p class="price">12 140 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Lian Li LANCOOL III TG</h3>
+                     <p class="price">12 140 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 5 -->
-            <div class="product-card fade-in" data-id="case-1stplayer-dk4"
-               data-name="Компьютерный корпус 1STPLAYER DK D4 White (D4-WH-4G6)" data-price="4780"
-               data-image="img/case15.jpg">
+            <div class="product-card fade-in" data-id="case-1stplayer-dk4" data-name="1STPLAYER DK D4 White"
+               data-price="4780" data-image="img/case15.jpg">
                <img src="../img/case15.jpg" alt="1STPLAYER DK D4 White">
-               <h3>1STPLAYER DK D4 White</h3>
-               <p class="price">4 780 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>1STPLAYER DK D4 White</h3>
+                     <p class="price">4 780 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 6 -->
-            <div class="product-card fade-in" data-id="case-lianli-lancool3-white"
-               data-name="Компьютерный корпус Lian Li LANCOOL III TG RGB White (G99.LAN3RW.10R)" data-price="13360"
-               data-image="img/case16.jpg">
+            <div class="product-card fade-in" data-id="case-lianli-lancool3-white" data-name="Lian Li LANCOOL III RGB"
+               data-price="13360" data-image="img/case16.jpg">
                <img src="../img/case16.jpg" alt="Lian Li LANCOOL III TG RGB White">
-               <h3>Lian Li LANCOOL III RGB</h3>
-               <p class="price">13 360 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Lian Li LANCOOL III RGB</h3>
+                     <p class="price">13 360 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
@@ -4226,62 +4123,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
          <div class="products-grid">
             <!-- Товар 1 -->
-            <div class="product-card fade-in" data-id="cool-deepcool-le720"
-               data-name="Система жидкостного охлаждения для процессора Deepcool LE720 R-LE720-BKAMMN-G-1"
-               data-price="5700" data-image="img/cooling_system11.jpg">
+            <div class="product-card fade-in" data-id="cool-deepcool-le720" data-name="Deepcool LE720" data-price="5700"
+               data-image="img/cooling_system11.jpg">
                <img src="../img/cooling_system11.jpg" alt="Deepcool LE720">
-               <h3>Deepcool LE720</h3>
-               <p class="price">5 700 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Deepcool LE720</h3>
+                     <p class="price">5 700 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 2 -->
-            <div class="product-card fade-in" data-id="cool-idcooling-se224"
-               data-name="Кулер для процессора ID-COOLING SE-224-XTS ARGB" data-price="1770"
-               data-image="img/cooling_system12.jpg">
+            <div class="product-card fade-in" data-id="cool-idcooling-se224" data-name="ID-Cooling SE-224-XTS"
+               data-price="1770" data-image="img/cooling_system12.jpg">
                <img src="../img/cooling_system12.jpg" alt="ID-Cooling SE-224-XTS">
-               <h3>ID-Cooling SE-224-XTS</h3>
-               <p class="price">1 770 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ID-Cooling SE-224-XTS</h3>
+                     <p class="price">1 770 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 3 -->
-            <div class="product-card fade-in" data-id="cool-geometric-eskimo"
-               data-name="Система жидкостного охлаждения для процессора Geometric Future Eskimo Pro 420 ARGB Black (1C253B0421000)"
+            <div class="product-card fade-in" data-id="cool-geometric-eskimo" data-name="Geometric Eskimo Pro 420"
                data-price="7630" data-image="img/cooling_system13.jpg">
                <img src="../img/cooling_system13.jpg" alt="Geometric Future Eskimo Pro 420">
-               <h3>Geometric Eskimo Pro 420</h3>
-               <p class="price">7 630 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Geometric Eskimo Pro 420</h3>
+                     <p class="price">7 630 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 4 -->
-            <div class="product-card fade-in" data-id="cool-lianli-hydroshift"
-               data-name="Система жидкостного охлаждения для процессора Lian Li HydroShift LCD 360S Black (G89.GHSLCD36SB.R0)"
+            <div class="product-card fade-in" data-id="cool-lianli-hydroshift" data-name="Lian Li HydroShift 360S"
                data-price="13680" data-image="img/cooling_system14.jpg">
                <img src="../img/cooling_system14.jpg" alt="Lian Li HydroShift LCD 360S">
-               <h3>Lian Li HydroShift 360S</h3>
-               <p class="price">13 680 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Lian Li HydroShift 360S</h3>
+                     <p class="price">13 680 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 5 -->
-            <div class="product-card fade-in" data-id="cool-valkyrie-dl125"
-               data-name="Кулер для процессора Valkyrie DL125 Merlin ARGB (DL125 MERLIN)" data-price="4710"
-               data-image="img/cooling_system15.jpg">
+            <div class="product-card fade-in" data-id="cool-valkyrie-dl125" data-name="Valkyrie DL125 Merlin"
+               data-price="4710" data-image="img/cooling_system15.jpg">
                <img src="../img/cooling_system15.jpg" alt="Valkyrie DL125 Merlin">
-               <h3>Valkyrie DL125 Merlin</h3>
-               <p class="price">4 710 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Valkyrie DL125 Merlin</h3>
+                     <p class="price">4 710 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 6 -->
-            <div class="product-card fade-in" data-id="cool-idcooling-frozna620"
-               data-name="Кулер для процессора ID-COOLING FROZN A620 ARGB White" data-price="4700"
-               data-image="img/cooling_system16.jpg">
+            <div class="product-card fade-in" data-id="cool-idcooling-frozna620" data-name="ID-Cooling FROZN A620"
+               data-price="4700" data-image="img/cooling_system16.jpg">
                <img src="../img/cooling_system16.jpg" alt="ID-Cooling FROZN A620 White">
-               <h3>ID-Cooling FROZN A620</h3>
-               <p class="price">4 700 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ID-Cooling FROZN A620</h3>
+                     <p class="price">4 700 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
@@ -4347,6 +4292,7 @@ document.addEventListener('DOMContentLoaded', () => {
    <link rel="stylesheet" href="../css/style_products.css" />
 </head>
 
+
 <body>
    <!-- Шапка -->
    <header class="header">
@@ -4380,61 +4326,111 @@ document.addEventListener('DOMContentLoaded', () => {
 
          <div class="products-grid">
             <!-- Товар 1 -->
-            <div class="product-card fade-in" data-id="disk-samsung-990pro-2tb"
-               data-name="Твердотельный накопитель Samsung 2000 Gb 990 PRO (MZ-V9P2T0BW)" data-price="21940"
-               data-image="img/disk11.jpg">
+            <div class="product-card fade-in" data-id="disk-samsung-990pro-2tb" data-name="Samsung 990 PRO 2TB"
+               data-price="21940" data-image="img/disk11.jpg">
                <img src="../img/disk11.jpg" alt="Samsung 990 PRO 2TB">
-               <h3>Samsung 990 PRO 2TB</h3>
-               <p class="price">21 940 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Samsung 990 PRO 2TB</h3>
+                     <p class="price">21 940 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 2 -->
-            <div class="product-card fade-in" data-id="disk-samsung-990pro-1tb"
-               data-name="Твердотельный накопитель Samsung 1000 Gb 990 PRO (MZ-V9P1T0BW)" data-price="14510"
-               data-image="img/disk12.jpg">
+            <div class="product-card fade-in" data-id="disk-samsung-990pro-1tb" data-name="Samsung 990 PRO 1TB"
+               data-price="14510" data-image="img/disk12.jpg">
                <img src="../img/disk12.jpg" alt="Samsung 990 PRO 1TB">
-               <h3>Samsung 990 PRO 1TB</h3>
-               <p class="price">14 510 ₽</p>
+
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Samsung 990 PRO 1TB</h3>
+                     <p class="price">14 510 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 3 -->
-            <div class="product-card fade-in" data-id="disk-seagate-4tb-hdd"
-               data-name="Жесткий диск Seagate 4000 Gb (ST4000DM004)" data-price="11920" data-image="img/disk13.jpg">
+            <div class="product-card fade-in" data-id="disk-seagate-4tb-hdd" data-name="Seagate 4TB HDD"
+               data-price="11920" data-image="img/disk13.jpg">
                <img src="../img/disk13.jpg" alt="Seagate 4TB HDD">
-               <h3>Seagate 4TB HDD</h3>
-               <p class="price">11 920 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Seagate 4TB HDD</h3>
+                     <p class="price">11 920 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 4 -->
-            <div class="product-card fade-in" data-id="disk-seagate-6tb-hdd"
-               data-name="Жесткий диск Seagate 6000 Gb BARRACUDA (ST6000DM003)" data-price="13830"
-               data-image="img/disk14.jpg">
+            <div class="product-card fade-in" data-id="disk-seagate-6tb-hdd" data-name="Seagate 6TB BARRACUDA"
+               data-price="13830" data-image="img/disk14.jpg">
                <img src="../img/disk14.jpg" alt="Seagate 6TB BARRACUDA">
-               <h3>Seagate 6TB BARRACUDA</h3>
-               <p class="price">13 830 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Seagate 6TB BARRACUDA</h3>
+                     <p class="price">13 830 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 5 -->
-            <div class="product-card fade-in" data-id="disk-samsung-870evo-250gb"
-               data-name="Твердотельный накопитель Samsung 250 Gb 870 EVO (MZ-77E250BW)" data-price="4190"
-               data-image="img/disk15.jpg">
+            <div class="product-card fade-in" data-id="disk-samsung-870evo-250gb" data-name="Samsung 870 EVO 250GB"
+               data-price="4190" data-image="img/disk15.jpg">
                <img src="../img/disk15.jpg" alt="Samsung 870 EVO 250GB">
-               <h3>Samsung 870 EVO 250GB</h3>
-               <p class="price">4 190 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Samsung 870 EVO 250GB</h3>
+                     <p class="price">4 190 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 6 -->
-            <div class="product-card fade-in" data-id="disk-wd-blue-250gb"
-               data-name="Твердотельный накопитель Western Digital 250 Gb Blue (WDS250G3B0A)" data-price="3230"
+            <div class="product-card fade-in" data-id="disk-wd-blue-250gb" data-name="WD Blue 250GB" data-price="3230"
                data-image="img/disk16.jpg">
                <img src="../img/disk16.jpg" alt="WD Blue 250GB">
-               <h3>WD Blue 250GB</h3>
-               <p class="price">3 230 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>WD Blue 250GB</h3>
+                     <p class="price">3 230 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
@@ -4536,61 +4532,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
          <div class="products-grid">
             <!-- Товар 1 -->
-            <div class="product-card fade-in" data-id="mb-asus-prime-z890p"
-               data-name="Материнская плата ASUS PRIME Z890-P (90MB1150-M0EAY0)" data-price="24640"
-               data-image="img/motherboard11.jpg">
+            <div class="product-card fade-in" data-id="mb-asus-prime-z890p" data-name="ASUS PRIME Z890-P"
+               data-price="24640" data-image="img/motherboard11.jpg">
                <img src="../img/motherboard11.jpg" alt="ASUS PRIME Z890-P">
-               <h3>ASUS PRIME Z890-P</h3>
-               <p class="price">24 640 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ASUS PRIME Z890-P</h3>
+                     <p class="price">24 640 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 2 -->
-            <div class="product-card fade-in" data-id="mb-asus-rog-strix-z790a"
-               data-name="Материнская плата ASUS ROG STRIX Z790-A GAMING WIFI D4 (90MB1CN0-M0EAY0)" data-price="24560"
-               data-image="img/motherboard12.jpg">
+            <div class="product-card fade-in" data-id="mb-asus-rog-strix-z790a" data-name="ASUS ROG STRIX Z790-A"
+               data-price="24560" data-image="img/motherboard12.jpg">
                <img src="../img/motherboard12.jpg" alt="ASUS ROG STRIX Z790-A">
-               <h3>ASUS ROG STRIX Z790-A</h3>
-               <p class="price">24 560 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ASUS ROG STRIX Z790-A</h3>
+                     <p class="price">24 560 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 3 -->
-            <div class="product-card fade-in" data-id="mb-asus-proart-b650"
-               data-name="Материнская плата ASUS PROART B650-CREATOR (90MB1C40-M0EAY0)" data-price="24500"
-               data-image="img/motherboard13.jpg">
+            <div class="product-card fade-in" data-id="mb-asus-proart-b650" data-name="ASUS PROART B650-CREATOR"
+               data-price="24500" data-image="img/motherboard13.jpg">
                <img src="../img/motherboard13.jpg" alt="ASUS PROART B650-CREATOR">
-               <h3>ASUS PROART B650-CREATOR</h3>
-               <p class="price">24 500 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ASUS PROART B650-CREATOR</h3>
+                     <p class="price">24 500 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 4 -->
-            <div class="product-card fade-in" data-id="mb-msi-meg-z690-ace"
-               data-name="Материнская плата MSI MEG Z690 ACE" data-price="42310" data-image="img/motherboard14.jpg">
+            <div class="product-card fade-in" data-id="mb-msi-meg-z690-ace" data-name="MSI MEG Z690 ACE"
+               data-price="42310" data-image="img/motherboard14.jpg">
                <img src="../img/motherboard14.jpg" alt="MSI MEG Z690 ACE">
-               <h3>MSI MEG Z690 ACE</h3>
-               <p class="price">42 310 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>MSI MEG Z690 ACE</h3>
+                     <p class="price">42 310 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 5 -->
-            <div class="product-card fade-in" data-id="mb-asus-rog-strix-z890e"
-               data-name="Материнская плата ASUS ROG STRIX Z890-E GAMING WIFI (90MB1IM0-M0EAY0)" data-price="42900"
-               data-image="img/motherboard15.jpg">
+            <div class="product-card fade-in" data-id="mb-asus-rog-strix-z890e" data-name="ASUS ROG STRIX Z890-E"
+               data-price="42900" data-image="img/motherboard15.jpg">
                <img src="../img/motherboard15.jpg" alt="ASUS ROG STRIX Z890-E">
-               <h3>ASUS ROG STRIX Z890-E</h3>
-               <p class="price">42 900 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ASUS ROG STRIX Z890-E</h3>
+                     <p class="price">42 900 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 6 -->
-            <div class="product-card fade-in" data-id="mb-msi-mpg-z890-carbon"
-               data-name="Материнская плата MSI MPG Z890 CARBON WIFI" data-price="42580"
-               data-image="img/motherboard16.jpg">
+            <div class="product-card fade-in" data-id="mb-msi-mpg-z890-carbon" data-name="MSI MPG Z890 CARBON WIFI"
+               data-price="42580" data-image="img/motherboard16.jpg">
                <img src="../img/motherboard16.jpg" alt="MSI MPG Z890 CARBON WIFI">
-               <h3>MSI MPG Z890 CARBON WIFI</h3>
-               <p class="price">42 580 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>MSI MPG Z890 CARBON WIFI</h3>
+                     <p class="price">42 580 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
@@ -4689,62 +4734,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
          <div class="products-grid">
             <!-- Товар 1 -->
-            <div class="product-card fade-in" data-id="psu-1stplayer-1000w-white"
-               data-name="Блок питания 1STPLAYER 1000W NGDP Platinum White (HA-1000BA3-WH) 16 Pin (PCIe 5.0 Connector Cable Details)"
+            <div class="product-card fade-in" data-id="psu-1stplayer-1000w-white" data-name="1STPLAYER 1000W White"
                data-price="14110" data-image="img/power11.jpg">
                <img src="../img/power11.jpg" alt="1STPLAYER 1000W White">
-               <h3>1STPLAYER 1000W White</h3>
-               <p class="price">14 110 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>1STPLAYER 1000W White</h3>
+                     <p class="price">14 110 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 2 -->
-            <div class="product-card fade-in" data-id="psu-asus-rog-thor-1000w"
-               data-name="Блок питания ASUS 1000W ROG-THOR-1000P2-GAMING (90YE00L4-B0NA00) 16 Pin (PCIe 5.0 Connector Cable Details)"
+            <div class="product-card fade-in" data-id="psu-asus-rog-thor-1000w" data-name="ASUS ROG THOR 1000W"
                data-price="34910" data-image="img/power12.jpg">
                <img src="../img/power12.jpg" alt="ASUS ROG THOR 1000W">
-               <h3>ASUS ROG THOR 1000W</h3>
-               <p class="price">34 910 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ASUS ROG THOR 1000W</h3>
+                     <p class="price">34 910 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 3 -->
-            <div class="product-card fade-in" data-id="psu-asus-tuf-1200w"
-               data-name="Блок питания ASUS 1200W TUF-GAMING-1200G (90YE00S0-B0NA00) 16 Pin (PCIe 5.0 Connector Cable Details)"
+            <div class="product-card fade-in" data-id="psu-asus-tuf-1200w" data-name="ASUS TUF GAMING 1200W"
                data-price="19180" data-image="img/power13.jpg">
                <img src="../img/power13.jpg" alt="ASUS TUF GAMING 1200W">
-               <h3>ASUS TUF GAMING 1200W</h3>
-               <p class="price">19 180 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ASUS TUF GAMING 1200W</h3>
+                     <p class="price">19 180 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 4 -->
-            <div class="product-card fade-in" data-id="psu-asus-rog-loki-1000w"
-               data-name="Блок питания ASUS 1000W ROG-LOKI-1000P-SFX-LGAMING (90YE00N1-B0NA00)" data-price="22970"
-               data-image="img/power14.jpg">
+            <div class="product-card fade-in" data-id="psu-asus-rog-loki-1000w" data-name="ASUS ROG LOKI 1000W"
+               data-price="22970" data-image="img/power14.jpg">
                <img src="../img/power14.jpg" alt="ASUS ROG LOKI 1000W">
-               <h3>ASUS ROG LOKI 1000W</h3>
-               <p class="price">22 970 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ASUS ROG LOKI 1000W</h3>
+                     <p class="price">22 970 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 5 -->
-            <div class="product-card fade-in" data-id="psu-gigabyte-850w"
-               data-name="Блок питания Gigabyte 850W (GP-AE850PM PG5 ICE) 16 Pin (PCIe 5.0 Connector Cable Details)"
-               data-price="11700" data-image="img/power15.jpg">
+            <div class="product-card fade-in" data-id="psu-gigabyte-850w" data-name="Gigabyte 850W" data-price="11700"
+               data-image="img/power15.jpg">
                <img src="../img/power15.jpg" alt="Gigabyte 850W">
-               <h3>Gigabyte 850W</h3>
-               <p class="price">11 700 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Gigabyte 850W</h3>
+                     <p class="price">11 700 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 6 -->
-            <div class="product-card fade-in" data-id="psu-1stplayer-1300w-black"
-               data-name="Блок питания 1STPLAYER 1300W NGDP Platinum Black (HA-1300BA3-BK) 16 Pin (PCIe 5.0 Connector Cable Details)"
+            <div class="product-card fade-in" data-id="psu-1stplayer-1300w-black" data-name="1STPLAYER 1300W Black"
                data-price="17130" data-image="img/power16.jpg">
                <img src="../img/power16.jpg" alt="1STPLAYER 1300W Black">
-               <h3>1STPLAYER 1300W Black</h3>
-               <p class="price">17 130 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>1STPLAYER 1300W Black</h3>
+                     <p class="price">17 130 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
@@ -4849,8 +4942,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="cpu-ryzen9-7950x" data-name="AMD Ryzen 9 7950X"
                data-price="65000" data-image="img/processor_ryzen9.jpg">
                <img src="../img/processor_ryzen9.jpg" alt="AMD Ryzen 9 7950X">
-               <h3>AMD Ryzen 9 7950X</h3>
-               <p class="price">65 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>AMD Ryzen 9 7950X</h3>
+                     <p class="price">65 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -4858,8 +4960,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="cpu-ryzen7-7800x3d" data-name="AMD Ryzen 7 7800X3D"
                data-price="48000" data-image="img/processor_ryzen7.jpg">
                <img src="../img/processor_ryzen7.jpg" alt="AMD Ryzen 7 7800X3D">
-               <h3>Ryzen 7 7800X3D</h3>
-               <p class="price">48 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Ryzen 7 7800X3D</h3>
+                     <p class="price">48 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -4867,8 +4978,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="cpu-i9-14900k" data-name="Intel Core i9-14900K"
                data-price="72000" data-image="img/processor_i9.jpg">
                <img src="../img/processor_i9.jpg" alt="Intel Core i9-14900K">
-               <h3>Intel Core i9-14900K</h3>
-               <p class="price">72 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Intel Core i9-14900K</h3>
+                     <p class="price">72 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -4876,8 +4996,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="cpu-i7-14700k" data-name="Intel Core i7-14700K"
                data-price="52000" data-image="img/processor_i7.jpg">
                <img src="../img/processor_i7.jpg" alt="Intel Core i7-14700K">
-               <h3>Intel Core i7-14700K</h3>
-               <p class="price">52 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Intel Core i7-14700K</h3>
+                     <p class="price">52 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -4885,8 +5014,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="cpu-ryzen5-7600x" data-name="AMD Ryzen 5 7600X"
                data-price="28000" data-image="img/processor_ryzen5.jpg">
                <img src="../img/processor_ryzen5.jpg" alt="AMD Ryzen 5 7600X">
-               <h3>Ryzen 5 7600X</h3>
-               <p class="price">28 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Ryzen 5 7600X</h3>
+                     <p class="price">28 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -4894,8 +5032,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="cpu-i5-14600k" data-name="Intel Core i5-14600K"
                data-price="32000" data-image="img/processor_i5.jpg">
                <img src="../img/processor_i5.jpg" alt="Intel Core i5-14600K">
-               <h3>Intel Core i5-14600K</h3>
-               <p class="price">32 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Intel Core i5-14600K</h3>
+                     <p class="price">32 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
@@ -4994,62 +5141,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
          <div class="products-grid">
             <!-- Товар 1 -->
-            <div class="product-card fade-in" data-id="ram-corsair-128gb"
-               data-name="Оперативная память 128 Gb 6400 MHz Corsair VENGEANCE" data-price="52000"
-               data-image="img/ram11.jpg">
+            <div class="product-card fade-in" data-id="ram-corsair-128gb" data-name="Corsair VENGEANCE 128GB 6400 MHz"
+               data-price="52000" data-image="img/ram11.jpg">
                <img src="../img/ram11.jpg" alt="Corsair VENGEANCE 128GB">
-               <h3>Corsair VENGEANCE 128GB</h3>
-               <p class="price">109 990 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Corsair VENGEANCE 128GB 6400 MHz</h3>
+                     <p class="price">109 990 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 2 -->
-            <div class="product-card fade-in" data-id="ram-gskill-128gb"
-               data-name="Оперативная память 128 Gb 6400 MHz G.Skill RIPJAWS S5 Black (F5-6400J3644F64GX2-RS5K)"
+            <div class="product-card fade-in" data-id="ram-gskill-128gb" data-name="G.Skill RIPJAWS S5 128GB 6400 MHz"
                data-price="54000" data-image="img/ram12.jpg">
                <img src="../img/ram12.jpg" alt="G.Skill RIPJAWS S5 128GB">
-               <h3>G.Skill RIPJAWS S5 128GB</h3>
-               <p class="price">119 990 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>G.Skill RIPJAWS S5 128GB 6400 MHz</h3>
+                     <p class="price">119 990 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 3 -->
             <div class="product-card fade-in" data-id="ram-gskill-trident-96gb"
-               data-name="Оперативная память 96 Gb 6800 MHz G.Skill TRIDENT Z5 RGB Black" data-price="46000"
-               data-image="img/ram13.jpg">
+               data-name="G.Skill TRIDENT Z5 RGB 96GB 6800 MHz" data-price="46000" data-image="img/ram13.jpg">
                <img src="../img/ram13.jpg" alt="G.Skill TRIDENT Z5 RGB 96GB">
-               <h3>G.Skill TRIDENT Z5 RGB 96GB</h3>
-               <p class="price">83 260 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>G.Skill TRIDENT Z5 RGB 96GB 6800 MHz</h3>
+                     <p class="price">83 260 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 4 -->
-            <div class="product-card fade-in" data-id="ram-adata-64gb"
-               data-name="Оперативная память 64 Gb 6400 MHz ADATA XPG LANCER RGB Black" data-price="32000"
-               data-image="img/ram14.jpg">
+            <div class="product-card fade-in" data-id="ram-adata-64gb" data-name="ADATA XPG LANCER RGB 64GB 6400 MHz"
+               data-price="32000" data-image="img/ram14.jpg">
                <img src="../img/ram14.jpg" alt="ADATA XPG LANCER RGB 64GB">
-               <h3>ADATA XPG LANCER RGB 64GB</h3>
-               <p class="price">77 990 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ADATA XPG LANCER RGB 64GB 6400 MHz</h3>
+                     <p class="price">77 990 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 5 -->
             <div class="product-card fade-in" data-id="ram-adata-blade-32gb"
-               data-name="Оперативная память 32 Gb 6400 MHz ADATA XPG LANCER Blade RGB Black" data-price="18000"
-               data-image="img/ram15.jpg">
+               data-name="ADATA LANCER Blade RGB 32GB 6400 MHz" data-price="18000" data-image="img/ram15.jpg">
                <img src="../img/ram15.jpg" alt="ADATA XPG LANCER Blade RGB 32GB">
-               <h3>ADATA LANCER Blade RGB 32GB</h3>
-               <p class="price">54 990 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>ADATA LANCER Blade RGB 32GB 6400 MHz</h3>
+                     <p class="price">54 990 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
             <!-- Товар 6 -->
             <div class="product-card fade-in" data-id="ram-kingston-32gb"
-               data-name="Оперативная память 32 Gb 6400 MHz Kingston FURY Renegade White" data-price="20000"
-               data-image="img/ram16.jpg">
+               data-name="Kingston FURY Renegade 32GB 6400 MHz" data-price="20000" data-image="img/ram16.jpg">
                <img src="../img/ram16.jpg" alt="Kingston FURY Renegade White 32GB">
-               <h3>Kingston FURY Renegade 32GB</h3>
-               <p class="price">48 650 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Kingston FURY Renegade 32GB 6400 MHz</h3>
+                     <p class="price">48 650 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
@@ -5150,8 +5345,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="gpu-rtx4090" data-name="NVIDIA GeForce RTX 4090"
                data-price="180000" data-image="img/videocard_rtx4090.jpg">
                <img src="../img/videocard_rtx4090.jpg" alt="NVIDIA GeForce RTX 4090">
-               <h3>GeForce RTX 4090</h3>
-               <p class="price">180 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>GeForce RTX 4090</h3>
+                     <p class="price">180 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -5159,8 +5363,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="gpu-rtx4080" data-name="NVIDIA GeForce RTX 4080"
                data-price="110000" data-image="img/videocard_rtx4080.jpg">
                <img src="../img/videocard_rtx4080.jpg" alt="NVIDIA GeForce RTX 4080">
-               <h3>GeForce RTX 4080</h3>
-               <p class="price">110 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>GeForce RTX 4080</h3>
+                     <p class="price">110 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -5168,8 +5381,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="gpu-rx7900xtx" data-name="AMD Radeon RX 7900 XTX"
                data-price="95000" data-image="img/videocard_rx7900xtx.jpg">
                <img src="../img/videocard_rx7900xtx.jpg" alt="AMD Radeon RX 7900 XTX">
-               <h3>Radeon RX 7900 XTX</h3>
-               <p class="price">95 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Radeon RX 7900 XTX</h3>
+                     <p class="price">95 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -5177,8 +5399,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="gpu-rtx4070ti" data-name="NVIDIA GeForce RTX 4070 Ti"
                data-price="75000" data-image="img/videocard_rtx4070ti.jpg">
                <img src="../img/videocard_rtx4070ti.jpg" alt="NVIDIA GeForce RTX 4070 Ti">
-               <h3>GeForce RTX 4070 Ti</h3>
-               <p class="price">75 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>GeForce RTX 4070 Ti</h3>
+                     <p class="price">75 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -5186,8 +5417,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="gpu-rx7800xt" data-name="AMD Radeon RX 7800 XT"
                data-price="65000" data-image="img/videocard_rx7800xt.jpg">
                <img src="../img/videocard_rx7800xt.jpg" alt="AMD Radeon RX 7800 XT">
-               <h3>Radeon RX 7800 XT</h3>
-               <p class="price">65 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>Radeon RX 7800 XT</h3>
+                     <p class="price">65 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
 
@@ -5195,8 +5435,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card fade-in" data-id="gpu-rtx3060" data-name="NVIDIA GeForce RTX 3060"
                data-price="35000" data-image="img/videocard_rtx3060.jpg">
                <img src="../img/videocard_rtx3060.jpg" alt="NVIDIA GeForce RTX 3060">
-               <h3>GeForce RTX 3060</h3>
-               <p class="price">35 000 ₽</p>
+               <div class="btn-and-info">
+                  <div class="product-info">
+                     <h3>GeForce RTX 3060</h3>
+                     <p class="price">35 000 ₽</p>
+                  </div>
+                  <span class="btn-add-to-cart-mobile-wrapper">
+                     <span class="btn-add-to-cart-mobile">
+                        <i class="fas fa-shopping-cart"></i>
+                     </span>
+                  </span>
+               </div>
                <button class="btn-add-to-cart">В корзину</button>
             </div>
          </div>
