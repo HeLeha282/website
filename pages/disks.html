@@ -11,6 +11,26 @@
    <script src="../js/cart.js" defer></script>
    <link rel="stylesheet" href="../css/style_products.css" />
 </head>
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+      // ... ваша существующая логика ...
+
+      // НОВОЕ: анимация увеличения изображения при нажатии на иконку корзины
+      document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
+         icon.addEventListener('click', function () {
+            const img = this.closest('.product-card').querySelector('img');
+            if (img) {
+               img.style.transform = 'scale(1.04)';
+               img.style.transition = 'transform 0.15s linear';
+            }
+            setTimeout(() => {
+               img.style.transform = 'scale(1)';
+               img.style.transition = 'transform 0.15s linear';
+            }, 300);
+         });
+      });
+   });
+</script>
 
 <body>
    <!-- Шапка -->
