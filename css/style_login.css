@@ -88,6 +88,7 @@
 }
 
 .login-box {
+
    position: relative;
    z-index: 20;
 }
@@ -306,4 +307,96 @@
    background: var(--accent);
    transform: translateY(-3px);
    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   АДАПТАЦИЯ ПОД ТЕЛЕФОНЫ И ПЛАНШЕТЫ
+   Добавить в конец style_login.css
+   ========================================= */
+
+@media (max-width: 600px) {
+
+   /* 1. Настройка главного контейнера */
+   .auth-main {
+      /* Обрезаем вылетающие квадраты, чтобы не шатало экран */
+      overflow: hidden;
+      padding: 15px;
+      /* Поднимаем форму чуть выше центра, чтобы клавиатура не перекрывала */
+      align-items: flex-start;
+      padding-top: 10vh;
+   }
+
+   /* 2. Адаптация стеклянной формы */
+   .glass-form-container {
+      /* width: 100%; */
+      /* Растягиваем на всю ширину */
+      /* max-width: 100%; */
+      /* Убираем жесткое ограничение в 400px */
+      padding: px 20px;
+      /* Уменьшаем внутренние отступы */
+      margin: 0;
+      /* Убираем лишние внешние отступы */
+      /* box-sizing: border-box; */
+      /* Чтобы padding не ломал ширину */
+   }
+
+   /* 3. Фикс для iPhone (обязательно!) */
+   .glass-form-container input {
+      font-size: 16px;
+      /* Если меньше 16px, iOS будет приближать экран при клике */
+      padding: 12px;
+      /* Чуть компактнее поля */
+   }
+
+   /* 4. Уменьшаем декоративные квадраты */
+   .bg-square {
+      /* Уменьшаем их размер на 40%, чтобы не перекрывали контент на маленьком экране */
+      transform: scale(0.6);
+   }
+
+   /* Корректируем позиции, если квадраты налезают на текст */
+   .square-1 {
+      left: -10px;
+   }
+
+   .square-2 {
+      right: -10px;
+   }
+
+   /* 5. Кнопки и табы */
+   .auth-tabs {
+      gap: 5px;
+      /* Уменьшаем расстояние между вкладками */
+   }
+
+   .tab {
+      padding: 10px 5px;
+      font-size: 0.9rem;
+      /* Чуть меньше шрифт вкладок */
+   }
+
+   .glass-form-container h2 {
+      font-size: 1.4rem;
+      /* Уменьшаем заголовок */
+   }
+}
+
+/* Для совсем маленьких экранов (iPhone 5/SE, Galaxy Fold в сложенном виде) */
+@media screen and (max-width: 400px) {
+   .background-animation-container {
+      width: 95%;
+   }
+
+   .glass-form-container {
+      /* padding: 40px; */
+      /* padding: 20px 15px; */
+      width: 100%;
+      /* Растягиваем на всю ширину */
+      /* max-width: 100%; */
+   }
+
+   .glass-form-container .btn {
+      padding: 10px;
+      font-size: 1rem;
+   }
 }
