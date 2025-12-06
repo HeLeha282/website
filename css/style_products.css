@@ -44,7 +44,7 @@ main {
 
 .product-card {
    background: rgba(255, 255, 255, 0.06);
-   border: 1px solid rgba(255, 255, 255, 0.12);
+   border: 2px solid rgba(255, 255, 255, 0.22);
    border-radius: 18px;
    padding: 24px;
    backdrop-filter: blur(12px);
@@ -53,7 +53,7 @@ main {
    overflow: hidden;
 }
 
-.product-card:hover {
+.product-card:active {
    transform: translateY(-8px);
    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
    border-color: rgba(67, 97, 238, 0.4);
@@ -222,10 +222,18 @@ main {
       display: none;
    }
 
+   .btn-add-to-cart-mobile-wrapper {
+      background-color: transparent;
+      overflow: hidden;
+      border-radius: 50%;
+      transform: translateY(-5px);
+   }
+
    .btn-add-to-cart-mobile {
-      cursor: pointer;
       position: relative;
-      top: -5px;
+      background-clip: padding-box;
+      cursor: pointer;
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -233,10 +241,13 @@ main {
       width: 50px;
       background-color: rgba(33, 166, 219, 0.38);
       border-radius: 50%;
+      overflow: hidden;
+      transition: background-color 0.2s ease;
    }
 
+
    .btn-add-to-cart-mobile:active {
-      background: rgba(18, 239, 232, 0.795);
+      background-color: rgba(18, 239, 232, 0.795);
       /* transform: scale(1.04); */
    }
 
