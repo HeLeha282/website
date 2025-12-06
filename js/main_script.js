@@ -182,6 +182,8 @@ function initReviewsCarousel() {
 document.addEventListener('DOMContentLoaded', initReviewsCarousel);
 
 
+
+
 //для поднятия картинки в товарах пори добавлении в корзину /pages
 // для поднятия картинки в товарах при добавлении в корзину /pages
 document.addEventListener('DOMContentLoaded', () => {

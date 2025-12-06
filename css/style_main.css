@@ -460,3 +460,9 @@ footer {
       transform: translateY(0);
    }
 }
+
+@media (max-width: 480px) {
+   .logo {
+      font-size: 1.4rem;
+   }
+}
