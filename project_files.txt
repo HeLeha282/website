@@ -379,12 +379,8 @@
          margin-bottom: 40px;
       }
 
-      .basket-header h1 {
-         font-size: 2.8rem;
-         background: linear-gradient(90deg, var(--accent), var(--primary));
-         -webkit-background-clip: text;
-         background-clip: text;
-         color: transparent;
+      h1 {
+         padding-top: 25px;
       }
 
       .empty-cart {
@@ -711,9 +707,10 @@
    <!-- Основной контент -->
    <main>
       <div class="container">
+         <h1>Ваша корзина</h1>
          <div class="basket-container">
             <div class="basket-header">
-               <h1>Ваша корзина</h1>
+
                <div class="sort-controls">
                   <button class="sort-btn active" data-sort="default">По порядку</button>
                   <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
@@ -1298,12 +1295,8 @@
          margin-bottom: 40px;
       }
 
-      .basket-header h1 {
-         font-size: 2.8rem;
-         background: linear-gradient(90deg, var(--accent), var(--primary));
-         -webkit-background-clip: text;
-         background-clip: text;
-         color: transparent;
+      h1 {
+         padding-top: 25px;
       }
 
       .empty-cart {
@@ -1630,9 +1623,10 @@
    <!-- Основной контент -->
    <main>
       <div class="container">
+         <h1>Ваша корзина</h1>
          <div class="basket-container">
             <div class="basket-header">
-               <h1>Ваша корзина</h1>
+
                <div class="sort-controls">
                   <button class="sort-btn active" data-sort="default">По порядку</button>
                   <button class="sort-btn" data-sort="price-asc">Цена: ↑</button>
@@ -2550,6 +2544,11 @@
 Путь: css\style_catalog.css 
  
 /* Каталог */
+
+h1 {
+   padding-top: 25px;
+}
+
 .categories {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -3746,6 +3745,11 @@ main {
 Путь: css\style_reviews.css 
  
 /* Заголовки */
+
+h1 {
+   padding-top: 25px;
+}
+
 .section-title {
    font-size: 2.5rem;
    text-align: center;

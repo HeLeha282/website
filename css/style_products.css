@@ -1,7 +1,16 @@
 main {
-   margin-top: 70px;
+   margin-top: 85px;
 }
 
+.btn-and-info {
+   display: flex;
+   justify-content: space-between;
+   margin-right: 15px;
+}
+
+.btn-add-to-cart-mobile {
+   display: none;
+}
 
 .hero-section {
    text-align: center;
@@ -29,7 +38,7 @@ main {
 .products-grid {
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-   gap: 30px;
+   gap: 20px;
    margin-bottom: 60px;
 }
 
@@ -56,7 +65,7 @@ main {
    top: 0;
    left: 0;
    width: 100%;
-   height: 4px;
+   height: 1px;
    background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
@@ -144,4 +153,95 @@ main {
 
 .product-card:nth-child(6) {
    animation-delay: 0.6s;
+}
+
+
+/* === Адаптив для мобильных устройств === */
+@media (max-width: 768px) {
+
+
+   .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+   }
+
+   .product-card {
+      padding: 12px 10px 10px 10px;
+   }
+
+   .hero-section {
+      padding: 15px 20px 25px;
+   }
+
+   .hero-section h1 {
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+   }
+
+   .hero-section p {
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.85);
+   }
+
+   .product-card img {
+      margin-bottom: 8px;
+   }
+
+   .product-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      color: white;
+   }
+
+   .price {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+   }
+
+   .btn-add-to-cart {
+      font-size: 0.rem;
+      margin-top: 5px;
+      padding: 9px;
+   }
+}
+
+@media (max-width: 480px) {
+   .btn-and-info {
+      margin-top: 20px;
+   }
+
+   .btn-add-to-cart {
+      display: none;
+   }
+
+   .btn-add-to-cart-mobile {
+      cursor: pointer;
+      position: relative;
+      top: -5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      background-color: rgba(33, 166, 219, 0.38);
+      border-radius: 50%;
+   }
+
+   .btn-add-to-cart-mobile:hover {
+      background: rgba(18, 239, 232, 0.795);
+      transform: scale(1.04);
+   }
+
+   .products-grid {
+      gap: 10px;
+
+   }
 }

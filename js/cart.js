@@ -37,5 +37,19 @@ document.querySelectorAll('.btn-add-to-cart').forEach(button => {
    });
 });
 
+// Добавьте в конец cart.js (после существующего кода):
+document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
+   icon.addEventListener('click', function () {
+      const card = this.closest('.product-card');
+      const product = {
+         id: card.dataset.id,
+         name: card.dataset.name,
+         price: parseFloat(card.dataset.price),
+         image: card.dataset.image
+      };
+      addToCart(product);
+   });
+});
+
 // Вызов при загрузке страницы (чтобы обновить значок)
 document.addEventListener('DOMContentLoaded', updateCartBadge);
