@@ -113,6 +113,10 @@
 }
 
 @media (max-width: 768px) {
+   .features {
+      margin-top: 30px;
+   }
+
    .btn:hover {
       background: transparent;
       transform: translateY(0px);
