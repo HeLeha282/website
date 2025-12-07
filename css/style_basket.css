@@ -50,7 +50,7 @@ h1 {
    min-width: 0;
 }
 
-/* НОВЫЙ БЛОК: заголовок + кнопка удаления */
+/*  заголовок + кнопка удаления */
 .item-header {
    display: flex;
    justify-content: space-between;
@@ -65,14 +65,9 @@ h1 {
    margin: 0;
    flex: 1;
    padding-right: 12px;
-   /* Можно раскомментировать для эллипсиса на мобильных:
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-         */
 }
 
-/* Кнопка удаления — без position: absolute */
+
 .remove-btn {
    background: none;
    border: none;
@@ -107,7 +102,7 @@ h1 {
    color: rgba(255, 255, 255, 0.9);
 }
 
-/* Управление количеством */
+/* управление количеством */
 .quantity-control {
    display: flex;
    align-items: center;
@@ -152,7 +147,7 @@ h1 {
    color: white;
 }
 
-/* Итоговая сумма и действия */
+/* итоговая сумма и действия */
 .cart-summary {
    margin-top: 30px;
    padding: 25px;

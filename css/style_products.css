@@ -47,11 +47,6 @@ main {
    overflow: hidden;
 }
 
-/* .product-card:active {
-   transform: translateY(-8px);
-   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-   border-color: rgba(67, 97, 238, 0.4);
-} */
 
 .product-card::before {
    content: '';
@@ -106,10 +101,7 @@ main {
 
 }
 
-/* .btn-add-to-cart:hover {
-   background: var(--secondary);
-   box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
-} */
+
 
 .btn-add-to-cart:active {
    background: var(--success);
@@ -154,7 +146,7 @@ main {
 }
 
 
-/* === Адаптив для мобильных устройств === */
+/* адаптив */
 @media (max-width: 768px) {
 
 
@@ -256,9 +248,7 @@ main {
    }
 
 
-   /* .btn-add-to-cart-mobile:active {
-      background-color: rgba(18, 239, 232, 0.795);
-   } */
+
 
    .product-card:active img {
       transform: scale(1.00);

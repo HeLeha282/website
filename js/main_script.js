@@ -19,7 +19,7 @@ function initBurgerMenu() {
       }
    });
 
-   // Закрытие по нажатию Esc (опционально, но удобно)
+   // Закрытие по нажатию Esc 
    document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
          header.classList.remove("open");
@@ -30,8 +30,55 @@ function initBurgerMenu() {
 initBurgerMenu();
 
 
-// для карусели в reviews
-// Карусель отзывов
+// Таб-навигация для страницы login.html
+document.querySelectorAll('.tab').forEach(btn => {
+   btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+   });
+});
+
+
+
+//для поднятия картинки в товарах пори добавлении в корзину /pages
+document.addEventListener('DOMContentLoaded', () => {
+   // анимация увеличения изображения и бордер для карточки при нажатии на иконку корзины
+   document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
+      icon.addEventListener('click', function () {
+         const productCard = this.closest('.product-card');
+         const img = productCard.querySelector('img');
+
+         // анимация изображения
+         if (img) {
+            img.style.transform = 'scale(1.03)';
+            img.style.transition = 'transform 0.15s linear';
+         }
+
+         // Анимация карточки
+         productCard.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.25)';
+         productCard.style.borderColor = 'rgba(67, 97, 238, 0.4)';
+         productCard.style.transition = 'box-shadow 0.15s linear, border-color 0.15s linear';
+
+         setTimeout(() => {
+            // Возврат изображения к исходному состоянию
+            if (img) {
+               img.style.transform = 'scale(1)';
+               // transition можно не повторять, потому что он уже задан
+            }
+
+            // возврат карточки к исходному состоянию
+            productCard.style.transform = '';
+            productCard.style.boxShadow = '';
+            productCard.style.borderColor = '';
+            // transition можно не повторять, потому что он уже задан
+         }, 300);
+      });
+   });
+});
+
+// для карусели отзывлов в reviews
 function initReviewsCarousel() {
    const track = document.getElementById('carouselTrack');
    const dotsContainer = document.getElementById('carouselDots');
@@ -103,28 +150,13 @@ function initReviewsCarousel() {
       updateCarousel();
    }
 
-   // Автопрокрутка (опционально)
-   let autoSlideInterval;
-
-   function startAutoSlide() {
-      autoSlideInterval = setInterval(nextSlide, 5000); // 5 секунд
-   }
-
-   function stopAutoSlide() {
-      clearInterval(autoSlideInterval);
-   }
-
-   // Обработчики событий
+   // Обработчики событий для кнопок
    prevBtn.addEventListener('click', () => {
       prevSlide();
-      stopAutoSlide();
-      startAutoSlide();
    });
 
    nextBtn.addEventListener('click', () => {
       nextSlide();
-      stopAutoSlide();
-      startAutoSlide();
    });
 
    // Обработчик изменения размера окна
@@ -135,18 +167,6 @@ function initReviewsCarousel() {
       updateCarousel();
    }
 
-   // Пауза автопрокрутки при наведении
-   track.addEventListener('mouseenter', stopAutoSlide);
-   track.addEventListener('mouseleave', startAutoSlide);
-
-   // Инициализация
-   createIndicators();
-   updateCarousel();
-   startAutoSlide();
-
-   // Обработчик изменения размера окна
-   window.addEventListener('resize', handleResize);
-
    // Touch events для мобильных устройств
    let startX = 0;
    let isDragging = false;
@@ -154,7 +174,6 @@ function initReviewsCarousel() {
    track.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       isDragging = true;
-      stopAutoSlide();
    });
 
    track.addEventListener('touchmove', (e) => {
@@ -174,51 +193,14 @@ function initReviewsCarousel() {
 
    track.addEventListener('touchend', () => {
       isDragging = false;
-      startAutoSlide();
    });
+
+   // Инициализация
+   createIndicators();
+   updateCarousel();
+
+   // Обработчик изменения размера окна
+   window.addEventListener('resize', handleResize);
 }
 
-// Инициализируем карусель при загрузке DOM
-document.addEventListener('DOMContentLoaded', initReviewsCarousel);
-
-
-
-
-//для поднятия картинки в товарах пори добавлении в корзину /pages
-// для поднятия картинки в товарах при добавлении в корзину /pages
-document.addEventListener('DOMContentLoaded', () => {
-   // ... ваша существующая логика ...
-
-   // НОВОЕ: анимация увеличения изображения и бордер для карточки при нажатии на иконку корзины
-   document.querySelectorAll('.btn-add-to-cart-mobile').forEach(icon => {
-      icon.addEventListener('click', function () {
-         const productCard = this.closest('.product-card');
-         const img = productCard.querySelector('img');
-
-         // Анимация изображения
-         if (img) {
-            img.style.transform = 'scale(1.03)';
-            img.style.transition = 'transform 0.15s linear';
-         }
-
-         // Анимация карточки
-         productCard.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.25)';
-         productCard.style.borderColor = 'rgba(67, 97, 238, 0.4)';
-         productCard.style.transition = 'box-shadow 0.15s linear, border-color 0.15s linear';
-
-         setTimeout(() => {
-            // Возврат изображения
-            if (img) {
-               img.style.transform = 'scale(1)';
-               // transition можно не повторять — он уже задан
-            }
-
-            // Возврат карточки к исходному состоянию
-            productCard.style.transform = '';
-            productCard.style.boxShadow = '';
-            productCard.style.borderColor = '';
-            // transition остаётся — браузер сам плавно вернёт значения из CSS
-         }, 300);
-      });
-   });
-});
+initReviewsCarousel();

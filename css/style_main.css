@@ -284,10 +284,6 @@ nav a.active::after {
       background-color: transparent;
       display: block;
    }
-
-
-
-
 }
 
 @media (max-width: 380px) {
@@ -304,11 +300,6 @@ nav a.active::after {
    }
 }
 
-/* Основной контент
-main {
-   min-height: calc(100vh - 180px);
-   padding: 40px 0;
-} */
 
 .page {
    display: none;
@@ -369,15 +360,6 @@ p {
    line-height: 1.7;
    font-size: 1.1rem;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -519,24 +501,18 @@ footer {
    .footer-content p.cont-inf {
       width: 100%;
    }
-
-
 }
 
 @media (max-width: 768px) {
    h3 {
       margin-top: 10px;
    }
-
-
-
 }
 
 @media (max-width: 480px) {
    h2 {
       font-size: 1.6rem;
    }
-
 
    .logo {
       font-size: 1.4rem;

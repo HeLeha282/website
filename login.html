@@ -78,28 +78,10 @@
                      <button type="submit" class="btn">Зарегистрироваться</button>
                   </form>
                </div>
-
-
             </div>
          </div>
       </div>
-
-
-
-
    </main>
-
-   <script>
-      // Простая таб-навигация
-      document.querySelectorAll('.tab').forEach(btn => {
-         btn.addEventListener('click', () => {
-            document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById(btn.dataset.tab).classList.add('active');
-         });
-      });
-   </script>
 </body>
 
 </html>

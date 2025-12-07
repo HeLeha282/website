@@ -1,4 +1,4 @@
-/* Общий фон — как у всего сайта */
+/* Общий фон  */
 .login-page {
    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
    min-height: 100vh;
@@ -16,41 +16,9 @@
    --text-color: #ffffff;
    --input-bg: rgba(0, 0, 0, 0.3);
    --accent-color: #ff8c00;
-   /* для ссылок */
 }
 
-/*:root {
-    --primary: #4361ee;
-   --secondary: #3a0ca3;
-   --accent: #4cc9f0;
-   --light: #f8f9fa;
-   --dark: #212529;
-   --success: #4ade80;
-   --warning: #facc15;
-   --danger: #f87171;
-   --transition: all 0.3s ease;
-} */
 
-
-/* body {
-   background-color: var(--bg-dark);
-   font-family: Arial, sans-serif;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 100vh;
-   margin: 0;
-} */
-
-/* .auth-main {
-   display: flex;
-   justify-content: center;
-   height: 80vp;
-} */
-
-/*.auth-main {
-   height: calc(100vh - 70px);
-} */
 .auth-main {
    overflow-y: hidden;
    overflow-x: hidden;
@@ -58,7 +26,6 @@
    justify-content: center;
    align-items: center;
    min-height: 80vh;
-   /* или calc(100vh - 70px), если нужно учесть шапку */
    padding: 20px;
    box-sizing: border-box;
 }
@@ -71,7 +38,7 @@
    align-items: center;
 }
 
-/* --- Основной контейнер формы Glassmorphism --- */
+/*  контейнер формы Glassmorphism*/
 .glass-form-container {
    position: relative;
    width: 400px;
@@ -93,7 +60,7 @@
    z-index: 20;
 }
 
-/* --- Ссылки --- */
+/* ссылки */
 .links {
    margin-top: 25px;
    font-size: 15px;
@@ -112,7 +79,7 @@
 }
 
 
-/* ====== АНИМАЦИЯ ФОНОВЫХ КВАДРАТОВ ====== */
+/* анимация фоновхыъ квадратов*/
 .bg-square {
    position: absolute;
    background: rgb(21, 7, 123);
@@ -309,52 +276,35 @@
    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* =========================================
-   АДАПТАЦИЯ ПОД ТЕЛЕФОНЫ И ПЛАНШЕТЫ
-   Добавить в конец style_login.css
-   ========================================= */
+/* адаптация */
 
 @media (max-width: 600px) {
 
    /* 1. Настройка главного контейнера */
    .auth-main {
-      /* Обрезаем вылетающие квадраты, чтобы не шатало экран */
       overflow: hidden;
       padding: 15px;
-      /* Поднимаем форму чуть выше центра, чтобы клавиатура не перекрывала */
+      /* пднимаем форму чуть выше центра, чтобы клавиатура не перекрывала */
       align-items: flex-start;
       padding-top: 10vh;
    }
 
    /* 2. Адаптация стеклянной формы */
    .glass-form-container {
-      /* width: 100%; */
-      /* Растягиваем на всю ширину */
-      /* max-width: 100%; */
-      /* Убираем жесткое ограничение в 400px */
       padding: px 20px;
-      /* Уменьшаем внутренние отступы */
       margin: 0;
-      /* Убираем лишние внешние отступы */
-      /* box-sizing: border-box; */
-      /* Чтобы padding не ломал ширину */
    }
 
-   /* 3. Фикс для iPhone (обязательно!) */
    .glass-form-container input {
       font-size: 16px;
-      /* Если меньше 16px, iOS будет приближать экран при клике */
       padding: 12px;
-      /* Чуть компактнее поля */
    }
 
-   /* 4. Уменьшаем декоративные квадраты */
    .bg-square {
       /* Уменьшаем их размер на 40%, чтобы не перекрывали контент на маленьком экране */
       transform: scale(0.6);
    }
 
-   /* Корректируем позиции, если квадраты налезают на текст */
    .square-1 {
       left: -10px;
    }
@@ -366,33 +316,25 @@
    /* 5. Кнопки и табы */
    .auth-tabs {
       gap: 5px;
-      /* Уменьшаем расстояние между вкладками */
    }
 
    .tab {
       padding: 10px 5px;
       font-size: 0.9rem;
-      /* Чуть меньше шрифт вкладок */
    }
 
    .glass-form-container h2 {
       font-size: 1.4rem;
-      /* Уменьшаем заголовок */
    }
 }
 
-/* Для совсем маленьких экранов (iPhone 5/SE, Galaxy Fold в сложенном виде) */
 @media screen and (max-width: 400px) {
    .background-animation-container {
       width: 95%;
    }
 
    .glass-form-container {
-      /* padding: 40px; */
-      /* padding: 20px 15px; */
       width: 100%;
-      /* Растягиваем на всю ширину */
-      /* max-width: 100%; */
    }
 
    .glass-form-container .btn {
