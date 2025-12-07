@@ -114,6 +114,7 @@
 
 @media (max-width: 768px) {
    .btn:hover {
+      background: transparent;
       transform: translateY(0px);
    }
 
@@ -136,12 +137,28 @@
 }
 
 @media (max-width: 480px) {
+   .container {
+      /* padding: 0; */
+      width: 100%;
+   }
+
+   .feature-card {
+      padding: 20px 10px 10px 10px;
+   }
+
    .hero h1 {
-      font-size: 2.2rem;
+      font-size: 2.0rem;
    }
 
    .hero p {
-      font-size: 1.14rem;
+      font-size: 1.11rem;
       max-width: 400px;
+   }
+}
+
+@media (max-width:334px) {
+   .btn-wrapper {
+      height: 83px;
+      width: 254.4px;
    }
 }
