@@ -94,7 +94,6 @@ header {
    transform: translateY(-2px);
 }
 
-
 nav ul {
    display: flex;
    list-style: none;
@@ -152,18 +151,6 @@ a[href="login.html"]:hover::after,
 nav a[href="../login.html"]:hover::after {
    width: 0px;
 }
-
-/* чтобы не было подчеркивания  */
-/* nav a[href="login.html"]::after {
-   content: '';
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 0;
-   height: 2px;
-   background: var(--accent);
-   transition: var(--transition);
-} */
 
 nav a.active {
    color: var(--accent);
@@ -377,7 +364,8 @@ footer {
 
 .footer-content {
    display: grid;
-   grid-template-columns: 350px repeat(auto-fit, minmax(200px, 1fr));
+   grid-template-columns: 350px repeat(auto-fit,
+         minmax(200px, 1fr));
    gap: 30px;
    margin-bottom: 30px;
 }
@@ -453,6 +441,7 @@ footer {
    color: rgba(255, 255, 255, 0.6);
    font-size: 0.9rem;
 }
+
 
 
 /* Анимации */

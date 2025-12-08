@@ -26,7 +26,6 @@ function initBurgerMenu() {
       }
    });
 }
-
 initBurgerMenu();
 
 
@@ -85,14 +84,11 @@ function initReviewsCarousel() {
    const prevBtn = document.getElementById('prevBtn');
    const nextBtn = document.getElementById('nextBtn');
    const cards = document.querySelectorAll('.review-card');
-
    if (!track || cards.length === 0) return;
-
    let currentIndex = 0;
    let cardsPerView = getCardsPerView();
    let totalSlides = Math.ceil(cards.length / cardsPerView);
-
-   // Создаем индикаторы
+   // создаем точки
    function createIndicators() {
       dotsContainer.innerHTML = '';
       for (let i = 0; i < totalSlides; i++) {
@@ -102,35 +98,30 @@ function initReviewsCarousel() {
       }
       updateIndicators();
    }
-
-   // Обновляем индикаторы
+   // обновляем точки
    function updateIndicators() {
       const dots = dotsContainer.querySelectorAll('span');
       dots.forEach((dot, index) => {
          dot.classList.toggle('active', index === currentIndex);
       });
    }
-
-   // Получаем количество карточек на экране
+   // получаем количество карточек на экране
    function getCardsPerView() {
       return window.innerWidth <= 768 ? 1 : 2;
    }
-
-   // Переход к конкретному слайду
+   // переход к конкретному слайду
    function goToSlide(index) {
       currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
       updateCarousel();
    }
-
-   // Обновляем карусель
+   // О=обновляем карусель
    function updateCarousel() {
       const cardWidth = cards[0].offsetWidth + 30; // ширина карточки + gap
       const translateX = -currentIndex * cardsPerView * cardWidth;
       track.style.transform = `translateX(${translateX}px)`;
       updateIndicators();
    }
-
-   // Следующий слайд
+   // следующий слайд
    function nextSlide() {
       if (currentIndex < totalSlides - 1) {
          currentIndex++;
@@ -139,8 +130,7 @@ function initReviewsCarousel() {
       }
       updateCarousel();
    }
-
-   // Предыдущий слайд
+   // предыдущий слайд
    function prevSlide() {
       if (currentIndex > 0) {
          currentIndex--;
@@ -149,16 +139,13 @@ function initReviewsCarousel() {
       }
       updateCarousel();
    }
-
    // Обработчики событий для кнопок
    prevBtn.addEventListener('click', () => {
       prevSlide();
    });
-
    nextBtn.addEventListener('click', () => {
       nextSlide();
    });
-
    // Обработчик изменения размера окна
    function handleResize() {
       cardsPerView = getCardsPerView();
@@ -166,21 +153,17 @@ function initReviewsCarousel() {
       createIndicators();
       updateCarousel();
    }
-
    // Touch events для мобильных устройств
    let startX = 0;
    let isDragging = false;
-
    track.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       isDragging = true;
    });
-
    track.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
       const currentX = e.touches[0].clientX;
       const diff = startX - currentX;
-
       if (Math.abs(diff) > 50) {
          if (diff > 0) {
             nextSlide();
@@ -190,17 +173,13 @@ function initReviewsCarousel() {
          isDragging = false;
       }
    });
-
    track.addEventListener('touchend', () => {
       isDragging = false;
    });
-
    // Инициализация
    createIndicators();
    updateCarousel();
-
    // Обработчик изменения размера окна
    window.addEventListener('resize', handleResize);
 }
-
 initReviewsCarousel();
